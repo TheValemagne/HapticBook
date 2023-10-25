@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+void MainWindow::on_startButton_clicked()
+{
+     ui->book->setCurrentIndex(1);
+}
