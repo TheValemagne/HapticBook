@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = HapticBook
+TARGET = haptique
 TEMPLATE = app
 
 INCLUDEPATH += "C:\Program Files\Immersion Corporation\IFC23\inc"
@@ -36,3 +36,5 @@ HEADERS  += mainwindow.h \
         View/Book.h \
         View/MainWindow.h \
         View/Page.h \
+
+FORMS += mainwindow.ui
