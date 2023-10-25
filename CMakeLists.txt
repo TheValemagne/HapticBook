@@ -32,10 +32,11 @@ add_executable(haptique main.cpp
         Model/TextElement.h
         View/Book.cpp
         View/Book.h
-        View/MainWindow.cpp
-        View/MainWindow.h
+#        View/MainWindow.cpp
+#        View/MainWindow.h
         View/Page.cpp
-        View/Page.h)
+        View/Page.h
+        mainwindow.ui)
 target_link_libraries(haptique
         Qt5::Core
         Qt5::Gui
