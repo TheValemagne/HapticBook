@@ -38,3 +38,6 @@ HEADERS  += mainwindow.h \
         View/Page.h \
 
 FORMS += mainwindow.ui
+
+RESOURCES += \
+    resources/resources.qrc
