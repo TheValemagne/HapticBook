@@ -1,1 +1,23 @@
-<RCC/>
+<RCC>
+  <qresource prefix="images">
+    <file>Images/bg_page_1.png</file>
+    <file>Images/bg_page_2.png</file>
+    <file>Images/bg_page_3.png</file>
+    <file>Images/bg_page_4.png</file>
+    <file>Images/bg_page_5.png</file>
+    <file>Images/bg_page_6.png</file>
+    <file>Images/bg_page_7.png</file>
+    <file>Images/bg_start_button.png</file>
+    <file>Images/earth.png</file>
+    <file>Images/emergency_transmitter.png</file>
+    <file>Images/ip_submarine.png</file>
+    <file>Images/ips_hand.png</file>
+    <file>Images/notification.png</file>
+    <file>Images/scared_ip.png</file>
+    <file>Images/small_ip.png</file>
+    <file>Images/space_ship.png</file>
+    <file>Images/wale.png</file>
+    <file>Images/wale_heart.png</file>
+    <file>Images/bg_page_0.png</file>
+  </qresource>
+</RCC>
