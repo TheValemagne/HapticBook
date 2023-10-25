@@ -7,6 +7,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_PREFIX_PATH "C:/Qt/5.15.2/mingw81_64")
+#include_directories(F:/Poubelle/dev/IFC23/IFC23/inc)
 
 find_package(Qt5 COMPONENTS
         Core
@@ -21,6 +22,7 @@ target_link_libraries(haptique
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
+        #F:/Poubelle/dev/IFC23/IFC23/lib/IFC23.lib
 )
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
