@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = haptique
+TARGET = HapticBook
 TEMPLATE = app
 
 INCLUDEPATH += "C:\Program Files\Immersion Corporation\IFC23\inc"
