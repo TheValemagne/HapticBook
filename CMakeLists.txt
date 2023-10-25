@@ -16,8 +16,26 @@ find_package(Qt5 COMPONENTS
         REQUIRED)
 
 add_executable(haptique main.cpp
-    mainwindow.cpp
-        mainwindow.h)
+        mainwindow.cpp
+        mainwindow.h
+        Controller/HapticController.cpp
+        Controller/HapticController.h
+        Controller/SceneController.cpp
+        Controller/SceneController.h
+        Controller/SoundController.cpp
+        Controller/SoundController.h
+        Model/Element.cpp
+        Model/Element.h
+        Model/ImageElement.cpp
+        Model/ImageElement.h
+        Model/TextElement.cpp
+        Model/TextElement.h
+        View/Book.cpp
+        View/Book.h
+        View/MainWindow.cpp
+        View/MainWindow.h
+        View/Page.cpp
+        View/Page.h)
 target_link_libraries(haptique
         Qt5::Core
         Qt5::Gui
