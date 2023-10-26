@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include "Controller/SoundController.h"
+#include "Controller/HapticController.h"
 
 namespace Ui {
     class MainWindow;
@@ -26,6 +27,7 @@ private:
     QWidget* pageOne;
     QWidget* pageTwo;
     SoundController soundController;
+    HapticController hapticController;
 };
 
 #endif // MAINWINDOW_H
