@@ -30,6 +30,11 @@ MainWindow::~MainWindow()
     delete pageTwo;
 }
 
+void MainWindow::keyReleaseEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Escape) {
+        close();
+    }
+}
 
 void MainWindow::on_startButton_clicked()
 {

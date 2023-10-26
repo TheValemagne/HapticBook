@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 #include "Controller/SoundController.h"
 
 namespace Ui {
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void keyReleaseEvent(QKeyEvent *event);
 
 private slots:
     void on_startButton_clicked();

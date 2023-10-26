@@ -17,7 +17,6 @@ void MovableElement::mousePressEvent(QMouseEvent *event){
 
 void MovableElement::mouseReleaseEvent(QMouseEvent *event){
     isMovable = false;
-    position = event->pos();
     qDebug()<<"LOG[MovableElement] : release " << isMovable;
 }
 

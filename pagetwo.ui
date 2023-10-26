@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/bg_page_2.png);</string>
+  </property>
  </widget>
  <resources/>
  <connections/>
