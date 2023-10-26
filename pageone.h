@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QPixmap>
-#include"Model/page.h"
+#include"page.h"
 namespace Ui {
 class PageOne;
 }

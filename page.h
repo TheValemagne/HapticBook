@@ -10,7 +10,7 @@ public:
     Page();
     void addElement(const QString& elementName, Element* element);
 private:
-        QMap<QString, Element*> elements;
+    QMap<QString, Element*> elements;
 };
 
 #endif // PAGE_H

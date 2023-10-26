@@ -3,7 +3,7 @@
 Page::Page()
 {
 
-   // elements = QMap();
+    // elements = QMap();
 }
 
 void Page::addElement(const QString& elementName, Element* element) {
