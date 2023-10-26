@@ -20,6 +20,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QWidget* pageOne;
+    QWidget* pageTwo;
 };
 
 #endif // MAINWINDOW_H
