@@ -3,7 +3,7 @@
 
 MovableElement::MovableElement(const QString& src,
                                const QPoint &position,
-                               QWidget *parent) :
+                               Page *parent) :
     Element(src, position, parent)
 {
     isMovable = false;
@@ -28,5 +28,6 @@ void MovableElement::mouseMoveEvent(QMouseEvent *event){
    QPoint newPos = this->mapToGlobal(event->pos());
    QPoint movement = newPos - mousePos;
    this->move(movement);
+   this->page->onMouseMove();
 }
 

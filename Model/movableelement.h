@@ -8,7 +8,7 @@
 class MovableElement : public Element
 {
 public:
-    MovableElement(const QString& src, const QPoint &position, QWidget *parent = nullptr);
+    MovableElement(const QString& src, const QPoint &position, Page *parent = nullptr);
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

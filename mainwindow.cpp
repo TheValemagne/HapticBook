@@ -3,7 +3,7 @@
 #include "Controller/SoundController.h"
 
 #include"pageone.h"
-#include"pagetwo.h"
+//#include"pagetwo.h"
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
@@ -13,12 +13,12 @@ MainWindow::MainWindow(QWidget *parent):
 
     // Initialisation des pages
     pageOne = new PageOne(ui->book);
-    pageTwo = new PageTwo(ui->book);
+    //pageTwo = new PageTwo(ui->book);
 
     // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
     ui->book->addWidget(pageOne);
-    ui->book->addWidget(pageTwo);
-
+    //ui->book->addWidget(pageTwo);
+    pageOne->nextPage();
         this->soundController = SoundController();
         //this->soundController.playSound("intro", true);
 }

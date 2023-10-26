@@ -1,7 +1,7 @@
 #ifndef PAGEONE_H
 #define PAGEONE_H
 
-#include <QWidget>
+#include <QStackedWidget>
 #include <QPixmap>
 #include <QMouseEvent>
 #include"page.h"
@@ -10,14 +10,14 @@ namespace Ui {
 class PageOne;
 }
 
-class PageOne : public QWidget, public Page
+class PageOne : public Page
 {
     Q_OBJECT
 
 public:
-    explicit PageOne(QWidget *parent = 0);
+    explicit PageOne(QStackedWidget *parent = 0);
     ~PageOne();
-     void mouseMoveEvent(QMouseEvent *event) override;
+    void onMouseMove() override;
 
 private:
     Ui::PageOne *ui;

@@ -6,10 +6,11 @@
 #include <QDebug>
 #include <QString>
 
-Element::Element(const QString& src, const QPoint &position, QWidget *parent):
+Element::Element(const QString& src, const QPoint &position, Page *parent):
     QLabel(parent)
 {
     // initiatilisation des attributs
+    page = parent;
     image = QPixmap(src);
     if(image.isNull())
         qDebug()<<"LOG[Element] : image is null";

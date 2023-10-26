@@ -5,9 +5,8 @@
 #include<QString>
 #include<QDebug>
 
-PageOne::PageOne(QWidget *parent) :
-    Page(),
-    QWidget(parent),
+PageOne::PageOne(QStackedWidget *parent) :
+    Page(parent),
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
@@ -24,6 +23,8 @@ PageOne::~PageOne()
     delete ui;
 }
 
-void PageOne::mouseMoveEvent(QMouseEvent *event){
-    qDebug()<< "LOL";
+void PageOne::onMouseMove() {
+    qDebug() << "LOG[PageOne] : onMouseMove()";
 }
+
+

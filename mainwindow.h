@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include "Controller/SoundController.h"
-
+#include "page.h"
 namespace Ui {
     class MainWindow;
 }
@@ -23,8 +23,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QWidget* pageOne;
-    QWidget* pageTwo;
+    Page* pageOne;
+    Page* pageTwo;
     SoundController soundController;
 };
 
