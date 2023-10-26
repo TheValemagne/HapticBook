@@ -1,6 +1,7 @@
 #include "pageone.h"
 #include "ui_pageone.h"
-#include"Model/Element.h"
+#include "Model/Element.h"
+#include "Model/movableelement.h"
 #include<QUrl>
 #include<QString>
 #include<QDebug>
