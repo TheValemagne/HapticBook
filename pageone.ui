@@ -33,14 +33,30 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>180</y>
+     <x>30</x>
+     <y>20</y>
      <width>408</width>
      <height>362</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-image: url(:/images/Images/space_ship.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>540</y>
+     <width>201</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/Images/earth.png);</string>
    </property>
    <property name="text">
     <string/>
