@@ -3,12 +3,12 @@
 
 #include <QWidget>
 #include <QPixmap>
-
+#include"Model/page.h"
 namespace Ui {
 class PageOne;
 }
 
-class PageOne : public QWidget
+class PageOne : public QWidget, public Page
 {
     Q_OBJECT
 
