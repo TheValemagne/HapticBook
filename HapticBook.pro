@@ -21,26 +21,20 @@ SOURCES += main.cpp\
         Controller/SceneController.cpp \
         Controller/SoundController.cpp \
         Model/Element.cpp \
-        View/Book.cpp \
-        View/MainWindow.cpp \
-        View/Page.cpp \
-    pageone.cpp \
-    pagetwo.cpp \
-    Model/movableelement.cpp
-    Model/page.cpp
+        pageone.cpp \
+        pagetwo.cpp \
+        Model/movableelement.cpp
+        Model/page.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
         Controller/SceneController.h \
         Controller/SoundController.h \
         Model/Element.h \
-        View/Book.h \
-        View/MainWindow.h \
-        View/Page.h \
-    pageone.h \
-    pagetwo.h \
-    Model/movableelement.h
-    Model/page.h
+        pageone.h \
+        pagetwo.h \
+        Model/movableelement.h
+        Model/page.h
 
 FORMS += mainwindow.ui \
     pageone.ui \
