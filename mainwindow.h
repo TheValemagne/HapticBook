@@ -5,6 +5,8 @@
 #include <QKeyEvent>
 #include "Controller/SoundController.h"
 #include "page.h"
+#include "Controller/HapticController.h"
+
 namespace Ui {
     class MainWindow;
 }
@@ -26,6 +28,7 @@ private:
     Page* pageOne;
     Page* pageTwo;
     SoundController soundController;
+    HapticController hapticController;
 };
 
 #endif // MAINWINDOW_H
