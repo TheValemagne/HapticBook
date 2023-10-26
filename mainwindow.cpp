@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "Controller/SoundController.h"
+
 #include"pageone.h"
 #include"pagetwo.h"
 
@@ -16,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent):
     // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
     ui->book->addWidget(pageOne);
     ui->book->addWidget(pageTwo);
+
+    //    this->soundController = SoundController();
+    //    this->soundController.playSound("test", true);
 }
 
 MainWindow::~MainWindow()
@@ -29,4 +34,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_startButton_clicked()
 {
      ui->book->setCurrentIndex(1);
+//    this->soundController.stopAllSounds();
+//    this->soundController.playSound("intro");
 }

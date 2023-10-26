@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "Controller/SoundController.h"
 
 namespace Ui {
     class MainWindow;
@@ -22,6 +23,7 @@ private:
     Ui::MainWindow *ui;
     QWidget* pageOne;
     QWidget* pageTwo;
+    SoundController soundController;
 };
 
 #endif // MAINWINDOW_H

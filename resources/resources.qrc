@@ -20,4 +20,8 @@
     <file>Images/wale_heart.png</file>
     <file>Images/bg_page_0.png</file>
   </qresource>
+  <qresource prefix="sounds">
+    <file>Sounds/test.wav</file>
+    <file>Sounds/intro.wav</file>
+  </qresource>
 </RCC>
