@@ -7,9 +7,8 @@
 SoundController::SoundController() {
     sounds = QMap<QString, QMediaPlayer*>();
 
-    this->addSound("intro", "qrc:/sounds/Sounds/intro.wav");
-    this->addSound("test", "qrc:/sounds/Sounds/test.wav");
-
+    this->addSound("intro", "qrc:/sounds/intro.wav");
+    this->addSound("test", "qrc:/sounds/test.wav");
 }
 
 void SoundController::addSound(const QString& soundName, const QString& soundFilePath)
