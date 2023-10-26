@@ -26,6 +26,8 @@ SOURCES += main.cpp\
         View/Book.cpp \
         View/MainWindow.cpp \
         View/Page.cpp \
+    pageone.cpp \
+    pagetwo.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -37,8 +39,12 @@ HEADERS  += mainwindow.h \
         View/Book.h \
         View/MainWindow.h \
         View/Page.h \
+    pageone.h \
+    pagetwo.h
 
-FORMS += mainwindow.ui
+FORMS += mainwindow.ui \
+    pageone.ui \
+    pagetwo.ui
 
 RESOURCES += \
     resources/resources.qrc

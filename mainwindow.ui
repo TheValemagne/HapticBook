@@ -39,7 +39,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="book">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <property name="layoutDirection">
@@ -66,44 +66,6 @@
         <property name="styleSheet">
          <string notr="true">background-image: url(:/images/Images/bg_start_button.png);
 background-color: rgba(255, 255, 255, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="page_2">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <widget class="QLabel" name="background">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>1024</width>
-          <height>764</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/Images/bg_page_1.png);
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>180</y>
-          <width>408</width>
-          <height>362</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/Images/space_ship.png);</string>
         </property>
         <property name="text">
          <string/>
