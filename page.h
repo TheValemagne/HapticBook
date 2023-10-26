@@ -2,7 +2,7 @@
 #define PAGE_H
 #include<QMap>
 #include<QString>
-#include"Element.h"
+#include "Model/Element.h"
 
 class Page
 {
