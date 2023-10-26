@@ -4,16 +4,19 @@
 #include <QLabel>
 #include<QPixmap>
 #include<QWidget>
-#include <QMoveEvent>
+#include<QPoint>
+#include <QString>
 
 class Element : public QLabel
 {
     Q_OBJECT
 
 public:
-    Element(const QPixmap &image, QWidget *parent = nullptr);
-
+    Element(const QString& src, const QPoint &position, QWidget *parent = nullptr);
 protected:
+private:
+    QPixmap image;
+    QPoint position;
 };
 
 #endif // ELEMENT_H

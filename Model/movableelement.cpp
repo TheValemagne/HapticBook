@@ -1,8 +1,8 @@
 #include "movableelement.h"
 #include <QDebug>
 
-MovableElement::MovableElement(const QPixmap &image, QWidget *parent) :
-    Element(image, parent)
+MovableElement::MovableElement(const QString& src, QWidget *parent) :
+    Element(src, parent)
 {
     isMovable = false;
 }

@@ -18,7 +18,6 @@ public:
 
 private:
     Ui::PageOne *ui;
-    QPixmap image;
 };
 
 #endif // PAGEONE_H

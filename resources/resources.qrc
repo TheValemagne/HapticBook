@@ -1,27 +1,30 @@
 <RCC>
   <qresource prefix="images">
-    <file>Images/bg_page_1.png</file>
-    <file>Images/bg_page_2.png</file>
-    <file>Images/bg_page_3.png</file>
-    <file>Images/bg_page_4.png</file>
-    <file>Images/bg_page_5.png</file>
-    <file>Images/bg_page_6.png</file>
-    <file>Images/bg_page_7.png</file>
-    <file>Images/bg_start_button.png</file>
-    <file>Images/earth.png</file>
-    <file>Images/emergency_transmitter.png</file>
-    <file>Images/ip_submarine.png</file>
-    <file>Images/ips_hand.png</file>
-    <file>Images/notification.png</file>
-    <file>Images/scared_ip.png</file>
-    <file>Images/small_ip.png</file>
-    <file>Images/space_ship.png</file>
-    <file>Images/wale.png</file>
-    <file>Images/wale_heart.png</file>
+    <file alias="bg_page_1.png">Images/bg_page_1.png</file>
+    <file alias="bg_page_2.png">Images/bg_page_2.png</file>
+    <file alias="bg_page_3.png">Images/bg_page_3.png</file>
+    <file alias="bg_page_4.png">Images/bg_page_4.png</file>
+    <file alias="bg_page_5.png">Images/bg_page_5.png</file>
+    <file alias="bg_page_6.png">Images/bg_page_6.png</file>
+    <file alias="bg_page_7.png">Images/bg_page_7.png</file>
+    <file alias="bg_start_button.png">Images/bg_start_button.png</file>
+    <file alias="earth.png">Images/earth.png</file>
+    <file alias="emergency_transmitter.png">Images/emergency_transmitter.png</file>
+    <file alias="ip_submarine.png">Images/ip_submarine.png</file>
+    <file alias="ips_hand.png">Images/ips_hand.png</file>
+    <file alias="notification.png">Images/notification.png</file>
+    <file alias="scared_ip.png">Images/scared_ip.png</file>
+    <file alias="small_ip.png">Images/small_ip.png</file>
+    <file alias="space_ship.png">Images/space_ship.png</file>
+    <file alias="wale.png">Images/wale.png</file>
+    <file alias="wale_heart.png">Images/wale_heart.png</file>
     <file>Images/bg_page_0.png</file>
   </qresource>
   <qresource prefix="sounds">
-    <file>Sounds/test.wav</file>
-    <file>Sounds/intro.wav</file>
+    <file alias="test.wav">Sounds/test.wav</file>
+    <file alias="intro.wav">Sounds/intro.wav</file>
+  </qresource>
+  <qresource prefix="effects">
+    <file alias="effets.ifr">Effects/effets.ifr</file>
   </qresource>
 </RCC>
