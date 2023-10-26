@@ -16,5 +16,5 @@ void Page::addElement(const QString& elementName, Element* element) {
 }
 
 Element* Page::getElement(const QString &elementName){
-    return elements.take(elementName);
+    return elements.value(elementName);
 }

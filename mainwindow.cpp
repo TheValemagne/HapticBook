@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageOne);
 
     //ui->book->addWidget(pageTwo);
-    pageOne->nextPage();
+    //pageOne->nextPage();
     this->soundController = SoundController();
     //this->soundController.playSound("intro", true);
 
