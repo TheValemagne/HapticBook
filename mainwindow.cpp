@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageTwo);
 
         this->soundController = SoundController();
-        this->soundController.playSound("intro", true);
+        //this->soundController.playSound("intro", true);
 }
 
 MainWindow::~MainWindow()
@@ -35,5 +35,5 @@ void MainWindow::on_startButton_clicked()
 {
      ui->book->setCurrentIndex(1);
     this->soundController.stopAllSounds();
-    this->soundController.playSound("test");
+    //this->soundController.playSound("test");
 }
