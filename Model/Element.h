@@ -1,24 +1,18 @@
-//
-// Created by remiz on 21/10/2023.
-//
+#ifndef ELEMENT_H
+#define ELEMENT_H
 
-#ifndef UNTITLED2_ELEMENT_H
-#define UNTITLED2_ELEMENT_H
+#include <QLabel>
+#include<QPixmap>
+#include<QWidget>
 
+class Element : public QLabel
+{
+    Q_OBJECT
 
-#include <QPoint>
-#include <QSize>
-
-class Element {
 public:
-    Element();
-    virtual void abstractMethod() = 0;
+    Element(const QPixmap &image, QWidget *parent = nullptr);
 
-private:
-    QPoint position;
-    QSize size;
-    int rotation;
+protected:
 };
 
-
-#endif //UNTITLED2_ELEMENT_H
+#endif // ELEMENT_H

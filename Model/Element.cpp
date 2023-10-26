@@ -1,9 +1,13 @@
-//
-// Created by remiz on 21/10/2023.
-//
+#include "element.h"
+#include <QMouseEvent>
+#include <QMimeData>
+#include <QDrag>
+#include <QPixmap>
 
-#include "Element.h"
-
-Element::Element() {
-
+Element::Element(const QPixmap &image, QWidget *parent):
+    QLabel("Writing test")
+{
+    setPixmap(image);
+    move(50, 50);
+    setParent(parent);
 }

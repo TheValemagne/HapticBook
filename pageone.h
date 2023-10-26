@@ -2,6 +2,7 @@
 #define PAGEONE_H
 
 #include <QWidget>
+#include <QPixmap>
 
 namespace Ui {
 class PageOne;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::PageOne *ui;
+    QPixmap image;
 };
 
 #endif // PAGEONE_H

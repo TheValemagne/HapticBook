@@ -20,8 +20,6 @@ SOURCES += main.cpp\
         Controller/SceneController.cpp \
         Controller/SoundController.cpp \
         Model/Element.cpp \
-        Model/ImageElement.cpp \
-        Model/TextElement.cpp \
         View/Book.cpp \
         View/MainWindow.cpp \
         View/Page.cpp \
@@ -33,8 +31,6 @@ HEADERS  += mainwindow.h \
         Controller/SceneController.h \
         Controller/SoundController.h \
         Model/Element.h \
-        Model/ImageElement.h \
-        Model/TextElement.h \
         View/Book.h \
         View/MainWindow.h \
         View/Page.h \
