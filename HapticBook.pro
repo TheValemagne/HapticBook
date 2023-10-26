@@ -27,6 +27,7 @@ SOURCES += main.cpp\
     pageone.cpp \
     pagetwo.cpp \
     Model/movableelement.cpp
+    Model/page.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -39,6 +40,7 @@ HEADERS  += mainwindow.h \
     pageone.h \
     pagetwo.h \
     Model/movableelement.h
+    Model/page.h
 
 FORMS += mainwindow.ui \
     pageone.ui \

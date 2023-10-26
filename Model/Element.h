@@ -14,9 +14,9 @@ class Element : public QLabel
 public:
     Element(const QString& src, const QPoint &position, QWidget *parent = nullptr);
 protected:
+    QPoint position;
 private:
     QPixmap image;
-    QPoint position;
 };
 
 #endif // ELEMENT_H

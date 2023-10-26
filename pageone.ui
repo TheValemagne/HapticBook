@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/Images/bg_page_1.png);
+    <string notr="true">background-image: url(:/images/bg_page_1.png);
 </string>
    </property>
    <property name="text">
@@ -40,7 +40,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/Images/earth.png);</string>
+    <string notr="true">background-image: url(:/images/earth.png);</string>
    </property>
    <property name="text">
     <string/>

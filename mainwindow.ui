@@ -49,7 +49,7 @@
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/images/Images/bg_page_0.png);</string>
+        <string notr="true">background-image: url(:/images/bg_page_0.png);</string>
        </property>
        <widget class="QPushButton" name="startButton">
         <property name="geometry">
@@ -64,7 +64,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/Images/bg_start_button.png);
+         <string notr="true">background-image: url(:/images/bg_start_button.png);
 background-color: rgba(255, 255, 255, 0);</string>
         </property>
         <property name="text">

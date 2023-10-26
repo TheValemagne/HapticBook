@@ -18,7 +18,7 @@
     <file alias="space_ship.png">Images/space_ship.png</file>
     <file alias="wale.png">Images/wale.png</file>
     <file alias="wale_heart.png">Images/wale_heart.png</file>
-    <file>Images/bg_page_0.png</file>
+    <file alias="bg_page_0.png">Images/bg_page_0.png</file>
   </qresource>
   <qresource prefix="sounds">
     <file alias="test.wav">Sounds/test.wav</file>

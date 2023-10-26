@@ -12,8 +12,8 @@ PageOne::PageOne(QWidget *parent) :
 {
     ui->setupUi(this);
     //image = QPixmap(); // Remplacez par le chemin de votre image
-    QString qs = QString(":/images/Images/space_ship.png");
-    Element *element = new Element(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
+    QString qs = QString(":/images/space_ship.png");
+    Element *element = new MovableElement(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
 
     // Ajoutez l'objet Element à votre interface utilisateur, par exemple, à un layout ou à un widget
     this->show();
