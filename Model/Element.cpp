@@ -4,6 +4,7 @@
 #include <QDrag>
 #include <QPixmap>
 #include <QDebug>
+
 Element::Element(const QPixmap &image, QWidget *parent):
     QLabel("Writing test")
 {

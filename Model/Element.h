@@ -4,6 +4,7 @@
 #include <QLabel>
 #include<QPixmap>
 #include<QWidget>
+#include <QMoveEvent>
 
 class Element : public QLabel
 {
