@@ -5,6 +5,7 @@
 #include<QString>
 #include<QDebug>
 #include"utils.h"
+
 PageOne::PageOne(QStackedWidget *parent) :
     Page(parent),
     ui(new Ui::PageOne)
@@ -26,13 +27,12 @@ PageOne::~PageOne()
 
 void PageOne::onMouseMove() {
     qDebug() << "LOG[PageOne] : onMouseMove()";
-    QLabel* earth = ui->earth;
     Element* rocket = getElement("rocket");
 
-
-    if (Utils::collision(rocket, earth)){
-        qDebug() << "LOG[PageOne] : rocket in earth";
+    if (Utils::collision(rocket,  ui->earth) && !hasCollide){
+        qDebug() << "LOG[PageOne] : rocket over earth";
         nextPage();
+        hasCollide = true;
     }
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageTwo</class>
- <widget class="QWidget" name="PageTwo">
+ <class>PageThree</class>
+ <widget class="QWidget" name="PageThree">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
@@ -26,7 +23,23 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/bg_page_2.png);</string>
+    <string notr="true">background-image: url(:/images/bg_page_3.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ip">
+   <property name="geometry">
+    <rect>
+     <x>161</x>
+     <y>110</y>
+     <width>90</width>
+     <height>159</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/scared_ip.png);</string>
    </property>
    <property name="text">
     <string/>

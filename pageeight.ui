@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageTwo</class>
- <widget class="QWidget" name="PageTwo">
+ <class>PageEight</class>
+ <widget class="QWidget" name="PageEight">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
@@ -26,7 +23,24 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/bg_page_2.png);</string>
+    <string notr="true">background-image: url(:/images/bg_page_8.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>346</x>
+     <y>536</y>
+     <width>362</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/bg_close_button.png);
+background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string/>

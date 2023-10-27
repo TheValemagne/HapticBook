@@ -3,8 +3,11 @@
 #include "Controller/SoundController.h"
 #include "Controller/HapticController.h"
 
-#include"pageone.h"
-#include"pagetwo.h"
+#include "pageone.h"
+#include "pagetwo.h"
+#include "pagethree.h"
+#include "pagefour.h"
+#include "pageeight.h"
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
@@ -17,10 +20,16 @@ MainWindow::MainWindow(QWidget *parent):
     // Initialisation des pages
     pageOne = new PageOne(ui->book);
     pageTwo = new PageTwo(ui->book);
+    pageThree = new PageThree(ui->book);
+    pageFour = new PageFour(ui->book);
+    pageEight = new PageEight(ui->book);
 
     // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
     ui->book->addWidget(pageOne);
     ui->book->addWidget(pageTwo);
+    ui->book->addWidget(pageThree);
+    ui->book->addWidget(pageFour);
+    ui->book->addWidget(pageEight);
 
     // Instancier les controleurs
     this->soundController = SoundController();

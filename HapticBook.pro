@@ -25,7 +25,10 @@ SOURCES += main.cpp\
         pagetwo.cpp \
         Model/movableelement.cpp \
     page.cpp \
-    utils.cpp
+    utils.cpp \
+    pagethree.cpp \
+    pagefour.cpp \
+    pageeight.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -36,11 +39,17 @@ HEADERS  += mainwindow.h \
         pagetwo.h \
         Model/movableelement.h \
     page.h \
-    utils.h
+    utils.h \
+    pagethree.h \
+    pagefour.h \
+    pageeight.h
 
 FORMS += mainwindow.ui \
     pageone.ui \
-    pagetwo.ui
+    pagetwo.ui \
+    pagethree.ui \
+    pagefour.ui \
+    pageeight.ui
 
 RESOURCES += \
     resources/resources.qrc

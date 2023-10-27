@@ -3,6 +3,7 @@
 Page::Page(QStackedWidget *parent): QWidget(parent)
 {
     this->book = parent;
+    hasCollide = false;
 }
 
 void Page::nextPage() {

@@ -6,6 +6,7 @@
 #include <QWidget>
 #include "Model/Element.h"
 #include<QDebug>
+
 class Element;
 class Page : public QWidget
 {
@@ -20,6 +21,8 @@ public:
 private:
     QMap<QString, Element*> elements;
     QStackedWidget* book;
+ protected:
+    bool hasCollide;
 };
 
 #endif // PAGE_H

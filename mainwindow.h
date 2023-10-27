@@ -27,6 +27,9 @@ private:
     Ui::MainWindow *ui;
     Page* pageOne;
     Page* pageTwo;
+    Page* pageThree;
+    Page* pageFour;
+    Page* pageEight;
     SoundController soundController;
     HapticController hapticController;
 };
