@@ -4,7 +4,7 @@
 #include "Controller/HapticController.h"
 
 #include"pageone.h"
-//#include"pagetwo.h"
+#include"pagetwo.h"
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
@@ -16,13 +16,13 @@ MainWindow::MainWindow(QWidget *parent):
 
     // Initialisation des pages
     pageOne = new PageOne(ui->book);
-    //pageTwo = new PageTwo(ui->book);
+    pageTwo = new PageTwo(ui->book);
 
     // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
     ui->book->addWidget(pageOne);
+    ui->book->addWidget(pageTwo);
 
-    //ui->book->addWidget(pageTwo);
-    //pageOne->nextPage();
+    // Instancier les controleurs
     this->soundController = SoundController();
     //this->soundController.playSound("intro", true);
 
@@ -40,7 +40,13 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Escape) {
         close();
     }
-}
+    else if (event->key() == Qt::Key_Left) {
+        ui->book->setCurrentIndex(ui->book->currentIndex()-1);
+    }
+    else if (event->key() == Qt::Key_Right) {
+        ui->book->setCurrentIndex(ui->book->currentIndex()+1);
+    }
+    }
 
 void MainWindow::on_startButton_clicked()
 {
