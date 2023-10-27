@@ -46,6 +46,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="spacial_beacon">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>68</y>
+     <width>222</width>
+     <height>219</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/spacial_beacon.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
