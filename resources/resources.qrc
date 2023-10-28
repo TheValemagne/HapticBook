@@ -2,6 +2,7 @@
   <qresource prefix="images">
     <file alias="bg_close_button.png">Images/bg_close_button.png</file>
     <file alias="bg_start_button.png">Images/bg_start_button.png</file>
+    <file alias="bg_answer_button.png">Images/bg_answer_button.png</file>
     <file alias="bg_page_0.png">Images/bg_page_0.png</file>
     <file alias="bg_page_1.png">Images/bg_page_1.png</file>
     <file alias="bg_page_2.png">Images/bg_page_2.png</file>
@@ -28,8 +29,8 @@
     <file alias="notification.png">Images/notification.png</file>
     <file alias="wale.png">Images/wale.png</file>
     <file alias="wale_heart.png">Images/wale_heart.png</file>
-     <file alias="ufo.png">Images/ufo.png</file>
-      <file alias="tractor_beam.png">Images/tractor_beam.png</file>
+    <file alias="ufo.png">Images/ufo.png</file>
+    <file alias="tractor_beam.png">Images/tractor_beam.png</file>
   </qresource>
   <qresource prefix="sounds">
     <file alias="test.wav">Sounds/test.wav</file>
