@@ -12,6 +12,12 @@
     <file alias="bg_page_7.png">Images/bg_page_7.png</file>
     <file alias="bg_page_8.png">Images/bg_page_8.png</file>
     <file alias="earth.png">Images/earth.png</file>
+    <file alias="rock.png">Images/rock.png</file>
+    <file alias="sand.png">Images/sand.png</file>
+    <file alias="sand_2.png">Images/sand_2.png</file>
+    <file alias="sand_3.png">Images/sand_3.png</file>
+    <file alias="sand_4.png">Images/sand_4.png</file>
+    <file alias="sand_5.png">Images/sand_5.png</file>
     <file alias="spacial_beacon.png">Images/spacial_beacon.png</file>
     <file alias="emergency_transmitter.png">Images/emergency_transmitter.png</file>
     <file alias="ip_submarine.png">Images/ip_submarine.png</file>
