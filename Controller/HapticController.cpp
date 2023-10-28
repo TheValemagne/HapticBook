@@ -3,6 +3,7 @@
 //
 #include <QApplication>
 #include <QMessageBox>
+#include <QDebug>
 #include "HapticController.h"
 
 HapticController::HapticController(QMainWindow *w): mWindow(w) {
@@ -17,7 +18,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
 
     // Init project
     mProject = new CImmProject();
-    if (mProject->OpenFile("./effets.ifr", mMouse)) {
+    if (mProject->OpenFile("./../HapticBook/resources/effects/effets.ifr", mMouse)) {
         effects = QMap<QString, CImmCompoundEffect*>();
 
         // Init all effects

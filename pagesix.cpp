@@ -6,6 +6,10 @@ PageSix::PageSix(QStackedWidget *parent) :
     ui(new Ui::PageSix)
 {
     ui->setupUi(this);
+
+    // cacher la notification et le bouton confirmer position
+    ui->notification->setHidden(true);
+    ui->answerButton->setHidden(true);
 }
 
 PageSix::~PageSix()
@@ -15,4 +19,9 @@ PageSix::~PageSix()
 
 void PageSix::onMouseMove() {
     qDebug() << "LOG[PageSix] : onMouseMove()";
+}
+
+void PageSix::on_answerButton_clicked()
+{
+    nextPage();
 }

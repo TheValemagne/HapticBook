@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <widget class="QLabel" name="background">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -25,6 +28,39 @@
    <property name="styleSheet">
     <string notr="true">background-image: url(:/images/bg_page_6.png);
 </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="notification">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>530</y>
+     <width>302</width>
+     <height>157</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/notification.png);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="answerButton">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>701</y>
+     <width>299</width>
+     <height>56</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/bg_answer_button.png);
+background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string/>

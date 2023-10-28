@@ -16,6 +16,9 @@ public:
     ~PageSix();
     void onMouseMove() override;
 
+private slots:
+    void on_answerButton_clicked();
+
 private:
     Ui::PageSix *ui;
 };
