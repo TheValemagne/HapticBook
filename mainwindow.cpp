@@ -7,6 +7,9 @@
 #include "pagetwo.h"
 #include "pagethree.h"
 #include "pagefour.h"
+#include "pagefive.h"
+#include "pagesix.h"
+#include "pageseven.h"
 #include "pageeight.h"
 
 MainWindow::MainWindow(QWidget *parent):
@@ -22,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent):
     pageTwo = new PageTwo(ui->book);
     pageThree = new PageThree(ui->book);
     pageFour = new PageFour(ui->book);
+    pageFive = new PageFive(ui->book);
+    pageSix = new PageSix(ui->book);
+    pageSeven = new PageSeven(ui->book);
     pageEight = new PageEight(ui->book);
 
     // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
@@ -29,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageTwo);
     ui->book->addWidget(pageThree);
     ui->book->addWidget(pageFour);
+    ui->book->addWidget(pageFive);
+    ui->book->addWidget(pageSix);
+    ui->book->addWidget(pageSeven);
     ui->book->addWidget(pageEight);
 
     // Instancier les controleurs
@@ -43,6 +52,11 @@ MainWindow::~MainWindow()
     delete ui;
     delete pageOne;
     delete pageTwo;
+    delete pageThree;
+    delete pageFour;
+    delete pageFive;
+    delete pageSix;
+    delete pageEight;
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event) {
@@ -55,7 +69,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Right) {
         ui->book->setCurrentIndex(ui->book->currentIndex()+1);
     }
-    }
+}
 
 void MainWindow::on_startButton_clicked()
 {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageTwo</class>
- <widget class="QWidget" name="PageTwo">
+ <class>PageFive</class>
+ <widget class="QWidget" name="PageFive">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
@@ -26,23 +23,24 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/bg_page_2.png);</string>
+    <string notr="true">background-image: url(:/images/bg_page_5.png);
+</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="rock">
+  <widget class="QLabel" name="sand">
    <property name="geometry">
     <rect>
-     <x>283</x>
-     <y>268</y>
-     <width>115</width>
-     <height>115</height>
+     <x>650</x>
+     <y>570</y>
+     <width>107</width>
+     <height>109</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/rock.png);</string>
+    <string notr="true">background-image: url(:/images/sand.png);</string>
    </property>
    <property name="text">
     <string/>

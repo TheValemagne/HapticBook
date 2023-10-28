@@ -29,7 +29,11 @@ private:
     Page* pageTwo;
     Page* pageThree;
     Page* pageFour;
+    Page* pageFive;
+    Page* pageSix;
+    Page* pageSeven;
     Page* pageEight;
+
     SoundController soundController;
     HapticController hapticController;
 };
