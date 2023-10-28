@@ -1,11 +1,13 @@
 #ifndef PAGE_H
 #define PAGE_H
-#include<QMap>
-#include<QString>
+
+#include <QMap>
+#include <QString>
 #include <QStackedWidget>
 #include <QWidget>
+#include <QDebug>
+
 #include "Model/Element.h"
-#include<QDebug>
 
 class Element;
 class Page : public QWidget

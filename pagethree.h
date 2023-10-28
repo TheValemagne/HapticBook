@@ -1,8 +1,6 @@
 #ifndef PAGETHREE_H
 #define PAGETHREE_H
 
-#include <QWidget>
-
 #include "page.h"
 
 namespace Ui {

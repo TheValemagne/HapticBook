@@ -11,7 +11,7 @@ PageOne::PageOne(QStackedWidget *parent) :
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
-    //image = QPixmap(); // Remplacez par le chemin de votre image
+    // Remplacez par le chemin de votre image
     QString qs = QString(":/images/space_ship.png");
     Element *rocket = new MovableElement(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
     addElement("rocket", rocket);

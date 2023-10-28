@@ -1,9 +1,6 @@
 #ifndef PAGETWO_H
 #define PAGETWO_H
 
-#include <QStackedWidget>
-#include <QPixmap>
-#include <QMouseEvent>
 #include"page.h"
 
 namespace Ui {

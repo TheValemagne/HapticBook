@@ -1,7 +1,6 @@
 #ifndef PAGEFOUR_H
 #define PAGEFOUR_H
 
-#include <QWidget>
 #include "page.h"
 
 namespace Ui {

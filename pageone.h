@@ -1,9 +1,6 @@
 #ifndef PAGEONE_H
 #define PAGEONE_H
 
-#include <QStackedWidget>
-#include <QPixmap>
-#include <QMouseEvent>
 #include"page.h"
 
 namespace Ui {

@@ -5,7 +5,8 @@
 #include "SceneController.h"
 
 
-SceneController::SceneController(Book *book) {
-    this->book = book;
+//SceneController::SceneController(Book *book) {
+SceneController::SceneController() {
+    //this->book = book;
     // Gestion des scene, doit contenir donc un observeur de collision etc...
 }

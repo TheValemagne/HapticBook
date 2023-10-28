@@ -1,7 +1,6 @@
 #ifndef PAGEEIGHT_H
 #define PAGEEIGHT_H
 
-#include <QWidget>
 #include "page.h"
 
 namespace Ui {

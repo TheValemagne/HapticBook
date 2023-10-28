@@ -2,8 +2,8 @@
 // Created by remiz on 21/10/2023.
 //
 
-#ifndef UNTITLED2_SOUNDCONTROLLER_H
-#define UNTITLED2_SOUNDCONTROLLER_H
+#ifndef SOUNDCONTROLLER_H
+#define SOUNDCONTROLLER_H
 
 #include <QString>
 #include <QMediaPlayer>
@@ -28,4 +28,4 @@ private:
 };
 
 
-#endif //UNTITLED2_SOUNDCONTROLLER_H
+#endif //SOUNDCONTROLLER_H

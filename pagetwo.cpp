@@ -10,7 +10,7 @@ PageTwo::PageTwo(QStackedWidget *parent) :
     ui(new Ui::PageTwo)
 {
     ui->setupUi(this);
-    //image = QPixmap(); // Remplacez par le chemin de votre image
+    // Remplacez par le chemin de votre image
     QString qs = QString(":/images/ip_submarine.png");
     Element *rocket = new MovableElement(qs, QPoint(467, 593), this); // Remplacez "parentWidget" par le parent approprié
     addElement("rocket", rocket);

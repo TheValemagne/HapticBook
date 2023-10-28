@@ -16,7 +16,7 @@ PageEight::~PageEight()
 }
 
 void PageEight::onMouseMove() {
-    qDebug() << "LOG[PageFour] : onMouseMove()";
+    qDebug() << "LOG[PageEight] : onMouseMove()";
 }
 
 void PageEight::on_closeButton_clicked()
