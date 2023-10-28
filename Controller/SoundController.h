@@ -17,12 +17,16 @@
 class SoundController
 {
 public:
-    SoundController();
+    static SoundController* getInstance();
+    SoundController(SoundController &other) = delete;
+    void operator=(const SoundController &) = delete;
     void addSound(const QString& soundName, const QString& soundFilePath);
     void playSound(const QString& soundName, bool loop = false);
     void stopSound(const QString& soundName);
     void stopAllSounds();
-
+protected:
+    SoundController();
+    static SoundController* instance;
 private:
     QMap<QString, QMediaPlayer*> sounds;
 };

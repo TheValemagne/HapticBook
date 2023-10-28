@@ -21,14 +21,23 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         effects = QMap<QString, CImmCompoundEffect*>();
 
         // Init all effects
-        this->addEffect("ressort", "Ressort");
-        this->addEffect("sand", "Sable");
-        this->addEffect("water", "Eau");
-        this->addEffect("EFFET QUI MARCHE PAS", "HIHIHIHHIHI jescxiwte pas");
+        this->addEffect("sand", "Sand");
+        this->addEffect("water", "Water");
+        this->addEffect("shaking", "Shaking");
     } else {
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");
         return;
     }
+}
+
+HapticController* HapticController::instance = nullptr;
+
+HapticController* HapticController::getInstance(QMainWindow *window){
+    if (window != nullptr && instance == nullptr){
+        instance = new HapticController(window);
+    }
+
+    return instance;
 }
 
 void HapticController::addEffect(const QString &keyName, const CHAR *effectName) {

@@ -11,6 +11,16 @@ SoundController::SoundController() {
     this->addSound("test", "qrc:/sounds/test.wav");
 }
 
+SoundController* SoundController::instance = NULL;
+
+SoundController* SoundController::getInstance(){
+    if(instance == nullptr){
+        instance = new SoundController();
+    }
+
+    return instance;
+}
+
 void SoundController::addSound(const QString& soundName, const QString& soundFilePath)
 {
     QMediaPlayer* mediaPlayer = new QMediaPlayer;

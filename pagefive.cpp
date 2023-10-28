@@ -1,5 +1,4 @@
 #include "pagefive.h"
-#include <QPixmap>"
 #include "ui_pagefive.h"
 
 PageFive::PageFive(QStackedWidget *parent) :

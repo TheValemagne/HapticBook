@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "Controller/SoundController.h"
-#include "Controller/HapticController.h"
 
 #include "pageone.h"
 #include "pagetwo.h"
@@ -14,11 +12,11 @@
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    hapticController(this),
-    soundController()
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    soundController = SoundController::getInstance();
+    hapticController = HapticController::getInstance(this);
 
     // Initialisation des pages
     pageOne = new PageOne(ui->book);
@@ -41,10 +39,8 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageEight);
 
     // Instancier les controleurs
-    this->soundController = SoundController();
+    //this->soundController = SoundController();
     //this->soundController.playSound("intro", true);
-
-    this->hapticController.startEffect("water");
 }
 
 MainWindow::~MainWindow()
@@ -74,8 +70,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
 void MainWindow::on_startButton_clicked()
 {
     ui->book->setCurrentIndex(1);
-    this->soundController.stopAllSounds();
-    this->hapticController.stopAllEffects();
-    this->hapticController.startEffect("ressort");
+    this->soundController->stopAllSounds();
+    this->hapticController->stopAllEffects();
     //this->soundController.playSound("test");
 }

@@ -13,10 +13,16 @@
 
 class HapticController {
 public:
-        HapticController(QMainWindow *fen);
+        static HapticController* getInstance(QMainWindow *window = nullptr);
+        HapticController(HapticController &other) = delete;
+        void operator=(const HapticController &) = delete;
         void startEffect(const QString& effectName);
         void stopEffect(const QString& effectName);
         void stopAllEffects();
+
+protected:
+        HapticController(QMainWindow *window);
+        static HapticController* instance;
 
 private:
     CImmMouse* mMouse;      // Mouse device
