@@ -33,10 +33,10 @@
   <widget class="QLabel" name="sand">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>570</y>
-     <width>107</width>
-     <height>109</height>
+     <x>579</x>
+     <y>578</y>
+     <width>215</width>
+     <height>182</height>
     </rect>
    </property>
    <property name="styleSheet">

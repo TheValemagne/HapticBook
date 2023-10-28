@@ -30,6 +30,38 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="tractor_beam">
+   <property name="geometry">
+    <rect>
+     <x>318</x>
+     <y>143</y>
+     <width>341</width>
+     <height>633</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/tractor_beam.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ufo">
+   <property name="geometry">
+    <rect>
+     <x>365</x>
+     <y>65</y>
+     <width>248</width>
+     <height>138</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/ufo.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

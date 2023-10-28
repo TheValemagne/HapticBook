@@ -19,15 +19,17 @@
     <file alias="sand_4.png">Images/sand_4.png</file>
     <file alias="sand_5.png">Images/sand_5.png</file>
     <file alias="spacial_beacon.png">Images/spacial_beacon.png</file>
+    <file alias="space_ship.png">Images/space_ship.png</file>
+    <file alias="scared_ip.png">Images/scared_ip.png</file>
+    <file alias="small_ip.png">Images/small_ip.png</file>
     <file alias="emergency_transmitter.png">Images/emergency_transmitter.png</file>
     <file alias="ip_submarine.png">Images/ip_submarine.png</file>
     <file alias="ips_hand.png">Images/ips_hand.png</file>
     <file alias="notification.png">Images/notification.png</file>
-    <file alias="scared_ip.png">Images/scared_ip.png</file>
-    <file alias="small_ip.png">Images/small_ip.png</file>
-    <file alias="space_ship.png">Images/space_ship.png</file>
     <file alias="wale.png">Images/wale.png</file>
     <file alias="wale_heart.png">Images/wale_heart.png</file>
+     <file alias="ufo.png">Images/ufo.png</file>
+      <file alias="tractor_beam.png">Images/tractor_beam.png</file>
   </qresource>
   <qresource prefix="sounds">
     <file alias="test.wav">Sounds/test.wav</file>
