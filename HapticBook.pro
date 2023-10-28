@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     pageeight.cpp \
     pagefive.cpp \
     pagesix.cpp \
-    pageseven.cpp
+    pageseven.cpp \
+    Model/rocket.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -48,7 +49,8 @@ HEADERS  += mainwindow.h \
     pageeight.h \
     pagefive.h \
     pagesix.h \
-    pageseven.h
+    pageseven.h \
+    Model/rocket.h
 
 FORMS += mainwindow.ui \
     pageone.ui \

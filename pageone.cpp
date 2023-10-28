@@ -1,6 +1,6 @@
 #include "pageone.h"
 #include "ui_pageone.h"
-#include"Model/MovableElement.h"
+#include "Model/rocket.h"
 #include<QUrl>
 #include<QString>
 #include<QDebug>
@@ -13,7 +13,7 @@ PageOne::PageOne(QStackedWidget *parent) :
     ui->setupUi(this);
     // Remplacez par le chemin de votre image
     QString qs = QString(":/images/space_ship.png");
-    Element *rocket = new MovableElement(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
+    Element *rocket = new Rocket(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
     addElement("rocket", rocket);
 
     // Ajoutez l'objet Element à votre interface utilisateur, par exemple, à un layout ou à un widget
