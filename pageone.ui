@@ -46,7 +46,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="spacial_beacon">
+  <widget class="QLabel" name="spacialBeacon">
    <property name="geometry">
     <rect>
      <x>610</x>

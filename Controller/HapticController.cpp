@@ -18,13 +18,14 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
 
     // Init project
     mProject = new CImmProject();
-    if (mProject->OpenFile("./../HapticBook/resources/effects/effets.ifr", mMouse)) {
+    if (mProject->OpenFile("./../HapticBook/resources/effects/effects.ifr", mMouse)) {
         effects = QMap<QString, CImmCompoundEffect*>();
 
         // Init all effects
         this->addEffect("sand", "Sand");
         this->addEffect("water", "Water");
         this->addEffect("shaking", "Shaking");
+        this->addEffect("heavy_load", "HeavyLoad");
     } else {
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");
         return;
@@ -42,7 +43,9 @@ HapticController* HapticController::getInstance(QMainWindow *window){
 }
 
 void HapticController::addEffect(const QString &keyName, const CHAR *effectName) {
-    effects[keyName] = mProject->CreateEffect(effectName, mMouse, IMM_PARAM_NODOWNLOAD);
+    effects[keyName] = mProject->CreateEffect(effectName,
+                                                                                mMouse,
+                                                                                IMM_PARAM_NODOWNLOAD);
     if (!effects[keyName]) QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
 }
 

@@ -30,23 +30,67 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="sand">
+  <widget class="QLabel" name="emergencyTransmitter">
    <property name="geometry">
     <rect>
-     <x>579</x>
-     <y>578</y>
-     <width>215</width>
-     <height>182</height>
+     <x>316</x>
+     <y>181</y>
+     <width>422</width>
+     <height>364</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/sand.png);</string>
+    <string notr="true">background-image: url(:/images/emergency_transmitter.png);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="ClickableLabel" name="smallEmergencyTransmitter">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>536</y>
+     <width>100</width>
+     <height>93</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/small_emergency_transmitter.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sosButton">
+   <property name="geometry">
+    <rect>
+     <x>529</x>
+     <y>379</y>
+     <width>144</width>
+     <height>113</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/bg_sos_button);
+background-color: rgba(255, 255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>background</zorder>
+  <zorder>smallEmergencyTransmitter</zorder>
+  <zorder>emergencyTransmitter</zorder>
+  <zorder>sosButton</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">Model/clickablelabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

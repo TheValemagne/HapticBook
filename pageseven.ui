@@ -30,7 +30,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="tractor_beam">
+  <widget class="QLabel" name="tractorBeam">
    <property name="geometry">
     <rect>
      <x>318</x>
