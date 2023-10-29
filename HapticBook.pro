@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     pagefive.cpp \
     pagesix.cpp \
     pageseven.cpp \
-    Model/rocket.cpp
+    Model/rocket.cpp \
+    Model/treetrunk.cpp \
+    Model/clickablelabel.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -50,7 +52,9 @@ HEADERS  += mainwindow.h \
     pagefive.h \
     pagesix.h \
     pageseven.h \
-    Model/rocket.h
+    Model/rocket.h \
+    Model/treetrunk.h \
+    Model/clickablelabel.h
 
 FORMS += mainwindow.ui \
     pageone.ui \

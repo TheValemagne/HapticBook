@@ -6,6 +6,7 @@ PageSix::PageSix(QStackedWidget *parent) :
     ui(new Ui::PageSix)
 {
     ui->setupUi(this);
+    changeCurcor(":images/ips_hand.png", 43, 43);
 
     // cacher la notification et le bouton confirmer position
     ui->notification->setHidden(true);

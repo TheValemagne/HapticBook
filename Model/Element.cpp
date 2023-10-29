@@ -13,7 +13,7 @@ Element::Element(const QString& src, const QPoint &position, Page *parent):
     page = parent;
     image = QPixmap(src);
     if(image.isNull())
-        qDebug()<<"LOG[Element] : image is null";
+        qDebug()<<"LOG[Element] : image is null " << src;
 
     this->position = position;
 

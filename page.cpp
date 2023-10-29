@@ -1,5 +1,6 @@
 #include "page.h"
 #include "Controller/HapticController.h"
+#include "Controller/SoundController.h"
 
 Page::Page(QStackedWidget *parent): QWidget(parent)
 {
@@ -8,11 +9,19 @@ Page::Page(QStackedWidget *parent): QWidget(parent)
 }
 
 void Page::nextPage() {
+    // arreter tous les effets en cours de la page
     HapticController::getInstance()->stopAllEffects();
+    SoundController::getInstance()->stopAllSounds();
+
     qDebug() << "LOG[Page] : " <<  "Current Index : " << book->currentIndex() << "Count : " << book->count();
    if(book->currentIndex() < book->count() - 1){
       book->setCurrentIndex(book->currentIndex()+1);
    }
+}
+
+void Page::changeCurcor(const QString& cursorImage, int cursorX, int cursorY){
+    QCursor c = QCursor(QPixmap(cursorImage), cursorX, cursorY);
+    setCursor(c);
 }
 
 void Page::addElement(const QString& elementName, Element* element) {

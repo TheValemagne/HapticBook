@@ -15,6 +15,7 @@ class Page : public QWidget
 public:
     Page(QStackedWidget *parent);
      void nextPage();
+     void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
     // Elements management
     void addElement(const QString& elementName, Element* element);
     Element *getElement(const QString& elementName);
