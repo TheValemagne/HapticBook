@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent):
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Instancier les controleurs
     soundController = SoundController::getInstance();
     hapticController = HapticController::getInstance(this);
 
@@ -28,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent):
     pageSeven = new PageSeven(ui->book);
     pageEight = new PageEight(ui->book);
 
-    // Ajouter les pages aux QStackedWidget de la page principale (mainwindow)
+    // Ajouter les pages au QStackedWidget de la page principale (mainwindow)
     ui->book->addWidget(pageOne);
     ui->book->addWidget(pageTwo);
     ui->book->addWidget(pageThree);
@@ -37,25 +39,39 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageSix);
     ui->book->addWidget(pageSeven);
     ui->book->addWidget(pageEight);
-
-    // Instancier les controleurs
-    //this->soundController = SoundController();
-    //this->soundController.playSound("intro", true);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete pageOne;
-    delete pageTwo;
-    delete pageThree;
-    delete pageFour;
-    delete pageFive;
-    delete pageSix;
-    delete pageEight;
+
+    // supprimer les pages
+    if (pageOne)
+        delete pageOne;
+    if (pageTwo)
+        delete pageTwo;
+    if (pageThree)
+        delete pageThree;
+    if (pageFour)
+        delete pageFour;
+    if (pageFive)
+        delete pageFive;
+    if (pageSix)
+        delete pageSix;
+    if (pageSeven)
+        delete pageSeven;
+    if (pageEight)
+        delete pageEight;
+
+    // supprimer les controlleurs
+    if (hapticController)
+        delete hapticController;
+    if (soundController)
+        delete soundController;
 }
 
-void MainWindow::keyReleaseEvent(QKeyEvent *event) {
+void MainWindow::keyReleaseEvent(QKeyEvent *event) 
+{
     if (event->key() == Qt::Key_Escape) {
         close();
     }
@@ -72,5 +88,4 @@ void MainWindow::on_startButton_clicked()
     ui->book->setCurrentIndex(1);
     this->soundController->stopAllSounds();
     this->hapticController->stopAllEffects();
-    //this->soundController.playSound("test");
 }

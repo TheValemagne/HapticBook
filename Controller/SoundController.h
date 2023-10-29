@@ -17,6 +17,7 @@
 class SoundController
 {
 public:
+    ~SoundController();
     static SoundController* getInstance();
     SoundController(SoundController &other) = delete;
     void operator=(const SoundController &) = delete;

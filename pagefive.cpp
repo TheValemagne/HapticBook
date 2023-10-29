@@ -29,11 +29,13 @@ PageFive::~PageFive()
     delete ui;
 }
 
-void PageFive::onMouseMove() {
+void PageFive::onMouseMove()
+{
     qDebug() << "LOG[PageFive] : onMouseMove()";
 }
 
- void PageFive::hideEmergencyTransmitter(bool shouldHide){
+ void PageFive::hideEmergencyTransmitter(bool shouldHide)
+ {
      ui->emergencyTransmitter->setHidden(shouldHide);
      ui->sosButton->setHidden(shouldHide);
 

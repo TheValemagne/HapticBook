@@ -25,6 +25,7 @@ PageThree::~PageThree()
     delete ui;
 }
 
-void PageThree::onMouseMove() {
+void PageThree::onMouseMove()
+{
     qDebug() << "LOG[PageThree] : onMouseMove()";
 }

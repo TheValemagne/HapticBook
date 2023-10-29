@@ -11,9 +11,19 @@ SoundController::SoundController() {
     this->addSound("test", "qrc:/sounds/test.wav");
 }
 
+SoundController::~SoundController()
+{
+    qDeleteAll(sounds);
+    sounds.clear();
+    if (instance != nullptr)
+        delete instance;
+        instance = nullptr;
+}
+
 SoundController* SoundController::instance = NULL;
 
-SoundController* SoundController::getInstance(){
+SoundController* SoundController::getInstance()
+{
     if(instance == nullptr){
         instance = new SoundController();
     }

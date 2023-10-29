@@ -18,7 +18,8 @@ PageSix::~PageSix()
     delete ui;
 }
 
-void PageSix::onMouseMove() {
+void PageSix::onMouseMove()
+{
     qDebug() << "LOG[PageSix] : onMouseMove()";
 }
 

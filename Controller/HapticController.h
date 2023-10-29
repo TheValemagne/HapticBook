@@ -13,6 +13,7 @@
 
 class HapticController {
 public:
+        ~HapticController();
         static HapticController* getInstance(QMainWindow *window = nullptr);
         HapticController(HapticController &other) = delete;
         void operator=(const HapticController &) = delete;

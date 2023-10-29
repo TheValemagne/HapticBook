@@ -13,7 +13,8 @@ PageFour::~PageFour()
     delete ui;
 }
 
-void PageFour::onMouseMove() {
+void PageFour::onMouseMove()
+{
     qDebug() << "LOG[PageFour] : onMouseMove()";
 }
 

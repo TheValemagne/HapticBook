@@ -25,7 +25,8 @@ PageOne::~PageOne()
     delete ui;
 }
 
-void PageOne::onMouseMove() {
+void PageOne::onMouseMove()
+{
     qDebug() << "LOG[PageOne] : onMouseMove()";
     Element* rocket = getElement("rocket");
 

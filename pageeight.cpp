@@ -15,7 +15,8 @@ PageEight::~PageEight()
     delete ui;
 }
 
-void PageEight::onMouseMove() {
+void PageEight::onMouseMove()
+{
     qDebug() << "LOG[PageEight] : onMouseMove()";
 }
 

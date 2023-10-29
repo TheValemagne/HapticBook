@@ -32,9 +32,23 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
     }
 }
 
+HapticController::~HapticController()
+{
+    qDeleteAll(effects);
+    effects.clear();
+    if (mProject)
+        delete mProject;
+    if (mMouse)
+        delete mMouse;
+    if (instance != nullptr)
+        delete instance;
+        instance = nullptr;
+}
+
 HapticController* HapticController::instance = nullptr;
 
-HapticController* HapticController::getInstance(QMainWindow *window){
+HapticController* HapticController::getInstance(QMainWindow *window)
+{
     if (window != nullptr && instance == nullptr){
         instance = new HapticController(window);
     }
@@ -42,30 +56,35 @@ HapticController* HapticController::getInstance(QMainWindow *window){
     return instance;
 }
 
-void HapticController::addEffect(const QString &keyName, const CHAR *effectName) {
+void HapticController::addEffect(const QString &keyName, const CHAR *effectName)
+{
     effects[keyName] = mProject->CreateEffect(effectName,
                                                                                 mMouse,
                                                                                 IMM_PARAM_NODOWNLOAD);
     if (!effects[keyName]) QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
 }
 
-bool HapticController::isEffectInitialized(const QString &effectName) {
+bool HapticController::isEffectInitialized(const QString &effectName)
+{
     return effects.contains(effectName) && effects[effectName];
 }
 
-void HapticController::startEffect(const QString &effectName) {
+void HapticController::startEffect(const QString &effectName)
+{
     if (this->isEffectInitialized(effectName)) {
         effects[effectName]->Start();
     }
 }
 
-void HapticController::stopEffect(const QString &effectName) {
+void HapticController::stopEffect(const QString &effectName)
+{
     if (this->isEffectInitialized(effectName)) {
         effects[effectName]->Stop();
     }
 }
 
-void HapticController::stopAllEffects() {
+void HapticController::stopAllEffects()
+{
     QMap<QString, CImmCompoundEffect*>::iterator it = effects.begin();
     while (it != effects.end()) {
         stopEffect(it.key());

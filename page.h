@@ -14,13 +14,14 @@ class Page : public QWidget
 {
 public:
     Page(QStackedWidget *parent);
-     void nextPage();
-     void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
+    ~Page();
+    void nextPage();
+    void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
     // Elements management
     void addElement(const QString& elementName, Element* element);
     Element *getElement(const QString& elementName);
     // abstract
-     virtual void onMouseMove() = 0; // custom function for listen element movement
+    virtual void onMouseMove() = 0; // custom function for listen element movement
 private:
     QMap<QString, Element*> elements;
     QStackedWidget* book;
