@@ -10,7 +10,7 @@ PageFive::PageFive(QStackedWidget *parent) :
     ui->setupUi(this);
 
     changeCurcor(":images/ips_hand.png", 64, 65);
-    hideEmergencyTransmitter(true);
+    showEmergencyTransmitter(false);
 
     Element *treeTrunk1 = new TreeTrunk(
                 QString(":/images/tree_trunk_1.png"),
@@ -35,12 +35,12 @@ void PageFive::onMouseMove()
     qDebug() << "LOG[PageFive] : onMouseMove()";
 }
 
- void PageFive::hideEmergencyTransmitter(bool shouldHide)
+ void PageFive::showEmergencyTransmitter(bool isVisible)
  {
-     ui->emergencyTransmitter->setHidden(shouldHide);
-     ui->sosButton->setHidden(shouldHide);
+     ui->emergencyTransmitter->setHidden(!isVisible);
+     ui->sosButton->setHidden(!isVisible);
 
-     if (!shouldHide) {
+     if (isVisible) {
          ui->emergencyTransmitter->raise();
          ui->sosButton->raise();
      }
@@ -49,7 +49,7 @@ void PageFive::onMouseMove()
 void PageFive::on_smallEmergencyTransmitter_clicked()
 {
     ui->smallEmergencyTransmitter->setHidden(true);
-    hideEmergencyTransmitter(false);
+    showEmergencyTransmitter(true);
 }
 
 void PageFive::on_sosButton_clicked()

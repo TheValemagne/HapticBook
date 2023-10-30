@@ -16,7 +16,7 @@ public:
     ~PageFive();
     void onMouseMove() override;
 private:
-    void hideEmergencyTransmitter(bool shouldHide);
+    void showEmergencyTransmitter(bool isVisible);
 
 private slots:
     void on_smallEmergencyTransmitter_clicked();
