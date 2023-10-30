@@ -1,6 +1,7 @@
 #include "pagefive.h"
 #include "ui_pagefive.h"
 #include "Model/treetrunk.h"
+#include "utils.h"
 
 PageFive::PageFive(QStackedWidget *parent) :
     Page(parent),
@@ -53,5 +54,9 @@ void PageFive::on_smallEmergencyTransmitter_clicked()
 
 void PageFive::on_sosButton_clicked()
 {
-    nextPage();
+    if (!hasCollide){
+        hasCollide = true;
+        Utils::delay(2);
+        nextPage();
+    }
 }

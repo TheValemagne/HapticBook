@@ -1,9 +1,10 @@
+#include<QString>
+#include<QDebug>
+
 #include "pageone.h"
 #include "ui_pageone.h"
 #include "Model/rocket.h"
-#include<QUrl>
-#include<QString>
-#include<QDebug>
+#include "Controller/HapticController.h"
 #include"utils.h"
 
 PageOne::PageOne(QStackedWidget *parent) :
@@ -32,8 +33,13 @@ void PageOne::onMouseMove()
 
     if (Utils::collision(rocket,  ui->earth) && !hasCollide){
         qDebug() << "LOG[PageOne] : rocket over earth";
-        nextPage();
         hasCollide = true;
+        rocket->setHidden(true);
+        HapticController::getInstance()->stopAllEffects();
+        HapticController::getInstance()->startEffect("landing");
+        // TODO effet crash + son
+        Utils::delay(1); // attend 1 sec avant de passer à la suite
+        nextPage();
     }
 }
 

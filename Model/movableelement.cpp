@@ -30,4 +30,3 @@ void MovableElement::mouseMoveEvent(QMouseEvent *event){
    this->move(movement);
    this->page->onMouseMove();
 }
-

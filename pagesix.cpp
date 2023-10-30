@@ -25,5 +25,8 @@ void PageSix::onMouseMove()
 
 void PageSix::on_answerButton_clicked()
 {
-    nextPage();
+    if(!hasCollide){
+        hasCollide = true;
+        nextPage();
+    }
 }

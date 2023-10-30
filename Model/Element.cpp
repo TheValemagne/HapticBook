@@ -15,10 +15,8 @@ Element::Element(const QString& src, const QPoint &position, Page *parent):
     if(image.isNull())
         qDebug()<<"LOG[Element] : image is null " << src;
 
-    this->position = position;
-
     // initiatilisation du QLabel
     setParent(parent);
     setPixmap(image);
-    move(this->position);
+    move(position);
 }

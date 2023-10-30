@@ -15,7 +15,6 @@ class Element : public QLabel
 public:
     Element(const QString& src, const QPoint &position, Page *parent = nullptr);
 protected:
-    QPoint position;
     Page* page;
 private:
     QPixmap image;

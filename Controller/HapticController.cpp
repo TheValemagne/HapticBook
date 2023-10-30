@@ -25,16 +25,18 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         this->addEffect("sand", "Sand");
         this->addEffect("water", "Water");
         this->addEffect("shaking", "Shaking");
+        this->addEffect("landing", "Landing");
         this->addEffect("heavy_load", "HeavyLoad");
     } else {
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");
+        delete mProject;
+        mProject = NULL;
         return;
     }
 }
 
 HapticController::~HapticController()
 {
-    qDeleteAll(effects);
     effects.clear();
     if (mProject)
         delete mProject;
@@ -61,7 +63,11 @@ void HapticController::addEffect(const QString &keyName, const CHAR *effectName)
     effects[keyName] = mProject->CreateEffect(effectName,
                                                                                 mMouse,
                                                                                 IMM_PARAM_NODOWNLOAD);
-    if (!effects[keyName]) QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
+    if (!effects[keyName]){
+        QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
+        CImmCompoundEffect* effect = effects.take(keyName);
+        delete effect;
+    }
 }
 
 bool HapticController::isEffectInitialized(const QString &effectName)
