@@ -6,15 +6,19 @@ TreeTrunk::TreeTrunk(const QString& src,
                        Page *parent) :
     MovableElement(src, position, parent)
 {
-
+    isEffectActive = false;
 }
 
 void TreeTrunk::mouseReleaseEvent(QMouseEvent *event){
     MovableElement::mouseReleaseEvent(event);
     HapticController::getInstance()->stopEffect("heavy_load");
+    isEffectActive = false;
 }
 
-void TreeTrunk::mousePressEvent(QMouseEvent *event){
-    MovableElement::mousePressEvent(event);
-    HapticController::getInstance()->startEffect("heavy_load");
+void TreeTrunk::mouseMoveEvent(QMouseEvent *event){
+    MovableElement::mouseMoveEvent(event);
+    if (isMovable && !isEffectActive){
+        HapticController::getInstance()->startEffect("heavy_load");
+        isEffectActive = true;
+    }
 }

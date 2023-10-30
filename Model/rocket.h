@@ -7,8 +7,10 @@ class Rocket : public MovableElement
 {
 public:
     Rocket(const QString& src, const QPoint &position, Page *parent = nullptr);
-    void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+protected:
+    bool isEffectActive;
 };
 
 #endif // ROCKET_H
