@@ -15,9 +15,9 @@ SoundController::~SoundController()
 {
     qDeleteAll(sounds);
     sounds.clear();
-    if (instance != nullptr)
-        delete instance;
-        instance = nullptr;
+    if (instance) {
+       instance = nullptr;
+    };
 }
 
 SoundController* SoundController::instance = NULL;

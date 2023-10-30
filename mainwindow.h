@@ -37,6 +37,8 @@ private:
 
     SoundController* soundController;
     HapticController* hapticController;
+
+    void stopSoundsAndEffects();
 };
 
 #endif // MAINWINDOW_H

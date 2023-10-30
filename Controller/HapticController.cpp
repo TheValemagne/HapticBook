@@ -42,8 +42,7 @@ HapticController::~HapticController()
         delete mProject;
     if (mMouse)
         delete mMouse;
-    if (instance != nullptr)
-        delete instance;
+    if (instance)
         instance = nullptr;
 }
 

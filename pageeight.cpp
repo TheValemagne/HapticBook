@@ -22,5 +22,5 @@ void PageEight::onMouseMove()
 
 void PageEight::on_closeButton_clicked()
 {
-  qApp->closeAllWindows();
+    QApplication::quit();
 }

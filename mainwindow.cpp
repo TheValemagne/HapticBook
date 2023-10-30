@@ -65,7 +65,7 @@ MainWindow::~MainWindow()
 
     // supprimer les controlleurs
     if (hapticController)
-        delete hapticController;
+       delete hapticController;
     if (soundController)
         delete soundController;
 }
@@ -73,19 +73,27 @@ MainWindow::~MainWindow()
 void MainWindow::keyReleaseEvent(QKeyEvent *event) 
 {
     if (event->key() == Qt::Key_Escape) {
-        close();
+        stopSoundsAndEffects();
+        QApplication::quit();
     }
     else if (event->key() == Qt::Key_Left) {
+        stopSoundsAndEffects();
         ui->book->setCurrentIndex(ui->book->currentIndex()-1);
     }
     else if (event->key() == Qt::Key_Right) {
+        stopSoundsAndEffects();
         ui->book->setCurrentIndex(ui->book->currentIndex()+1);
     }
 }
 
+void MainWindow::stopSoundsAndEffects()
+{
+    hapticController->stopAllEffects();
+    soundController->stopAllSounds();
+}
+
 void MainWindow::on_startButton_clicked()
 {
+    stopSoundsAndEffects();
     ui->book->setCurrentIndex(1);
-    this->soundController->stopAllSounds();
-    this->hapticController->stopAllEffects();
 }
