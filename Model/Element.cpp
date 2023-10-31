@@ -6,7 +6,9 @@
 #include <QDebug>
 #include <QString>
 
-Element::Element(const QString& src, const QPoint &position, Page *parent):
+Element::Element(const QString& src,
+                               const QPoint &position,
+                               Page *parent):
     QLabel(parent)
 {
     // initiatilisation des attributs

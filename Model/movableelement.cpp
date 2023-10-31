@@ -2,8 +2,8 @@
 #include <QDebug>
 
 MovableElement::MovableElement(const QString& src,
-                               const QPoint &position,
-                               Page *parent) :
+                                                            const QPoint &position,
+                                                            Page *parent) :
     Element(src, position, parent)
 {
     isMovable = false;
@@ -12,12 +12,12 @@ MovableElement::MovableElement(const QString& src,
 void MovableElement::mousePressEvent(QMouseEvent *event){
     isMovable = true;
     mousePos = event->pos();
-     qDebug()<<"LOG[MovableElement] : click " << isMovable;
+     qDebug()<<"LOG[MovableElement] : click";
 }
 
 void MovableElement::mouseReleaseEvent(QMouseEvent *event){
     isMovable = false;
-    qDebug()<<"LOG[MovableElement] : release " << isMovable;
+    qDebug()<<"LOG[MovableElement] : release";
 }
 
 void MovableElement::mouseMoveEvent(QMouseEvent *event){

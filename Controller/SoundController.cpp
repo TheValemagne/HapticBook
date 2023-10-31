@@ -20,11 +20,11 @@ SoundController::~SoundController()
     };
 }
 
-SoundController* SoundController::instance = NULL;
+SoundController* SoundController::instance = nullptr;
 
 SoundController* SoundController::getInstance()
 {
-    if(instance == nullptr){
+    if(!instance){
         instance = new SoundController();
     }
 

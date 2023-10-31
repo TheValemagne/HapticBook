@@ -2,8 +2,8 @@
 #include "Controller/HapticController.h"
 
 Rocket::Rocket(const QString& src,
-               const QPoint &position,
-               Page *parent) :
+                          const QPoint &position,
+                          Page *parent) :
     MovableElement(src, position, parent)
 {
     isEffectActive = false;

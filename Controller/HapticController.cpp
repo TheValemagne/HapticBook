@@ -12,6 +12,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
     if (!mMouse->Initialize(qWinAppInst(), (HWND)mWindow->effectiveWinId())) {
         delete mMouse;
         mMouse = NULL;
+        mProject = NULL;
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to initialize mouse device, haptic effects will not be available");
         return;
     }
@@ -50,7 +51,7 @@ HapticController* HapticController::instance = nullptr;
 
 HapticController* HapticController::getInstance(QMainWindow *window)
 {
-    if (window != nullptr && instance == nullptr){
+    if (window && !instance){
         instance = new HapticController(window);
     }
 

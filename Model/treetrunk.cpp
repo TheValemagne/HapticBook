@@ -2,8 +2,8 @@
 #include "Controller/HapticController.h"
 
 TreeTrunk::TreeTrunk(const QString& src,
-                       const QPoint &position,
-                       Page *parent) :
+                                      const QPoint &position,
+                                      Page *parent) :
     MovableElement(src, position, parent)
 {
     isEffectActive = false;
