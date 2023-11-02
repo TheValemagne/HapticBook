@@ -56,7 +56,7 @@ void PageFive::on_sosButton_clicked()
 {
     if (!hasCollide){
         hasCollide = true;
-        Utils::delay(2);
+        Utils::delay(1);
         nextPage();
     }
 }

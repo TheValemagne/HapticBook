@@ -36,7 +36,7 @@
   <widget class="QLabel" name="notification">
    <property name="geometry">
     <rect>
-     <x>11</x>
+     <x>712</x>
      <y>530</y>
      <width>302</width>
      <height>157</height>
@@ -52,7 +52,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>14</x>
+     <x>715</x>
      <y>701</y>
      <width>299</width>
      <height>56</height>

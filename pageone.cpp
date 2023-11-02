@@ -38,7 +38,7 @@ void PageOne::onMouseMove()
         HapticController::getInstance()->stopAllEffects();
         HapticController::getInstance()->startEffect("landing");
         // TODO effet crash + son
-        Utils::delay(1); // attend 1 sec avant de passer à la suite
+        Utils::delay(0.6); // attend 1 sec avant de passer à la suite
         nextPage();
     }
 }

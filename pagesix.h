@@ -21,6 +21,8 @@ private slots:
 
 private:
     Ui::PageSix *ui;
+    bool hasTouchedFur;
+    void showNotification(bool isVisible);
 };
 
 #endif // PAGESIX_H

@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     pageseven.cpp \
     Model/rocket.cpp \
     Model/treetrunk.cpp \
-    Model/clickablelabel.cpp
+    Model/clickablelabel.cpp \
+    Model/lemur.cpp
 
 HEADERS  += mainwindow.h \
         Controller/HapticController.h \
@@ -54,7 +55,8 @@ HEADERS  += mainwindow.h \
     pageseven.h \
     Model/rocket.h \
     Model/treetrunk.h \
-    Model/clickablelabel.h
+    Model/clickablelabel.h \
+    Model/lemur.h
 
 FORMS += mainwindow.ui \
     pageone.ui \
