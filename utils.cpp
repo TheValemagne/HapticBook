@@ -20,7 +20,7 @@ bool Utils::collision(QLabel* element1, QLabel* element2)
     return collisionDetected;
 }
 
-void Utils::delay(int secondsToWait)
+void Utils::delay(float secondsToWait)
 {
         QEventLoop loop;
         QTimer t;
