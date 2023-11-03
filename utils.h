@@ -8,7 +8,7 @@ class Utils
 public:
     Utils();
     static bool collision(QLabel* elem1, QLabel* elem2);
-    static void delay(float secondsToWait);
+    static void delay(double secondsToWait);
 };
 
 #endif // UTILS_H

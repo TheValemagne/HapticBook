@@ -7,7 +7,7 @@
 #include"utils.h"
 
 PageThree::PageThree(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 6),
     ui(new Ui::PageThree)
 {
     ui->setupUi(this);

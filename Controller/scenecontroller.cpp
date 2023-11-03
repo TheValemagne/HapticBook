@@ -2,7 +2,7 @@
 // Created by remiz on 21/10/2023.
 //
 
-#include "SceneController.h"
+#include "scenecontroller.h"
 
 
 //SceneController::SceneController(Book *book) {

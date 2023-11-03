@@ -1,7 +1,7 @@
 #ifndef LEMUR_H
 #define LEMUR_H
 
-#include "Element.h"
+#include "element.h"
 #include <QEvent>
 
 class Lemur : public Element

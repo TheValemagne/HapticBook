@@ -12,15 +12,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = HapticBook
 TEMPLATE = app
 
+CONFIG += resources_big
 INCLUDEPATH += "C:\Program Files\Immersion Corporation\IFC23\inc"
 LIBS += "C:\Program Files\Immersion Corporation\IFC23\lib\IFC23.lib"
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-        Controller/HapticController.cpp \
-        Controller/SceneController.cpp \
-        Controller/SoundController.cpp \
-        Model/Element.cpp \
         pageone.cpp \
         pagetwo.cpp \
         Model/movableelement.cpp \
@@ -35,13 +32,13 @@ SOURCES += main.cpp\
     Model/rocket.cpp \
     Model/treetrunk.cpp \
     Model/clickablelabel.cpp \
-    Model/lemur.cpp
+    Model/lemur.cpp \
+    Model/element.cpp \
+    Controller/hapticcontroller.cpp \
+    Controller/scenecontroller.cpp \
+    Controller/soundcontroller.cpp
 
 HEADERS  += mainwindow.h \
-        Controller/HapticController.h \
-        Controller/SceneController.h \
-        Controller/SoundController.h \
-        Model/Element.h \
         pageone.h \
         pagetwo.h \
         Model/movableelement.h \
@@ -56,7 +53,11 @@ HEADERS  += mainwindow.h \
     Model/rocket.h \
     Model/treetrunk.h \
     Model/clickablelabel.h \
-    Model/lemur.h
+    Model/lemur.h \
+    Model/element.h \
+    Controller/hapticcontroller.h \
+    Controller/scenecontroller.h \
+    Controller/soundcontroller.h
 
 FORMS += mainwindow.ui \
     pageone.ui \

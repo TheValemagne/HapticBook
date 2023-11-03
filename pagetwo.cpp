@@ -6,7 +6,7 @@
 #include<QDebug>
 #include"utils.h"
 PageTwo::PageTwo(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 2),
     ui(new Ui::PageTwo)
 {
     ui->setupUi(this);

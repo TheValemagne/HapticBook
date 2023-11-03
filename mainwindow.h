@@ -4,8 +4,8 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 
-#include "Controller/SoundController.h"
-#include "Controller/HapticController.h"
+#include "Controller/soundcontroller.h"
+#include "Controller/hapticcontroller.h"
 #include "page.h"
 
 namespace Ui {

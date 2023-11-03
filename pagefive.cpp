@@ -4,7 +4,7 @@
 #include "utils.h"
 
 PageFive::PageFive(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 5),
     ui(new Ui::PageFive)
 {
     ui->setupUi(this);

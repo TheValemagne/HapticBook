@@ -7,26 +7,30 @@
 #include <QWidget>
 #include <QDebug>
 
-#include "Model/Element.h"
+#include "Model/element.h"
 
 class Element;
 class Page : public QWidget
 {
 public:
-    Page(QStackedWidget *parent);
+    Page(QStackedWidget *parent, int pageIndex);
     ~Page();
-    void nextPage();
-    void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
-    // Elements management
-    void addElement(const QString& elementName, Element* element);
-    Element *getElement(const QString& elementName);
+    bool isCurrentPage();
     // abstract
     virtual void onMouseMove() = 0; // custom function for listen element movement
 private:
     QMap<QString, Element*> elements;
     QStackedWidget* book;
+    int pageIndex;
  protected:
     bool hasCollide;
+    void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
+    void nextPage();
+    void stopSoundsAndEffects();
+
+    // Elements management
+    void addElement(const QString& elementName, Element* element);
+    Element *getElement(const QString& elementName);
 };
 
 #endif // PAGE_H

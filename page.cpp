@@ -1,10 +1,11 @@
 #include "page.h"
-#include "Controller/HapticController.h"
-#include "Controller/SoundController.h"
+#include "Controller/hapticcontroller.h"
+#include "Controller/soundcontroller.h"
 
-Page::Page(QStackedWidget *parent): QWidget(parent)
+Page::Page(QStackedWidget *parent, int pageIndex): QWidget(parent)
 {
     this->book = parent;
+    this->pageIndex = pageIndex;
     hasCollide = false;
 }
 
@@ -14,11 +15,15 @@ Page::~Page()
     elements.clear();
 }
 
+bool Page::isCurrentPage()
+{
+    return this->book->currentIndex() == pageIndex;
+}
+
 void Page::nextPage() 
 {
     // arreter tous les effets en cours de la page
-    HapticController::getInstance()->stopAllEffects();
-    SoundController::getInstance()->stopAllSounds();
+    stopSoundsAndEffects();
 
    qDebug() << "LOG[Page] : " <<  "Current Index : " << book->currentIndex() << "Count : " << book->count();
    if(book->currentIndex() < book->count() - 1){
@@ -40,4 +45,10 @@ void Page::addElement(const QString& elementName, Element* element)
 Element* Page::getElement(const QString &elementName)
 {
     return elements.value(elementName);
+}
+
+void Page::stopSoundsAndEffects()
+{
+    HapticController::getInstance()->stopAllEffects();
+    SoundController::getInstance()->stopAllSounds();
 }

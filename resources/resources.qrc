@@ -35,6 +35,8 @@
     <qresource prefix="/sounds">
         <file alias="test.wav">Sounds/test.wav</file>
         <file alias="intro.wav">Sounds/intro.wav</file>
+        <file alias="alarm.mp3">Sounds/alarm.mp3</file>
+        <file alias="explosion.mp3">Sounds/explosion.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

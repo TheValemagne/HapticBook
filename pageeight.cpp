@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 
 PageEight::PageEight(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 8),
     ui(new Ui::PageEight)
 {
     ui->setupUi(this);

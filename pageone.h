@@ -18,6 +18,7 @@ public:
 
 private:
     Ui::PageOne *ui;
+    void onCollision();
 };
 
 #endif // PAGEONE_H

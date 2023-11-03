@@ -1,5 +1,5 @@
 #include "treetrunk.h"
-#include "Controller/HapticController.h"
+#include "Controller/hapticcontroller.h"
 
 TreeTrunk::TreeTrunk(const QString& src,
                                       const QPoint &position,

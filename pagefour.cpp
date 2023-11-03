@@ -2,7 +2,7 @@
 #include "ui_pagefour.h"
 
 PageFour::PageFour(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 4),
     ui(new Ui::PageFour)
 {
     ui->setupUi(this);

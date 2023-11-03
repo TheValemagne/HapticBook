@@ -1,5 +1,6 @@
 #include "rocket.h"
-#include "Controller/HapticController.h"
+#include "Controller/hapticcontroller.h"
+#include "Controller/soundcontroller.h"
 
 Rocket::Rocket(const QString& src,
                           const QPoint &position,
@@ -7,6 +8,7 @@ Rocket::Rocket(const QString& src,
     MovableElement(src, position, parent)
 {
     isEffectActive = false;
+    isSoundPlaying = false;
 }
 
 void Rocket::mouseReleaseEvent(QMouseEvent *event){
@@ -17,7 +19,12 @@ void Rocket::mouseReleaseEvent(QMouseEvent *event){
 
 void Rocket::mouseMoveEvent(QMouseEvent *event){
     MovableElement::mouseMoveEvent(event);
-    if(isMovable && !isEffectActive){
+    if (isMovable && !isSoundPlaying) {
+        SoundController::getInstance()->playSound("alarm", true);
+        isSoundPlaying = true;
+    }
+
+    if (isMovable && !isEffectActive){
         HapticController::getInstance()->startEffect("shaking");
         isEffectActive = true;
     }

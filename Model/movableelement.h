@@ -3,7 +3,7 @@
 
 #include <QPoint>
 #include <QMouseEvent>
-#include "Element.h"
+#include "element.h"
 
 class MovableElement : public Element
 {

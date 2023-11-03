@@ -1,14 +1,15 @@
-#include<QString>
-#include<QDebug>
+#include <QString>
+#include <QDebug>
 
 #include "pageone.h"
 #include "ui_pageone.h"
 #include "Model/rocket.h"
-#include "Controller/HapticController.h"
-#include"utils.h"
+#include "Controller/hapticcontroller.h"
+#include "Controller/soundcontroller.h"
+#include "utils.h"
 
 PageOne::PageOne(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 1),
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
@@ -26,19 +27,27 @@ PageOne::~PageOne()
     delete ui;
 }
 
+void PageOne::onCollision()
+{
+    qDebug() << "LOG[PageOne] : rocket over earth";
+
+    stopSoundsAndEffects();
+    SoundController::getInstance()->playSound("explosion");
+    Utils::delay(0.2); // attend 20 ms
+
+    HapticController::getInstance()->startEffect("landing");
+    Utils::delay(2); // attend 2 sec avant de passer à la suite
+}
+
 void PageOne::onMouseMove()
 {
     qDebug() << "LOG[PageOne] : onMouseMove()";
     Element* rocket = getElement("rocket");
 
     if (Utils::collision(rocket,  ui->earth) && !hasCollide){
-        qDebug() << "LOG[PageOne] : rocket over earth";
         hasCollide = true;
         rocket->setHidden(true);
-        HapticController::getInstance()->stopAllEffects();
-        HapticController::getInstance()->startEffect("landing");
-        // TODO effet crash + son
-        Utils::delay(0.6); // attend 1 sec avant de passer à la suite
+        onCollision();
         nextPage();
     }
 }

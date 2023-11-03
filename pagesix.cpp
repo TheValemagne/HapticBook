@@ -4,7 +4,7 @@
 #include "utils.h"
 
 PageSix::PageSix(QStackedWidget *parent) :
-    Page(parent),
+    Page(parent, 6),
     ui(new Ui::PageSix)
 {
     ui->setupUi(this);
@@ -17,6 +17,7 @@ PageSix::PageSix(QStackedWidget *parent) :
 
     // cacher la notification et le bouton confirmer position
     showNotification(false);
+    this->show();
 }
 
 PageSix::~PageSix()

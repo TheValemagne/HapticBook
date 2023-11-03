@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
-#include "HapticController.h"
+#include "hapticcontroller.h"
 
 HapticController::HapticController(QMainWindow *w): mWindow(w) {
     // Init mouse

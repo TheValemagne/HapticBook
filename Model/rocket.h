@@ -11,6 +11,7 @@ public:
     void mouseMoveEvent(QMouseEvent *event) override;
 protected:
     bool isEffectActive;
+    bool isSoundPlaying;
 };
 
 #endif // ROCKET_H
