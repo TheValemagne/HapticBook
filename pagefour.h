@@ -12,7 +12,7 @@ class PageFour : public Page
     Q_OBJECT
 
 public:
-    explicit PageFour(QStackedWidget *parent = 0, int pageIndex);
+    explicit PageFour(QStackedWidget *parent = 0);
     ~PageFour();
     void onMouseMove() override;
 
