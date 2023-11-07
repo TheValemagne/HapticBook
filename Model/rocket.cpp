@@ -7,13 +7,14 @@ Rocket::Rocket(const QString& src,
                           Page *parent) :
     MovableElement(src, position, parent)
 {
-    isEffectActive = false;
-    isSoundPlaying = false;
+    isEffectActive = false;  // TODO : Can be check in the Haptic Controller
+    isSoundPlaying = false;  // TODO : Can be check in the Sound Controller
 }
 
 void Rocket::mouseReleaseEvent(QMouseEvent *event){
     MovableElement::mouseReleaseEvent(event);
     HapticController::getInstance()->stopEffect("shaking");
+    // TODO : Stop alarm sound ?
     isEffectActive = false;
 }
 
