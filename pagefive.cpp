@@ -1,6 +1,7 @@
 #include "pagefive.h"
 #include "ui_pagefive.h"
 #include "Model/treetrunk.h"
+#include "Controller/hapticcontroller.h"
 #include "utils.h"
 
 PageFive::PageFive(QStackedWidget *parent) :
@@ -56,7 +57,8 @@ void PageFive::on_sosButton_clicked()
 {
     if (!hasCollide){
         hasCollide = true;
-        Utils::delay(1);
+        HapticController::getInstance()->startEffect("pulse");
+        Utils::delay(0.5);
         nextPage();
     }
 }
