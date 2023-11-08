@@ -11,8 +11,7 @@ Page::Page(QStackedWidget *parent, int pageIndex): QWidget(parent)
 
 Page::~Page()
 {
-    qDeleteAll(elements);
-    elements.clear();
+
 }
 
 bool Page::isCurrentPage()
@@ -35,16 +34,6 @@ void Page::changeCurcor(const QString& cursorImage, int cursorX, int cursorY)
 {
     QCursor c = QCursor(QPixmap(cursorImage), cursorX, cursorY);
     setCursor(c);
-}
-
-void Page::addElement(const QString& elementName, Element* element)
-{
-    elements.insert(elementName, element);
-}
-
-Element* Page::getElement(const QString &elementName)
-{
-    return elements.value(elementName);
 }
 
 void Page::stopSoundsAndEffects()

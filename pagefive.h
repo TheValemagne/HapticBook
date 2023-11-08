@@ -23,6 +23,14 @@ private slots:
 
     void on_sosButton_clicked();
 
+    void on_treeTrunk1_labelMove();
+
+    void on_treeTrunk1_mouseRelease();
+
+    void on_treeTrunk2_labelMove();
+
+    void on_treeTrunk2_mouseRelease();
+
 private:
     Ui::PageFive *ui;
 };

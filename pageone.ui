@@ -62,10 +62,37 @@
     <string/>
    </property>
   </widget>
+  <widget class="MovableLabel" name="rocket">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>318</width>
+     <height>203</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/space_ship.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>spacialBeacon</zorder>
   <zorder>earth</zorder>
+  <zorder>rocket</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MovableLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">Model/movablelabel.h</header>
+   <slots>
+    <signal>labelMove()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -19,7 +19,6 @@ public:
     // abstract
     virtual void onMouseMove() = 0; // custom function for listen element movement
 private:
-    QMap<QString, Element*> elements;
     QStackedWidget* book;
     int pageIndex;
  protected:
@@ -27,10 +26,6 @@ private:
     void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
     void nextPage();
     void stopSoundsAndEffects();
-
-    // Elements management
-    void addElement(const QString& elementName, Element* element);
-    Element *getElement(const QString& elementName);
 };
 
 #endif // PAGE_H

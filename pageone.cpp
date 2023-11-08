@@ -3,7 +3,6 @@
 
 #include "pageone.h"
 #include "ui_pageone.h"
-#include "Model/rocket.h"
 #include "Controller/hapticcontroller.h"
 #include "Controller/soundcontroller.h"
 #include "utils.h"
@@ -13,12 +12,6 @@ PageOne::PageOne(QStackedWidget *parent) :
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
-    // Remplacez par le chemin de votre image
-    QString qs = QString(":/images/space_ship.png");
-    Element *rocket = new Rocket(qs, QPoint(50, 50), this); // Remplacez "parentWidget" par le parent approprié
-    addElement("rocket", rocket);
-
-    // Ajoutez l'objet Element à votre interface utilisateur, par exemple, à un layout ou à un widget
     this->show();
 }
 
@@ -42,14 +35,34 @@ void PageOne::onCollision()
 void PageOne::onMouseMove()
 {
     qDebug() << "LOG[PageOne] : onMouseMove()";
-    Element* rocket = getElement("rocket");
 
-    if (Utils::collision(rocket,  ui->earth) && !hasCollide){
+    if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
         hasCollide = true;
-        rocket->setHidden(true);
+        ui->rocket->setHidden(true);
         onCollision();
         nextPage();
     }
 }
 
 
+
+void PageOne::on_rocket_labelMove()
+{
+    onMouseMove();
+
+    if (ui->rocket->isMovable && !ui->rocket->isSoundPlaying) {
+        SoundController::getInstance()->playSound("alarm", true);
+        ui->rocket->isSoundPlaying = true;
+    }
+
+    if (ui->rocket->isMovable && !ui->rocket->isEffectActive){
+        HapticController::getInstance()->startEffect("shaking");
+        ui->rocket->isEffectActive = true;
+    }
+}
+
+void PageOne::on_rocket_mouseRelease()
+{
+    HapticController::getInstance()->stopEffect("shaking");
+    ui->rocket->isEffectActive = false;
+}

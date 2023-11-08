@@ -20,7 +20,6 @@ SOURCES += main.cpp\
         mainwindow.cpp \
         pageone.cpp \
         pagetwo.cpp \
-        Model/movableelement.cpp \
     page.cpp \
     utils.cpp \
     pagethree.cpp \
@@ -29,19 +28,17 @@ SOURCES += main.cpp\
     pagefive.cpp \
     pagesix.cpp \
     pageseven.cpp \
-    Model/rocket.cpp \
-    Model/treetrunk.cpp \
     Model/clickablelabel.cpp \
     Model/lemur.cpp \
     Model/element.cpp \
     Controller/hapticcontroller.cpp \
     Controller/scenecontroller.cpp \
-    Controller/soundcontroller.cpp
+    Controller/soundcontroller.cpp \
+    Model/movablelabel.cpp
 
 HEADERS  += mainwindow.h \
         pageone.h \
         pagetwo.h \
-        Model/movableelement.h \
     page.h \
     utils.h \
     pagethree.h \
@@ -50,14 +47,13 @@ HEADERS  += mainwindow.h \
     pagefive.h \
     pagesix.h \
     pageseven.h \
-    Model/rocket.h \
-    Model/treetrunk.h \
     Model/clickablelabel.h \
     Model/lemur.h \
     Model/element.h \
     Controller/hapticcontroller.h \
     Controller/scenecontroller.h \
-    Controller/soundcontroller.h
+    Controller/soundcontroller.h \
+    Model/movablelabel.h
 
 FORMS += mainwindow.ui \
     pageone.ui \

@@ -79,8 +79,42 @@ background-color: rgba(255, 255, 255, 0);</string>
     <string/>
    </property>
   </widget>
+  <widget class="MovableLabel" name="treeTrunk1">
+   <property name="geometry">
+    <rect>
+     <x>403</x>
+     <y>538</y>
+     <width>372</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/tree_trunk_1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="MovableLabel" name="treeTrunk2">
+   <property name="geometry">
+    <rect>
+     <x>385</x>
+     <y>573</y>
+     <width>372</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/images/tree_trunk_2.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>smallEmergencyTransmitter</zorder>
+  <zorder>treeTrunk1</zorder>
+  <zorder>treeTrunk2</zorder>
   <zorder>emergencyTransmitter</zorder>
   <zorder>sosButton</zorder>
  </widget>
@@ -88,7 +122,16 @@ background-color: rgba(255, 255, 255, 0);</string>
   <customwidget>
    <class>ClickableLabel</class>
    <extends>QLabel</extends>
-   <header location="global">Model/clickablelabel.h</header>
+   <header>Model/clickablelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MovableLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">Model/movablelabel.h</header>
+   <slots>
+    <signal>labelMove()</signal>
+    <signal>mouseRelease()</signal>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>

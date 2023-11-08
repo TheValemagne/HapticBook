@@ -13,8 +13,6 @@ PageSix::PageSix(QStackedWidget *parent) :
 
     QString qs = QString(":/images/lemur.png");
     Element *lemur = new Lemur(qs, QPoint(301, 0), this); // Remplacez "parentWidget" par le parent approprié
-    addElement("lemur", lemur);
-
     // cacher la notification et le bouton confirmer position
     showNotification(false);
     this->show();

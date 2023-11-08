@@ -16,6 +16,11 @@ public:
     ~PageOne();
     void onMouseMove() override;
 
+private slots:
+    void on_rocket_labelMove();
+
+    void on_rocket_mouseRelease();
+
 private:
     Ui::PageOne *ui;
     void onCollision();

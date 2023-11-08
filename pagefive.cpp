@@ -1,6 +1,5 @@
 #include "pagefive.h"
 #include "ui_pagefive.h"
-#include "Model/treetrunk.h"
 #include "Controller/hapticcontroller.h"
 #include "utils.h"
 
@@ -12,16 +11,6 @@ PageFive::PageFive(QStackedWidget *parent) :
 
     changeCurcor(":images/ips_hand.png", 64, 65);
     showEmergencyTransmitter(false);
-
-    Element *treeTrunk1 = new TreeTrunk(
-                QString(":/images/tree_trunk_1.png"),
-                QPoint(403, 538), this);
-    Element *treeTrunk2 = new TreeTrunk(
-                QString(":/images/tree_trunk_2.png"),
-                QPoint(385, 573), this);
-
-    addElement("treeTrunk1", treeTrunk1);
-    addElement("treeTrunk2", treeTrunk2);
 
     this->show();
 }
@@ -61,4 +50,32 @@ void PageFive::on_sosButton_clicked()
         Utils::delay(0.5);
         nextPage();
     }
+}
+
+void PageFive::on_treeTrunk1_labelMove()
+{
+    if (ui->treeTrunk1->isMovable && !ui->treeTrunk1->isEffectActive){
+        HapticController::getInstance()->startEffect("heavy_load");
+        ui->treeTrunk1->isEffectActive = true;
+    }
+}
+
+void PageFive::on_treeTrunk1_mouseRelease()
+{
+    HapticController::getInstance()->stopEffect("heavy_load");
+    ui->treeTrunk1->isEffectActive = false;
+}
+
+void PageFive::on_treeTrunk2_labelMove()
+{
+    if (ui->treeTrunk2->isMovable && !ui->treeTrunk2->isEffectActive){
+        HapticController::getInstance()->startEffect("heavy_load");
+        ui->treeTrunk2->isEffectActive = true;
+    }
+}
+
+void PageFive::on_treeTrunk2_mouseRelease()
+{
+    HapticController::getInstance()->stopEffect("heavy_load");
+    ui->treeTrunk2->isEffectActive = false;
 }
