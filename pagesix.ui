@@ -66,7 +66,35 @@ background-color: rgba(255, 255, 255, 0);</string>
     <string/>
    </property>
   </widget>
+  <widget class="Lemur" name="lemur">
+   <property name="geometry">
+    <rect>
+     <x>301</x>
+     <y>0</y>
+     <width>522</width>
+     <height>534</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/lemur.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Lemur</class>
+   <extends>QLabel</extends>
+   <header>lemur.h</header>
+   <slots>
+    <signal>mouseMove()</signal>
+    <signal>enterEvent()</signal>
+    <signal>leaveEvent()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,6 +1,7 @@
 #include "pagesix.h"
 #include "ui_pagesix.h"
 #include "Model/lemur.h"
+#include "Controller/hapticcontroller.h"
 #include "utils.h"
 
 PageSix::PageSix(QStackedWidget *parent) :
@@ -10,10 +11,6 @@ PageSix::PageSix(QStackedWidget *parent) :
     ui->setupUi(this);
     changeCurcor(":images/ips_hand.png", 43, 43);
     hasTouchedFur = false;
-
-    QString qs = QString(":/images/lemur.png");
-    Element *lemur = new Lemur(qs, QPoint(301, 0), this); // Remplacez "parentWidget" par le parent approprié
-    // cacher la notification et le bouton confirmer position
     showNotification(false);
     this->show();
 }
@@ -46,4 +43,27 @@ void PageSix::on_answerButton_clicked()
         hasCollide = true;
         nextPage();
     }
+}
+
+void PageSix::on_lemur_enterEvent()
+{
+    if (!isCurrentPage()){ // avec mouse tracking, l'événement est capter même lorsque la page n'est pas affiché à l'écran
+        return;
+    }
+    qDebug() << "LOG[Lemur] enter event";
+    HapticController::getInstance()->startEffect("fur");
+}
+
+void PageSix::on_lemur_leaveEvent()
+{
+    qDebug() << "LOG[Lemur] leave event";
+    HapticController::getInstance()->stopEffect("fur");
+}
+
+void PageSix::on_lemur_mouseMove()
+{
+    if (!isCurrentPage()){ // avec mouse tracking, l'événement est capter même lorsque la page n'est pas affiché à l'écran
+       return;
+    }
+    onMouseMove();
 }

@@ -30,9 +30,7 @@ SOURCES += main.cpp\
     pageseven.cpp \
     Model/clickablelabel.cpp \
     Model/lemur.cpp \
-    Model/element.cpp \
     Controller/hapticcontroller.cpp \
-    Controller/scenecontroller.cpp \
     Controller/soundcontroller.cpp \
     Model/movablelabel.cpp
 
@@ -49,9 +47,7 @@ HEADERS  += mainwindow.h \
     pageseven.h \
     Model/clickablelabel.h \
     Model/lemur.h \
-    Model/element.h \
     Controller/hapticcontroller.h \
-    Controller/scenecontroller.h \
     Controller/soundcontroller.h \
     Model/movablelabel.h
 

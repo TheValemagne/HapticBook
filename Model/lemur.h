@@ -1,15 +1,22 @@
 #ifndef LEMUR_H
 #define LEMUR_H
 
-#include "element.h"
+#include <QLabel>
 #include <QEvent>
 
-class Lemur : public Element
+class Lemur : public QLabel
 {
+    Q_OBJECT
 public:
-    Lemur(const QString& src, const QPoint &position, Page *parent = nullptr);
-    void mouseMoveEvent(QMouseEvent *event) override;
+    Lemur(QWidget* parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
+
+signals:
+    void mouseMove();
+    void enterEvent();
+    void leaveEvent();
+
 protected:
+    void mouseMoveEvent(QMouseEvent *event) override;
     virtual void enterEvent(QEvent *event) override;
     virtual void leaveEvent(QEvent  *event) override;
 };

@@ -19,6 +19,12 @@ public:
 private slots:
     void on_answerButton_clicked();
 
+    void on_lemur_enterEvent();
+
+    void on_lemur_leaveEvent();
+
+    void on_lemur_mouseMove();
+
 private:
     Ui::PageSix *ui;
     bool hasTouchedFur;
