@@ -10,6 +10,7 @@ SoundController::SoundController() {
 
     this->addSound("alarm", "qrc:/sounds/alarm.mp3");
     this->addSound("explosion", "qrc:/sounds/explosion.mp3");
+    this->addSound("main_theme", "qrc:/sounds/main_theme.mp3");
 }
 
 SoundController::~SoundController()

@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageSix);
     ui->book->addWidget(pageSeven);
     ui->book->addWidget(pageEight);
+
+    // son de démarrage
+    soundController->playSound("main_theme", true);
 }
 
 MainWindow::~MainWindow()
