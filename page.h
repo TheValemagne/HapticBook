@@ -7,9 +7,6 @@
 #include <QWidget>
 #include <QDebug>
 
-#include "Model/element.h"
-
-class Element;
 class Page : public QWidget
 {
 public:

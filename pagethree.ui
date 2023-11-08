@@ -34,8 +34,8 @@
     <rect>
      <x>161</x>
      <y>110</y>
-     <width>90</width>
-     <height>159</height>
+     <width>60</width>
+     <height>105</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -45,7 +45,35 @@
     <string/>
    </property>
   </widget>
+  <widget class="MovableLabel" name="wale">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>40</y>
+     <width>400</width>
+     <height>253</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/wale.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MovableLabel</class>
+   <extends>QLabel</extends>
+   <header>Model/movablelabel.h</header>
+   <slots>
+    <signal>mousePresse()</signal>
+    <signal>mouseRelease()</signal>
+    <signal>labelMove()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
