@@ -20,6 +20,7 @@ public:
         void startEffect(const QString& effectName);
         void stopEffect(const QString& effectName);
         void stopAllEffects();
+        bool isEffectPlaying(const QString& effectName);
 
 protected:
         HapticController(QMainWindow *window);

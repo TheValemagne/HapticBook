@@ -104,3 +104,11 @@ void HapticController::stopAllEffects()
         ++it;
     }
 }
+
+bool HapticController::isEffectPlaying(const QString &effectName)
+{
+    if (this->isEffectInitialized(effectName)) {
+        return effectsIsPlaying[effectName];
+    }
+    return false;
+}
