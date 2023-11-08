@@ -50,19 +50,16 @@ void PageOne::on_rocket_labelMove()
 {
     onMouseMove();
 
-    if (ui->rocket->isMovable && !ui->rocket->isSoundPlaying) {
+    if (ui->rocket->isMovable) {
         SoundController::getInstance()->playSound("alarm", true);
-        ui->rocket->isSoundPlaying = true;
     }
 
-    if (ui->rocket->isMovable && !ui->rocket->isEffectActive){
+    if (ui->rocket->isMovable){
         HapticController::getInstance()->startEffect("shaking");
-        ui->rocket->isEffectActive = true;
     }
 }
 
 void PageOne::on_rocket_mouseRelease()
 {
     HapticController::getInstance()->stopEffect("shaking");
-    ui->rocket->isEffectActive = false;
 }

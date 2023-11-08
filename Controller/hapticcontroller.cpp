@@ -82,7 +82,7 @@ bool HapticController::isEffectInitialized(const QString &effectName)
 
 void HapticController::startEffect(const QString &effectName)
 {
-    if (this->isEffectInitialized(effectName)) {
+    if (this->isEffectInitialized(effectName) && !this->isEffectPlaying(effectName)) {
         effects[effectName]->Start();
         effectsIsPlaying[effectName] = true;
     }

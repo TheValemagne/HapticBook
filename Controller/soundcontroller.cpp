@@ -8,8 +8,6 @@
 SoundController::SoundController() {
     sounds = QMap<QString, QMediaPlayer*>();
 
-    this->addSound("intro", "qrc:/sounds/intro.wav");
-    this->addSound("test", "qrc:/sounds/test.wav");
     this->addSound("alarm", "qrc:/sounds/alarm.mp3");
     this->addSound("explosion", "qrc:/sounds/explosion.mp3");
 }
@@ -43,7 +41,7 @@ void SoundController::addSound(const QString& soundName, const QString& soundFil
 
 void SoundController::playSound(const QString& soundName, bool loop)
 {
-    if (sounds.contains(soundName))
+    if (sounds.contains(soundName) && !this->isSoundPlaying(soundName))
     {
         QMediaPlayer* mediaPlayer = sounds[soundName];
 
@@ -56,6 +54,17 @@ void SoundController::playSound(const QString& soundName, bool loop)
         }
 
         mediaPlayer->play();
+    }
+}
+
+void SoundController::restartSound(const QString& soundName)
+{
+    if (sounds.contains(soundName))
+    {
+        if (this->isSoundPlaying(soundName))
+            sounds[soundName]->setPosition(0);
+        else
+            this->playSound(soundName);
     }
 }
 

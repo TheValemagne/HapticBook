@@ -54,28 +54,24 @@ void PageFive::on_sosButton_clicked()
 
 void PageFive::on_treeTrunk1_labelMove()
 {
-    if (ui->treeTrunk1->isMovable && !ui->treeTrunk1->isEffectActive){
+    if (ui->treeTrunk1->isMovable){
         HapticController::getInstance()->startEffect("heavy_load");
-        ui->treeTrunk1->isEffectActive = true;
     }
 }
 
 void PageFive::on_treeTrunk1_mouseRelease()
 {
     HapticController::getInstance()->stopEffect("heavy_load");
-    ui->treeTrunk1->isEffectActive = false;
 }
 
 void PageFive::on_treeTrunk2_labelMove()
 {
-    if (ui->treeTrunk2->isMovable && !ui->treeTrunk2->isEffectActive){
+    if (ui->treeTrunk2->isMovable){
         HapticController::getInstance()->startEffect("heavy_load");
-        ui->treeTrunk2->isEffectActive = true;
     }
 }
 
 void PageFive::on_treeTrunk2_mouseRelease()
 {
     HapticController::getInstance()->stopEffect("heavy_load");
-    ui->treeTrunk2->isEffectActive = false;
 }

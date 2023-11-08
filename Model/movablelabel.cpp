@@ -4,8 +4,6 @@ MovableLabel::MovableLabel(QWidget* parent, Qt::WindowFlags f) :
     QLabel(parent, f)
 {
     isMovable = false;
-    isEffectActive = false;
-    isSoundPlaying = false;
 }
 
 void MovableLabel::mousePressEvent(QMouseEvent *event){
