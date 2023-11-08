@@ -41,7 +41,7 @@ void SoundController::addSound(const QString& soundName, const QString& soundFil
 
 void SoundController::playSound(const QString& soundName, bool loop)
 {
-    if (sounds.contains(soundName))
+    if (sounds.contains(soundName) && !this->isSoundPlaying(soundName))
     {
         QMediaPlayer* mediaPlayer = sounds[soundName];
 
@@ -54,6 +54,17 @@ void SoundController::playSound(const QString& soundName, bool loop)
         }
 
         mediaPlayer->play();
+    }
+}
+
+void SoundController::restartSound(const QString& soundName)
+{
+    if (sounds.contains(soundName))
+    {
+        if (this->isSoundPlaying(soundName))
+            sounds[soundName]->setPosition(0);
+        else
+            this->playSound(soundName);
     }
 }
 

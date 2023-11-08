@@ -13,8 +13,6 @@ public:
     MovableLabel(QWidget* parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
 
     bool isMovable;
-    bool isEffectActive; // TODO : refractoring
-    bool isSoundPlaying;
 
 signals:
     void mousePress();
