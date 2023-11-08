@@ -30,6 +30,7 @@ private:
     CImmProject* mProject;  // IFC Project
     QMainWindow *mWindow;   // Window
     QMap<QString, CImmCompoundEffect*> effects; // Effects
+    QMap<QString, bool> effectsIsPlaying;
 
     void addEffect(const QString& keyName, const CHAR *effectName);
     bool isEffectInitialized(const QString& effectName);

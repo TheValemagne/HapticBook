@@ -21,6 +21,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
     mProject = new CImmProject();
     if (mProject->OpenFile("./../HapticBook/resources/effects/effects.ifr", mMouse)) {
         effects = QMap<QString, CImmCompoundEffect*>();
+        effectsIsPlaying = QMap<QString, bool>();
 
         // Init all effects
         this->addEffect("sand", "Sand");
@@ -62,9 +63,11 @@ HapticController* HapticController::getInstance(QMainWindow *window)
 
 void HapticController::addEffect(const QString &keyName, const CHAR *effectName)
 {
+    effectsIsPlaying[keyName] = false;
     effects[keyName] = mProject->CreateEffect(effectName,
-                                                                                mMouse,
-                                                                                IMM_PARAM_NODOWNLOAD);
+                                              mMouse,
+                                              IMM_PARAM_NODOWNLOAD);
+
     if (!effects[keyName]){
         QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
         CImmCompoundEffect* effect = effects.take(keyName);
@@ -74,13 +77,14 @@ void HapticController::addEffect(const QString &keyName, const CHAR *effectName)
 
 bool HapticController::isEffectInitialized(const QString &effectName)
 {
-    return effects.contains(effectName) && effects[effectName];
+    return effects.contains(effectName) && effects[effectName] && effectsIsPlaying.contains(effectName);
 }
 
 void HapticController::startEffect(const QString &effectName)
 {
     if (this->isEffectInitialized(effectName)) {
         effects[effectName]->Start();
+        effectsIsPlaying[effectName] = true;
     }
 }
 
@@ -88,6 +92,7 @@ void HapticController::stopEffect(const QString &effectName)
 {
     if (this->isEffectInitialized(effectName)) {
         effects[effectName]->Stop();
+        effectsIsPlaying[effectName] = false;
     }
 }
 
