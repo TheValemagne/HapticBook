@@ -52,7 +52,6 @@ void PageOne::on_rocket_labelMove()
 
     if (ui->rocket->isMovable) {
         SoundController::getInstance()->playSound("alarm", true);
-        ui->rocket->isSoundPlaying = true;
     }
 
     if (ui->rocket->isMovable){
