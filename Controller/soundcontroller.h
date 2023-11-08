@@ -25,6 +25,7 @@ public:
     void playSound(const QString& soundName, bool loop = false);
     void stopSound(const QString& soundName);
     void stopAllSounds();
+    bool isSoundPlaying(const QString& soundName);
 protected:
     SoundController();
     static SoundController* instance;

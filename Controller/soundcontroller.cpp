@@ -3,6 +3,7 @@
 //
 
 #include "soundcontroller.h"
+#include <QMediaPlayer>
 
 SoundController::SoundController() {
     sounds = QMap<QString, QMediaPlayer*>();
@@ -73,4 +74,14 @@ void SoundController::stopAllSounds()
     for (const QString& key : sounds.keys()) {
         stopSound(key);
     }
+}
+
+bool SoundController::isSoundPlaying(const QString& soundName)
+{
+    if (sounds.contains(soundName))
+    {
+        QMediaPlayer* mediaPlayer = sounds[soundName];
+        return mediaPlayer->state() == QMediaPlayer::PlayingState;
+    }
+    return false;
 }
