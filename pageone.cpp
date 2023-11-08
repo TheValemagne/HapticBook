@@ -48,8 +48,6 @@ void PageOne::onMouseMove()
 
 void PageOne::on_rocket_labelMove()
 {
-    onMouseMove();
-
     if (ui->rocket->isMovable) {
         SoundController::getInstance()->playSound("alarm", true);
     }
@@ -57,6 +55,8 @@ void PageOne::on_rocket_labelMove()
     if (ui->rocket->isMovable){
         HapticController::getInstance()->startEffect("shaking");
     }
+
+    onMouseMove();
 }
 
 void PageOne::on_rocket_mouseRelease()
