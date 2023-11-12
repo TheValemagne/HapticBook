@@ -78,10 +78,27 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="explosion">
+   <property name="geometry">
+    <rect>
+     <x>894</x>
+     <y>669</y>
+     <width>80</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/explosion.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>spacialBeacon</zorder>
   <zorder>earth</zorder>
   <zorder>rocket</zorder>
+  <zorder>explosion</zorder>
  </widget>
  <customwidgets>
   <customwidget>
