@@ -2,6 +2,7 @@
 #include "pageeight.h"
 #include "ui_pageeight.h"
 #include "mainwindow.h"
+#include "Controller/soundcontroller.h"
 
 PageEight::PageEight(QStackedWidget *parent) :
     Page(parent, 8),
@@ -15,9 +16,10 @@ PageEight::~PageEight()
     delete ui;
 }
 
-void PageEight::onMouseMove()
+void PageEight::showEvent(QShowEvent *event)
 {
-    qDebug() << "LOG[PageEight] : onMouseMove()";
+    QWidget::showEvent(event);
+    SoundController::getInstance()->playSound("main_theme", true);
 }
 
 void PageEight::on_closeButton_clicked()

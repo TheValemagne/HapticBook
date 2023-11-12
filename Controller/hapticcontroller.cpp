@@ -29,7 +29,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         this->addEffect("shaking", "Shaking");
         this->addEffect("landing", "Landing");
         this->addEffect("heavy_load", "HeavyLoad");
-        this->addEffect("pulse", "Pulse");
+        this->addEffect("click", "Click");
         this->addEffect("fur", "Fur");
     } else {
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");

@@ -14,7 +14,6 @@ class PageSeven : public Page
 public:
     explicit PageSeven(QStackedWidget *parent = 0);
     ~PageSeven();
-    void onMouseMove() override;
 
 private:
     Ui::PageSeven *ui;

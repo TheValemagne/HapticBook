@@ -8,11 +8,10 @@ PageFive::PageFive(QStackedWidget *parent) :
     ui(new Ui::PageFive)
 {
     ui->setupUi(this);
+    treeTrunkPosition1 = ui->treeTrunk1->pos();
+    treeTrunkPosition2 = ui->treeTrunk2->pos();
 
     changeCurcor(":images/ips_hand.png", 64, 65);
-    showEmergencyTransmitter(false);
-
-    this->show();
 }
 
 PageFive::~PageFive()
@@ -20,9 +19,18 @@ PageFive::~PageFive()
     delete ui;
 }
 
-void PageFive::onMouseMove()
+void PageFive::showEvent(QShowEvent *event)
 {
-    qDebug() << "LOG[PageFive] : onMouseMove()";
+    Page::showEvent(event);
+    showEmergencyTransmitter(false);
+}
+
+void PageFive::hideEvent(QHideEvent *event)
+{
+    Page::hideEvent(event);
+    ui->smallEmergencyTransmitter->setHidden(false);
+    ui->treeTrunk1->move(treeTrunkPosition1);
+    ui->treeTrunk2->move(treeTrunkPosition2);
 }
 
  void PageFive::showEmergencyTransmitter(bool isVisible)
@@ -46,7 +54,7 @@ void PageFive::on_sosButton_clicked()
 {
     if (!hasCollide){
         hasCollide = true;
-        HapticController::getInstance()->startEffect("pulse");
+        HapticController::getInstance()->startEffect("click");
         Utils::delay(0.5);
         nextPage();
     }
@@ -54,9 +62,7 @@ void PageFive::on_sosButton_clicked()
 
 void PageFive::on_treeTrunk1_labelMove()
 {
-    if (ui->treeTrunk1->isMovable){
-        HapticController::getInstance()->startEffect("heavy_load");
-    }
+    HapticController::getInstance()->startEffect("heavy_load");
 }
 
 void PageFive::on_treeTrunk1_mouseRelease()
@@ -66,9 +72,7 @@ void PageFive::on_treeTrunk1_mouseRelease()
 
 void PageFive::on_treeTrunk2_labelMove()
 {
-    if (ui->treeTrunk2->isMovable){
-        HapticController::getInstance()->startEffect("heavy_load");
-    }
+    HapticController::getInstance()->startEffect("heavy_load");
 }
 
 void PageFive::on_treeTrunk2_mouseRelease()

@@ -10,15 +10,9 @@ PageThree::PageThree(QStackedWidget *parent) :
     ui(new Ui::PageThree)
 {
     ui->setupUi(this);
-    this->show();
 }
 
 PageThree::~PageThree()
 {
     delete ui;
-}
-
-void PageThree::onMouseMove()
-{
-    qDebug() << "LOG[PageThree] : onMouseMove()";
 }

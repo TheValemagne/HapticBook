@@ -14,7 +14,6 @@ class PageTwo : public Page
 public:
     explicit PageTwo(QStackedWidget *parent = 0);
     ~PageTwo();
-    void onMouseMove() override;
 
 private:
     Ui::PageTwo *ui;

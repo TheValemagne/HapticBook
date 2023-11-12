@@ -12,8 +12,3 @@ PageSeven::~PageSeven()
 {
     delete ui;
 }
-
-void PageSeven::onMouseMove()
-{
-    qDebug() << "LOG[PageSevent] : onMouseMove()";
-}

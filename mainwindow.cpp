@@ -100,3 +100,13 @@ void MainWindow::on_startButton_clicked()
     stopSoundsAndEffects();
     ui->book->setCurrentIndex(1);
 }
+
+void MainWindow::on_book_currentChanged(int pageIndex)
+{
+    if (pageIndex != 0){
+        return;
+    }
+
+    // son de démarrage
+    soundController->playSound("main_theme", true);
+}

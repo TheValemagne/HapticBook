@@ -9,17 +9,9 @@ PageTwo::PageTwo(QStackedWidget *parent) :
     ui(new Ui::PageTwo)
 {
     ui->setupUi(this);
-    this->show();
 }
 
 PageTwo::~PageTwo()
 {
     delete ui;
 }
-
-void PageTwo::onMouseMove()
-{
-    qDebug() << "LOG[PageTwo] : onMouseMove()";
-}
-
-

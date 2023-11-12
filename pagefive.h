@@ -14,9 +14,12 @@ class PageFive : public Page
 public:
     explicit PageFive(QStackedWidget *parent = 0);
     ~PageFive();
-    void onMouseMove() override;
+    virtual void showEvent(QShowEvent *event) override;
+    virtual void hideEvent(QHideEvent *event) override;
 private:
     void showEmergencyTransmitter(bool isVisible);
+    QPoint treeTrunkPosition1;
+    QPoint treeTrunkPosition2;
 
 private slots:
     void on_smallEmergencyTransmitter_clicked();
