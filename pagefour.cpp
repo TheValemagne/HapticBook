@@ -13,8 +13,46 @@ PageFour::~PageFour()
     delete ui;
 }
 
+void PageFour::onCollision()
+{
+    qDebug() << "LOG[PageFour] : rocket over earth";
+
+/*    stopSoundsAndEffects();
+    SoundController::getInstance()->playSound("explosion");
+    Utils::delay(0.2); // attend 20 ms*/
+
+    //HapticController::getInstance()->startEffect("landing");
+    //Utils::delay(2); // attend 2 sec avant de passer à la suite
+}
+
 void PageFour::onMouseMove()
 {
     qDebug() << "LOG[PageFour] : onMouseMove()";
+
+/*    if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
+        hasCollide = true;
+        //ui->rocket->setHidden(true);
+        onCollision();
+        nextPage();
+    }*/
 }
 
+
+
+void PageFour::on_wale_labelMove()
+{
+/*    if (ui->rocket->isMovable) {
+        SoundController::getInstance()->playSound("alarm", true);
+    }
+
+    if (ui->rocket->isMovable){
+        HapticController::getInstance()->startEffect("shaking");
+    }*/
+
+    onMouseMove();
+}
+
+void PageFour::on_wale_mouseRelease()
+{
+    /*HapticController::getInstance()->stopEffect("shaking");*/
+}

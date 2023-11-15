@@ -16,8 +16,13 @@ public:
     ~PageFour();
     void onMouseMove() override;
 
+private slots:
+    void on_wale_labelMove();
+    void on_wale_mouseRelease();
+
 private:
     Ui::PageFour *ui;
+    void onCollision();
 };
 
 #endif // PAGEFOUR_H
