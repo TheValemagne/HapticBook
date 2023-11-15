@@ -11,6 +11,11 @@ SoundController::SoundController() {
     this->addSound("alarm", "qrc:/sounds/alarm.mp3");
     this->addSound("explosion", "qrc:/sounds/explosion.mp3");
     this->addSound("main_theme", "qrc:/sounds/main_theme.mp3");
+    this->addSound("bubbles", "qrc:/sounds/bubbles.mp3");
+    this->addSound("swim", "qrc:/sounds/swim.mp3");
+    this->addSound("wale_cry", "qrc:/sounds/wale_cry.mp3");
+    this->addSound("wale_ambiant", "qrc:/sounds/wale_ambiant.mp3");
+    this->addSound("bite", "qrc:/sounds/bite.mp3");
 }
 
 SoundController::~SoundController()

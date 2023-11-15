@@ -20,7 +20,7 @@ private:
     bool hasCollide;
     bool isCurrentPage();
     void changeCurcor(const QString& cursorImage, int cursorX, int cursorY);
-    void nextPage();
+    void nextPage(bool stopSoundAndEffect = true);
     void stopSoundsAndEffects();
 };
 

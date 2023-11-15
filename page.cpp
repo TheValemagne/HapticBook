@@ -24,10 +24,11 @@ bool Page::isCurrentPage()
     return this->book->currentIndex() == pageIndex;
 }
 
-void Page::nextPage() 
+void Page::nextPage(bool stopSoundAndEffect)
 {
-    // arreter tous les effets en cours de la page
-    stopSoundsAndEffects();
+    if (stopSoundAndEffect)
+        // arreter tous les effets en cours de la page
+        stopSoundsAndEffects();
 
    qDebug() << "LOG[Page] : " <<  "Current Index : " << book->currentIndex() << "Count : " << book->count();
    if(book->currentIndex() < book->count() - 1){
