@@ -13,6 +13,7 @@ PageThree::PageThree(QStackedWidget *parent) :
     ui(new Ui::PageThree)
 {
     ui->setupUi(this);
+    Utils::delay(0.2); // attend 20 ms
 }
 
 PageThree::~PageThree()
@@ -25,7 +26,7 @@ void PageThree::onCollision()
     qDebug() << "LOG[PageThree] : wale over IP";
 
     stopSoundsAndEffects();
-    SoundController::getInstance()->playSound("explosion");
+    SoundController::getInstance()->playSound("bite");
     Utils::delay(0.2); // attend 20 ms
 
     //HapticController::getInstance()->startEffect("landing");
@@ -35,7 +36,8 @@ void PageThree::onCollision()
 void PageThree::on_wale_labelMove()
 {
     if (ui->wale->isMovable) {
-        SoundController::getInstance()->playSound("alarm", true);
+        SoundController::getInstance()->playSound("wale_cry");
+        //SoundController::getInstance()->playSound("alarm", true);
     }
 
     if (ui->wale->isMovable){
