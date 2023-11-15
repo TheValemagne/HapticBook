@@ -14,7 +14,8 @@ class PageOne : public Page
 public:
     explicit PageOne(QStackedWidget *parent = 0);
     ~PageOne();
-    void onMouseMove() override;
+    virtual void showEvent(QShowEvent *event) override;
+    virtual void hideEvent(QHideEvent *event) override;
 
 private slots:
     void on_rocket_labelMove();
@@ -24,6 +25,7 @@ private slots:
 private:
     Ui::PageOne *ui;
     void onCollision();
+    QPoint rocketPosition;
 };
 
 #endif // PAGEONE_H

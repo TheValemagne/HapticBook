@@ -12,8 +12,7 @@ class Page : public QWidget
 public:
     Page(QStackedWidget *parent, int pageIndex);
     ~Page();
-    // abstract
-    virtual void onMouseMove() = 0; // custom function for listen element movement
+    virtual void showEvent(QShowEvent *event) override;
 private:
     QStackedWidget* book;
     int pageIndex;

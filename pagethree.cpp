@@ -13,7 +13,6 @@ PageThree::PageThree(QStackedWidget *parent) :
     ui(new Ui::PageThree)
 {
     ui->setupUi(this);
-    this->show();
 }
 
 PageThree::~PageThree()
@@ -33,18 +32,6 @@ void PageThree::onCollision()
     Utils::delay(2); // attend 2 sec avant de passer à la suite
 }
 
-void PageThree::onMouseMove()
-{
-    qDebug() << "LOG[PageThree] : onMouseMove()";
-
-    if (Utils::collision(ui->wale,  ui->ip) && !hasCollide){
-        hasCollide = true;
-        //ui->wale->setHidden(true);
-        onCollision();
-        nextPage();
-    }
-}
-
 void PageThree::on_wale_labelMove()
 {
     if (ui->wale->isMovable) {
@@ -55,7 +42,12 @@ void PageThree::on_wale_labelMove()
         HapticController::getInstance()->startEffect("shaking");
     }
 
-    onMouseMove();
+    if (Utils::collision(ui->wale,  ui->ip) && !hasCollide){
+        hasCollide = true;
+        //ui->wale->setHidden(true);
+        onCollision();
+        nextPage();
+    }
 }
 
 void PageThree::on_wale_mouseRelease()

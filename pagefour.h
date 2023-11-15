@@ -14,7 +14,6 @@ class PageFour : public Page
 public:
     explicit PageFour(QStackedWidget *parent = 0);
     ~PageFour();
-    void onMouseMove() override;
 
 private slots:
     void on_wale_labelMove();

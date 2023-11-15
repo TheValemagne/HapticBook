@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageSix);
     ui->book->addWidget(pageSeven);
     ui->book->addWidget(pageEight);
+
+    // son de démarrage
+    soundController->playSound("main_theme", true);
 }
 
 MainWindow::~MainWindow()
@@ -96,4 +99,14 @@ void MainWindow::on_startButton_clicked()
 {
     stopSoundsAndEffects();
     ui->book->setCurrentIndex(1);
+}
+
+void MainWindow::on_book_currentChanged(int pageIndex)
+{
+    if (pageIndex != 0){
+        return;
+    }
+
+    // son de démarrage
+    soundController->playSound("main_theme", true);
 }

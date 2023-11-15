@@ -14,7 +14,7 @@ class PageSix : public Page
 public:
     explicit PageSix(QStackedWidget *parent = 0);
     ~PageSix();
-    void onMouseMove() override;
+    virtual void showEvent(QShowEvent *event) override;
 
 private slots:
     void on_answerButton_clicked();
@@ -28,6 +28,7 @@ private slots:
 private:
     Ui::PageSix *ui;
     bool hasTouchedFur;
+    bool isFirstMove;
     void showNotification(bool isVisible);
 };
 

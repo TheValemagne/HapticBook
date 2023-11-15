@@ -24,6 +24,8 @@ public:
 private slots:
     void on_startButton_clicked();
 
+    void on_book_currentChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     Page* pageOne;

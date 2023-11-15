@@ -31,10 +31,12 @@
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
+        <file alias="explosion.png">Images/explosion.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="alarm.mp3">Sounds/alarm.mp3</file>
         <file alias="explosion.mp3">Sounds/explosion.mp3</file>
+        <file alias="main_theme.mp3">Sounds/main_theme.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

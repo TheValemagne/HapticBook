@@ -14,6 +14,11 @@ Page::~Page()
 
 }
 
+void Page::showEvent(QShowEvent *event){
+    Q_UNUSED(event);
+    hasCollide = false;
+}
+
 bool Page::isCurrentPage()
 {
     return this->book->currentIndex() == pageIndex;

@@ -12,12 +12,25 @@ PageOne::PageOne(QStackedWidget *parent) :
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
-    this->show();
+    rocketPosition = ui->rocket->pos();
 }
 
 PageOne::~PageOne()
 {
     delete ui;
+}
+
+void PageOne::showEvent(QShowEvent *event)
+{
+    Page::showEvent(event);
+    ui->explosion->setHidden(true);
+}
+
+void PageOne::hideEvent(QHideEvent *event)
+{
+    Page::hideEvent(event);
+    ui->rocket->move(rocketPosition);
+    ui->rocket->setHidden(false);
 }
 
 void PageOne::onCollision()
@@ -27,39 +40,25 @@ void PageOne::onCollision()
     stopSoundsAndEffects();
     SoundController::getInstance()->playSound("explosion");
     Utils::delay(0.2); // attend 20 ms
-
+    ui->explosion->setHidden(false);
     HapticController::getInstance()->startEffect("landing");
     Utils::delay(2); // attend 2 sec avant de passer à la suite
 }
 
-void PageOne::onMouseMove()
-{
-    qDebug() << "LOG[PageOne] : onMouseMove()";
-
-    if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
-        hasCollide = true;
-        ui->rocket->setHidden(true);
-        onCollision();
-        nextPage();
-    }
-}
-
-
-
 void PageOne::on_rocket_labelMove()
 {
-    if (ui->rocket->isMovable) {
-        SoundController::getInstance()->playSound("alarm", true);
-    }
+     SoundController::getInstance()->playSound("alarm", true);
+     HapticController::getInstance()->startEffect("shaking");
 
-    if (ui->rocket->isMovable){
-        HapticController::getInstance()->startEffect("shaking");
-    }
-
-    onMouseMove();
+     if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
+         hasCollide = true;
+         ui->rocket->setHidden(true);
+         onCollision();
+         nextPage();
+     }
 }
 
 void PageOne::on_rocket_mouseRelease()
 {
-    HapticController::getInstance()->stopEffect("shaking");
+    stopSoundsAndEffects();
 }

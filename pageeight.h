@@ -2,6 +2,7 @@
 #define PAGEEIGHT_H
 
 #include "page.h"
+#include <QShowEvent>
 
 namespace Ui {
 class PageEight;
@@ -14,7 +15,7 @@ class PageEight : public Page
 public:
     explicit PageEight(QStackedWidget *parent = 0);
     ~PageEight();
-    void onMouseMove() override;
+    virtual void showEvent(QShowEvent *event) override;
 
 private slots:
     void on_closeButton_clicked();
