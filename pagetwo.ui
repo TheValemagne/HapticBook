@@ -77,6 +77,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="rock_invisible">
+   <property name="geometry">
+    <rect>
+     <x>283</x>
+     <y>268</y>
+     <width>115</width>
+     <height>115</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>

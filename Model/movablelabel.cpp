@@ -51,6 +51,8 @@ void MovableLabel::enterEvent(QEvent *event)
     }
 }
 
+}
+
 void MovableLabel::setIsLocked(bool isLocked) {
     this->isLocked = isLocked;
 }
