@@ -14,6 +14,10 @@ public:
     explicit PageTwo(QStackedWidget *parent = 0);
 
     ~PageTwo();
+    bool hasRockCollide;
+    bool hasRockInvisibleCollide;
+    QPoint defaultRockPosition;
+
 
 private:
     Ui::PageTwo *ui;
@@ -23,6 +27,8 @@ private slots:
     void on_ip_labelMove();
     void on_ip_mouseRelease();
     void onCollision();
+    void onRockCollision();
+    void onRockInvisibleCollision();
 
 };
 
