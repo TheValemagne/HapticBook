@@ -14,12 +14,16 @@ public:
 
     bool isMovable;
 
+    void setIsLocked(bool isLocked);
+
 signals:
     void mousePress();
     void mouseRelease();
     void labelMove();
 
 protected:
+    bool isLocked;
+
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

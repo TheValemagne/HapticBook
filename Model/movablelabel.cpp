@@ -4,6 +4,7 @@ MovableLabel::MovableLabel(QWidget* parent, Qt::WindowFlags f) :
     QLabel(parent, f)
 {
     isMovable = false;
+    isLocked = false;
 }
 
 void MovableLabel::mousePressEvent(QMouseEvent *event){
@@ -18,7 +19,7 @@ void MovableLabel::mouseReleaseEvent(QMouseEvent *event){
 }
 
 void MovableLabel::mouseMoveEvent(QMouseEvent *event){
-    if (!isMovable){
+    if (!isMovable || isLocked) {
         return;
     }
 
@@ -37,4 +38,6 @@ void MovableLabel::enterEvent(QEvent *event)
 void MovableLabel::leaveEvent(QEvent *event)
 {
 
+void MovableLabel::setIsLocked(bool isLocked) {
+    this->isLocked = isLocked;
 }
