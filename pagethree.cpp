@@ -37,7 +37,6 @@ void PageThree::on_wale_labelMove()
 {
     if (ui->wale->isMovable) {
         SoundController::getInstance()->playSound("wale_cry");
-        //SoundController::getInstance()->playSound("alarm", true);
     }
 
     if (ui->wale->isMovable){
@@ -48,7 +47,9 @@ void PageThree::on_wale_labelMove()
         hasCollide = true;
         //ui->wale->setHidden(true);
         onCollision();
-        nextPage();
+
+        nextPage(true);
+        ui->wale->setHidden(true);
     }
 }
 
