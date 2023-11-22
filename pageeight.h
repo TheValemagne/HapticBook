@@ -20,6 +20,10 @@ public:
 private slots:
     void on_closeButton_clicked();
 
+    void on_closeButton_pressed();
+
+    void on_closeButton_released();
+
 private:
     Ui::PageEight *ui;
 };

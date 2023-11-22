@@ -29,7 +29,7 @@ void PageThree::onCollision()
     ui->ip->setHidden(true);
     SoundController::getInstance()->playSound("bite");
     for (int i = 2; i < 8; ++i) {
-        QString path = QString(":/images/wale") + QString::number(i) + ".png";
+        QString path = QString(":/images/wale%1.png").arg(QString::number(i));
         qDebug() << "LOG[PageThree] : wale animation" << path;
         QPixmap image = QPixmap(path);
         ui->wale->setPixmap(image);

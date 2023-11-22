@@ -26,6 +26,10 @@ private slots:
 
     void on_book_currentChanged(int arg1);
 
+    void on_startButton_pressed();
+
+    void on_startButton_released();
+
 private:
     Ui::MainWindow *ui;
     Page* pageOne;

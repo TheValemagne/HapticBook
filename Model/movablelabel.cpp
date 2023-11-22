@@ -6,8 +6,9 @@ MovableLabel::MovableLabel(QWidget* parent, Qt::WindowFlags f) :
     isMovable = false;
     isLocked = false;
 
-    openHandCursor = QCursor(Qt::OpenHandCursor);
-    closedHandCursor = QCursor(Qt::ClosedHandCursor);
+    // les curseurs par défaux
+    openHandCursor = Qt::OpenHandCursor;
+    closedHandCursor = Qt::ClosedHandCursor;
 }
 
 void MovableLabel::mousePressEvent(QMouseEvent *event){
@@ -38,7 +39,7 @@ void MovableLabel::mouseMoveEvent(QMouseEvent *event){
 
    QPoint newPos = this->mapToGlobal(event->pos());
    QPoint movement = newPos - mousePos;
-   this->move(movement);
+   this->move(movement); // réalisation du déplacement de l'objet
    emit labelMove();
 }
 
@@ -46,8 +47,10 @@ void MovableLabel::enterEvent(QEvent *event)
 {
     Q_UNUSED(event);
 
-    if(!isLocked){
+    if(!isLocked){ // afficher le retour "saisie de l'objet"
         setCursor(openHandCursor);
+    } else { // lorsque l'objet n'est pas déplacable, afficher le curseur classique
+        unsetCursor(); // par défaux la flèche
     }
 }
 
