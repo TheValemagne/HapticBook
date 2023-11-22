@@ -27,3 +27,14 @@ void MovableLabel::mouseMoveEvent(QMouseEvent *event){
    this->move(movement);
    emit labelMove(); // effect haptique + sons
 }
+
+void MovableLabel::enterEvent(QEvent *event)
+{
+    QCursor c = QCursor(Qt::OpenHandCursor);
+    setCursor(c);
+}
+
+void MovableLabel::leaveEvent(QEvent *event)
+{
+
+}
