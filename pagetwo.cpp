@@ -13,6 +13,9 @@ PageTwo::PageTwo(QStackedWidget *parent) :
 {
     ui->setupUi(this);
     ipPosition = ui->ip->pos();
+    hasRockCollide = false;
+    hasRockInvisibleCollide = false;
+    defaultRockPosition = ui->rock->pos();
 }
 
 PageTwo::~PageTwo()
@@ -39,9 +42,40 @@ void PageTwo::on_ip_labelMove()
         hasCollide = true;
         onCollision();
     }
+
+
+    if (Utils::collision(ui->ip,  ui->rock_invisible)) {
+        if (!hasRockInvisibleCollide) {
+            hasRockInvisibleCollide = true;
+            onRockInvisibleCollision();
+        } else {
+            onRockInvisibleCollision();
+        }
+
+        // Set pos y only of the rock to the pos y of the ip + his height (79)
+        ui->rock->move(ui->rock->pos().x(), ui->ip->pos().y() - 79);
+    } else {
+        if (hasRockInvisibleCollide) {
+            hasRockInvisibleCollide = false;
+            SoundController::getInstance()->stopSound("ip_force");
+            HapticController::getInstance()->stopEffect("push_up");
+            ui->rock->move(defaultRockPosition);
+        }
+    }
+}
+
+void PageTwo::onRockCollision()
+{
+    SoundController::getInstance()->playSound("ip_force");
+    HapticController::getInstance()->startEffect("push_up");
 }
 
 void PageTwo::on_ip_mouseRelease()
 {
 //    stopSoundsAndEffects();
+}
+
+void PageTwo::onRockInvisibleCollision() {
+    SoundController::getInstance()->playSound("ip_force");
+    HapticController::getInstance()->startEffect("push_up");
 }

@@ -29,6 +29,17 @@ void MovableLabel::mouseMoveEvent(QMouseEvent *event){
    emit labelMove(); // effect haptique + sons
 }
 
+void MovableLabel::enterEvent(QEvent *event)
+{
+    QCursor c = QCursor(Qt::OpenHandCursor);
+    setCursor(c);
+}
+
+void MovableLabel::leaveEvent(QEvent *event)
+{
+
+}
+
 void MovableLabel::setIsLocked(bool isLocked) {
     this->isLocked = isLocked;
 }

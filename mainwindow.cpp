@@ -75,34 +75,45 @@ MainWindow::~MainWindow()
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event) 
 {
-    if (event->key() == Qt::Key_Escape) {
+    // uniquement prévue pour le développement
+    if (event->key() == Qt::Key_Escape) { // fermer l'application avec le bouton "echap"
         stopSoundsAndEffects();
         QApplication::quit();
     }
-    else if (event->key() == Qt::Key_Left) {
+    else if (event->key() == Qt::Key_Left) { // passer à la page précédente avec flèche droite
         stopSoundsAndEffects();
         ui->book->setCurrentIndex(ui->book->currentIndex()-1);
     }
-    else if (event->key() == Qt::Key_Right) {
+    else if (event->key() == Qt::Key_Right) { // passer à la page suivante avec flèche droite
         stopSoundsAndEffects();
         ui->book->setCurrentIndex(ui->book->currentIndex()+1);
     }
 }
 
+/**
+* Stop les sons et les effets haptiques en cours
+*/
 void MainWindow::stopSoundsAndEffects()
 {
     hapticController->stopAllEffects();
     soundController->stopAllSounds();
 }
 
+/**
+* Démarage du livre avec passage à la première scène
+*/
 void MainWindow::on_startButton_clicked()
 {
     stopSoundsAndEffects();
     ui->book->setCurrentIndex(1);
 }
 
+/**
+* Permet de lancer la musique au retour à la page d'accueil
+*/
 void MainWindow::on_book_currentChanged(int pageIndex)
 {
+    // uniquement pour la permière page du livre
     if (pageIndex != 0){
         return;
     }
