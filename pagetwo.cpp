@@ -25,6 +25,7 @@ void PageTwo::onCollision()
 {
 //    HapticController::getInstance()->stopEffect("water");
     SoundController::getInstance()->playSound("bubbles");
+    ui->ip->setIsLocked(true);
     Utils::delay(3);
     nextPage(false);
 }
