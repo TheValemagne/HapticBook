@@ -27,6 +27,12 @@
         <file alias="ips_hand.png">Images/ips_hand.png</file>
         <file alias="notification.png">Images/notification.png</file>
         <file alias="wale.png">Images/wale.png</file>
+        <file alias="wale2.png">Images/wale2.png</file>
+        <file alias="wale3.png">Images/wale3.png</file>
+        <file alias="wale4.png">Images/wale4.png</file>
+        <file alias="wale5.png">Images/wale5.png</file>
+        <file alias="wale6.png">Images/wale6.png</file>
+        <file alias="wale7.png">Images/wale7.png</file>
         <file alias="wale_heart.png">Images/wale_heart.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>

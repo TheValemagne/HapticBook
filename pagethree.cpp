@@ -26,7 +26,16 @@ void PageThree::onCollision()
     qDebug() << "LOG[PageThree] : wale over IP";
 
     stopSoundsAndEffects();
+    ui->ip->setHidden(true);
     SoundController::getInstance()->playSound("bite");
+    for (int i = 2; i < 8; ++i) {
+        QString path = QString(":/images/wale") + QString::number(i) + ".png";
+        qDebug() << "LOG[PageThree] : wale animation" << path;
+        QPixmap image = QPixmap(path);
+        ui->wale->setPixmap(image);
+        ui->wale->setFixedSize(image.size());
+        Utils::delay(0.01);
+    }
     Utils::delay(0.2); // attend 20 ms
 
     //HapticController::getInstance()->startEffect("landing");
@@ -40,14 +49,13 @@ void PageThree::on_wale_labelMove()
     }
 
     if (ui->wale->isMovable){
-        HapticController::getInstance()->startEffect("shaking");
+        //HapticController::getInstance()->startEffect("shaking");
     }
 
     if (Utils::collision(ui->wale,  ui->ip) && !hasCollide){
         hasCollide = true;
         //ui->wale->setHidden(true);
         onCollision();
-
         nextPage(true);
         ui->wale->setHidden(true);
     }
