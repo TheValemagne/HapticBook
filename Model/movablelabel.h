@@ -13,6 +13,8 @@ public:
     MovableLabel(QWidget* parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
 
     bool isMovable;
+    QCursor openHandCursor;
+    QCursor closedHandCursor;
 
     void setIsLocked(bool isLocked);
 
@@ -20,6 +22,7 @@ signals:
     void mousePress();
     void mouseRelease();
     void labelMove();
+    void enterEvent();
 
 protected:
     bool isLocked;
@@ -28,7 +31,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     virtual void enterEvent(QEvent *event) override;
-    virtual void leaveEvent(QEvent  *event) override;
+
 private:
     QPoint mousePos;
 };

@@ -32,6 +32,7 @@
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
         <file alias="explosion.png">Images/explosion.png</file>
+        <file alias="ips_closedhand.png">Images/ips_closedhand.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="alarm.mp3">Sounds/alarm.mp3</file>

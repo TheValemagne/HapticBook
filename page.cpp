@@ -36,12 +36,6 @@ void Page::nextPage(bool stopSoundAndEffect)
    }
 }
 
-void Page::changeCurcor(const QString& cursorImage, int cursorX, int cursorY)
-{
-    QCursor c = QCursor(QPixmap(cursorImage), cursorX, cursorY);
-    setCursor(c);
-}
-
 void Page::stopSoundsAndEffects()
 {
     HapticController::getInstance()->stopAllEffects();

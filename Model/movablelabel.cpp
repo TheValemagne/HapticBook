@@ -5,17 +5,30 @@ MovableLabel::MovableLabel(QWidget* parent, Qt::WindowFlags f) :
 {
     isMovable = false;
     isLocked = false;
+
+    openHandCursor = QCursor(Qt::OpenHandCursor);
+    closedHandCursor = QCursor(Qt::ClosedHandCursor);
 }
 
 void MovableLabel::mousePressEvent(QMouseEvent *event){
+    if(!isLocked){
+        setCursor(closedHandCursor);
+    }
+
     isMovable = true;
     mousePos = event->pos();
-    emit mousePress(); // peut-être inutile
+    emit mousePress();
 }
 
 void MovableLabel::mouseReleaseEvent(QMouseEvent *event){
+    Q_UNUSED(event);
+
+    if(!isLocked){
+        setCursor(openHandCursor);
+    }
+
     isMovable = false;
-    emit mouseRelease(); // arrêt effect haptique (et son si nécessaire)
+    emit mouseRelease();
 }
 
 void MovableLabel::mouseMoveEvent(QMouseEvent *event){
@@ -26,17 +39,17 @@ void MovableLabel::mouseMoveEvent(QMouseEvent *event){
    QPoint newPos = this->mapToGlobal(event->pos());
    QPoint movement = newPos - mousePos;
    this->move(movement);
-   emit labelMove(); // effect haptique + sons
+   emit labelMove();
 }
 
 void MovableLabel::enterEvent(QEvent *event)
 {
-    QCursor c = QCursor(Qt::OpenHandCursor);
-    setCursor(c);
-}
+    Q_UNUSED(event);
 
-void MovableLabel::leaveEvent(QEvent *event)
-{
+    if(!isLocked){
+        setCursor(openHandCursor);
+    }
+}
 
 void MovableLabel::setIsLocked(bool isLocked) {
     this->isLocked = isLocked;

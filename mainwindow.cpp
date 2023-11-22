@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent):
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->startButton->setCursor(QCursor(Qt::PointingHandCursor));
 
     // Instancier les controleurs
     soundController = SoundController::getInstance();

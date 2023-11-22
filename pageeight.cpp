@@ -9,6 +9,7 @@ PageEight::PageEight(QStackedWidget *parent) :
     ui(new Ui::PageEight)
 {
     ui->setupUi(this);
+    ui->closeButton->setCursor(QCursor(Qt::PointingHandCursor));
 }
 
 PageEight::~PageEight()

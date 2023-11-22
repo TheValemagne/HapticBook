@@ -9,7 +9,7 @@ PageSix::PageSix(QStackedWidget *parent) :
     ui(new Ui::PageSix)
 {
     ui->setupUi(this);
-    changeCurcor(":images/ips_hand.png", 43, 43);
+    ui->answerButton->setCursor(QCursor(Qt::PointingHandCursor));
 }
 
 PageSix::~PageSix()
@@ -33,12 +33,14 @@ void PageSix::showNotification(bool isVisible)
 
 void PageSix::on_answerButton_clicked()
 {
-    if(!hasCollide){
-        hasCollide = true;
-        HapticController::getInstance()->startEffect("click");
-        Utils::delay(0.5);
-        nextPage();
-    }
+    if(hasCollide){
+        return;
+     }
+
+    hasCollide = true;
+    HapticController::getInstance()->startEffect("click");
+    Utils::delay(0.5);
+    nextPage();
 }
 
 void PageSix::on_lemur_enterEvent()
@@ -49,12 +51,14 @@ void PageSix::on_lemur_enterEvent()
 
     qDebug() << "LOG[Lemur] enter event";
     HapticController::getInstance()->startEffect("fur");
+    setCursor(QCursor(QPixmap(":images/ips_hand.png"), 64, 65));
 }
 
 void PageSix::on_lemur_leaveEvent()
 {
     qDebug() << "LOG[Lemur] leave event";
     HapticController::getInstance()->stopEffect("fur");
+    setCursor(QCursor(Qt::ArrowCursor));
 }
 
 void PageSix::on_lemur_mouseMove()
@@ -68,10 +72,12 @@ void PageSix::on_lemur_mouseMove()
         return;
     }
 
-    if (!hasTouchedFur) {
-        qDebug() << "Show notification soon";
-        hasTouchedFur = true;
-        Utils::delay(4);
-        showNotification(true);
+    if (hasTouchedFur) {
+        return;
     }
+
+    qDebug() << "Show notification soon";
+    hasTouchedFur = true;
+    Utils::delay(4);
+    showNotification(true);
 }

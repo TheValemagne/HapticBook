@@ -18,6 +18,7 @@ public:
     virtual void hideEvent(QHideEvent *event) override;
 private:
     void showEmergencyTransmitter(bool isVisible);
+    void setCursors();
     QPoint treeTrunkPosition1;
     QPoint treeTrunkPosition2;
 

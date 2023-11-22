@@ -1,3 +1,4 @@
+#include <QPixmap>
 #include "pagefive.h"
 #include "ui_pagefive.h"
 #include "Controller/hapticcontroller.h"
@@ -8,15 +9,26 @@ PageFive::PageFive(QStackedWidget *parent) :
     ui(new Ui::PageFive)
 {
     ui->setupUi(this);
+    setCursors();
+
     treeTrunkPosition1 = ui->treeTrunk1->pos();
     treeTrunkPosition2 = ui->treeTrunk2->pos();
-
-    changeCurcor(":images/ips_hand.png", 64, 65);
 }
 
 PageFive::~PageFive()
 {
     delete ui;
+}
+
+void PageFive::setCursors()
+{
+    ui->sosButton->setCursor(QCursor(Qt::PointingHandCursor));
+
+    ui->treeTrunk1->openHandCursor = QCursor(QPixmap(":images/ips_hand.png"), 64, 65);
+    ui->treeTrunk1->closedHandCursor = QCursor(QPixmap(":images/ips_closedhand.png"), 64, 65);
+
+    ui->treeTrunk2->openHandCursor = QCursor(QPixmap(":images/ips_hand.png"), 64, 65);
+    ui->treeTrunk2->closedHandCursor = QCursor(QPixmap(":images/ips_closedhand.png"), 64, 65);
 }
 
 void PageFive::showEvent(QShowEvent *event)

@@ -54,7 +54,7 @@
      <x>560</x>
      <y>550</y>
      <width>91</width>
-     <height>161</height>
+     <height>158</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -85,6 +85,7 @@
    <header location="global">Model/movablelabel.h</header>
    <slots>
     <signal>labelMove()</signal>
+    <signal>mouseRelease()</signal>
    </slots>
   </customwidget>
  </customwidgets>
