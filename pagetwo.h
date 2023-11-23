@@ -16,6 +16,7 @@ public:
     ~PageTwo();
     bool hasRockCollide;
     bool hasRockInvisibleCollide;
+    bool hasMarkerCollide;
     QPoint defaultRockPosition;
 
 
@@ -29,7 +30,8 @@ private slots:
     void onCollision();
     void onRockCollision();
     void onRockInvisibleCollision();
-
+    void onMarkerCollision();
+    void onRockAnimationFinished();
 };
 
 #endif // PAGETWO_H

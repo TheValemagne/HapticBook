@@ -68,7 +68,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-20</y>
+     <y>-110</y>
      <width>1021</width>
      <height>41</height>
     </rect>
@@ -93,6 +93,25 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="marker">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>330</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>background</zorder>
+  <zorder>rock</zorder>
+  <zorder>exit</zorder>
+  <zorder>rock_invisible</zorder>
+  <zorder>marker</zorder>
+  <zorder>ip</zorder>
  </widget>
  <customwidgets>
   <customwidget>

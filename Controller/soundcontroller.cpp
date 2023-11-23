@@ -16,6 +16,7 @@ SoundController::SoundController() {
     this->addSound("wale_cry", "qrc:/sounds/wale_cry.mp3");
     this->addSound("wale_ambiant", "qrc:/sounds/wale_ambiant.mp3");
     this->addSound("bite", "qrc:/sounds/bite.mp3");
+    this->addSound("sliding_rock", "qrc:/sounds/sliding_rock.mp3");
 }
 
 SoundController::~SoundController()
