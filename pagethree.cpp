@@ -28,14 +28,15 @@ void PageThree::onCollision()
     //stopSoundsAndEffects();
 
      SoundController::getInstance()->playSound("bite");
-     Utils::delay(0.05);
+     Utils::delay(0.03);
+     HapticController::getInstance()->startEffect("waleback");
     for (int i = 2; i < 8; ++i) {
         QString path = QString(":/images/wale%1.png").arg(QString::number(i));
         qDebug() << "LOG[PageThree] : wale animation" << path;
         QPixmap image = QPixmap(path);
         ui->wale->setPixmap(image);
         ui->wale->setFixedSize(image.size());
-        if(i == 5) ui->ip->setHidden(true);
+        if(i == 4) ui->ip->setHidden(true);
         Utils::delay(0.01);
     }
     //stopSoundsAndEffects();
