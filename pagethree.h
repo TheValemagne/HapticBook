@@ -18,6 +18,7 @@ public:
 private slots:
     void on_wale_labelMove();
     void on_wale_mouseRelease();
+    void on_wale_mousePress();
 
 private:
     Ui::PageThree *ui;
