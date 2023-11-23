@@ -49,7 +49,6 @@ void PageThree::on_wale_labelMove()
     }
 
     if (ui->wale->isMovable){
-            Utils::delay(0.05); // attend 20 ms
         HapticController::getInstance()->startEffect("wale");
     }
 
