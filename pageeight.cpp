@@ -27,3 +27,13 @@ void PageEight::on_closeButton_clicked()
 {
     QApplication::quit();
 }
+
+void PageEight::on_closeButton_pressed()
+{
+    ui->closeButton->setCursor(Qt::ClosedHandCursor);
+}
+
+void PageEight::on_closeButton_released()
+{
+    ui->closeButton->setCursor(Qt::PointingHandCursor);
+}

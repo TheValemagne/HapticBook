@@ -17,6 +17,7 @@ signals:
 
 protected:
     void mousePressEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event);
     virtual void enterEvent(QEvent *event) override;
 };
 

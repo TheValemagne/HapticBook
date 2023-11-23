@@ -35,6 +35,10 @@ private slots:
 
     void on_treeTrunk2_mouseRelease();
 
+    void on_sosButton_pressed();
+
+    void on_sosButton_released();
+
 private:
     Ui::PageFive *ui;
 };

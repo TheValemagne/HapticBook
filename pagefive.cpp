@@ -22,7 +22,7 @@ PageFive::~PageFive()
 
 void PageFive::setCursors()
 {
-    ui->sosButton->setCursor(QCursor(Qt::PointingHandCursor));
+    ui->sosButton->setCursor(Qt::PointingHandCursor);
 
     ui->treeTrunk1->openHandCursor = QCursor(QPixmap(":images/ips_hand.png"), 64, 65);
     ui->treeTrunk1->closedHandCursor = QCursor(QPixmap(":images/ips_closedhand.png"), 64, 65);
@@ -70,6 +70,16 @@ void PageFive::on_sosButton_clicked()
         Utils::delay(0.5);
         nextPage();
     }
+}
+
+void PageFive::on_sosButton_pressed()
+{
+    ui->sosButton->setCursor(Qt::ClosedHandCursor);
+}
+
+void PageFive::on_sosButton_released()
+{
+    ui->sosButton->setCursor(Qt::PointingHandCursor);
 }
 
 void PageFive::on_treeTrunk1_labelMove()

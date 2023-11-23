@@ -9,7 +9,7 @@ PageSix::PageSix(QStackedWidget *parent) :
     ui(new Ui::PageSix)
 {
     ui->setupUi(this);
-    ui->answerButton->setCursor(QCursor(Qt::PointingHandCursor));
+    ui->answerButton->setCursor(Qt::PointingHandCursor);
 }
 
 PageSix::~PageSix()
@@ -41,6 +41,16 @@ void PageSix::on_answerButton_clicked()
     HapticController::getInstance()->startEffect("click");
     Utils::delay(0.5);
     nextPage();
+}
+
+void PageSix::on_answerButton_pressed()
+{
+     ui->answerButton->setCursor(Qt::ClosedHandCursor);
+}
+
+void PageSix::on_answerButton_released()
+{
+    ui->answerButton->setCursor(Qt::PointingHandCursor);
 }
 
 void PageSix::on_lemur_enterEvent()
