@@ -28,7 +28,7 @@ void PageThree::onCollision()
     //stopSoundsAndEffects();
 
      SoundController::getInstance()->playSound("bite");
-     Utils::delay(0.03);
+     Utils::delay(0.01);
      HapticController::getInstance()->startEffect("waleback");
     for (int i = 2; i < 8; ++i) {
         QString path = QString(":/images/wale%1.png").arg(QString::number(i));
