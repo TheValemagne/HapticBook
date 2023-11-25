@@ -18,6 +18,7 @@ public:
     bool hasRockInvisibleCollide;
     bool hasMarkerCollide;
     QPoint defaultRockPosition;
+    virtual void showEvent(QShowEvent *event) override;
 
 
 private:
@@ -28,7 +29,6 @@ private slots:
     void on_ip_labelMove();
     void on_ip_mouseRelease();
     void onCollision();
-    void onRockCollision();
     void onRockInvisibleCollision();
     void onMarkerCollision();
     void onRockAnimationFinished();

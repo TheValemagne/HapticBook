@@ -33,7 +33,9 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         this->addEffect("fur", "Fur");
         this->addEffect("wale", "Wale");
         this->addEffect("waleback", "WaleBack");
-        this->addEffect("page2_wall", "page2_wall");
+        this->addEffect("page2_wall", "Page2Wall");
+        this->addEffect("rock_push", "RockPush");
+
     } else {
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");
         delete mProject;

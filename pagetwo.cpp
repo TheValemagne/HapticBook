@@ -19,7 +19,6 @@ PageTwo::PageTwo(QStackedWidget *parent) :
     hasRockInvisibleCollide = false;
     hasMarkerCollide = false;
     defaultRockPosition = ui->rock->pos();
-    HapticController::getInstance()->startEffect("page2_wall");
 }
 
 PageTwo::~PageTwo()
@@ -27,6 +26,9 @@ PageTwo::~PageTwo()
     delete ui;
 }
 
+void PageTwo::showEvent(QShowEvent *event) {
+    HapticController::getInstance()->startEffect("page2_wall");
+}
 
 void PageTwo::onCollision()
 {
@@ -54,28 +56,14 @@ void PageTwo::on_ip_labelMove()
         }
         onRockInvisibleCollision();
 
-        // Set pos y only of the rock to the pos y of the ip + his height (79)
-       if (!hasMarkerCollide) {
-           ui->rock->move(defaultRockPosition.x() + (defaultRockPosition.y() - ui->ip->pos().y() + 110), ui->ip->pos().y() - 110);
-
-           if (Utils::collision(ui->ip, ui->marker)) {
-               onMarkerCollision();
-           }
-       }
     } else {
         if (hasRockInvisibleCollide && !hasMarkerCollide) {
             hasRockInvisibleCollide = false;
             // SoundController::getInstance()->stopSound("ip_force"); should auto stop
-            HapticController::getInstance()->stopEffect("push_up");
+            HapticController::getInstance()->stopEffect("rock_push");
             ui->rock->move(defaultRockPosition);
         }
     }
-}
-
-void PageTwo::onRockCollision()
-{
-    SoundController::getInstance()->playSound("ip_force");
-    HapticController::getInstance()->startEffect("push_up");
 }
 
 void PageTwo::on_ip_mouseRelease()
@@ -84,8 +72,16 @@ void PageTwo::on_ip_mouseRelease()
 }
 
 void PageTwo::onRockInvisibleCollision() {
-    SoundController::getInstance()->playSound("ip_force");
-    HapticController::getInstance()->startEffect("push_up");
+    // Set pos y only of the rock to the pos y of the ip + his height (79)
+    if (!hasMarkerCollide) {
+        HapticController::getInstance()->startEffect("rock_push");
+        SoundController::getInstance()->playSound("ip_force");
+        ui->rock->move(defaultRockPosition.x() + (defaultRockPosition.y() - ui->ip->pos().y() + 110), ui->ip->pos().y() - 110);
+
+        if (Utils::collision(ui->ip, ui->marker)) {
+            onMarkerCollision();
+        }
+    }
 }
 
 void PageTwo::onMarkerCollision() {
@@ -93,6 +89,8 @@ void PageTwo::onMarkerCollision() {
         hasMarkerCollide = true;
         // Stop ip
         ui->ip->setIsLocked(true);
+
+        HapticController::getInstance()->stopEffect("rock_push");
 
         SoundController::getInstance()->playSound("sliding_rock");
 

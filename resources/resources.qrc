@@ -50,6 +50,7 @@
         <file alias="wale_ambiant.mp3">Sounds/wale_ambiant.mp3</file>
         <file alias="bite.mp3">Sounds/bite.mp3</file>
         <file alias="sliding_rock.mp3">Sounds/sliding_rock.mp3</file>
+        <file alias="ip_effort.mp3">Sounds/ip_effort.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>
