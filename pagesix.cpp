@@ -2,6 +2,7 @@
 #include "ui_pagesix.h"
 #include "Model/lemur.h"
 #include "Controller/hapticcontroller.h"
+#include "Controller/soundcontroller.h"
 #include "utils.h"
 
 PageSix::PageSix(QStackedWidget *parent) :
@@ -23,6 +24,7 @@ void PageSix::showEvent(QShowEvent *event)
     hasTouchedFur = false;
     isFirstMove = true;
     showNotification(false);
+    SoundController::getInstance()->playSound("rainforest", true);
 }
 
 void PageSix::showNotification(bool isVisible)
@@ -61,14 +63,15 @@ void PageSix::on_lemur_enterEvent()
 
     qDebug() << "LOG[Lemur] enter event";
     HapticController::getInstance()->startEffect("fur");
-    setCursor(QCursor(QPixmap(":images/ips_hand.png"), 64, 65));
+    SoundController::getInstance()->playSound("lemur_cry", true, 6);
+    setCursor(QCursor(QPixmap(":images/ips_hand.png"), 48, 45));
 }
 
 void PageSix::on_lemur_leaveEvent()
 {
     qDebug() << "LOG[Lemur] leave event";
     HapticController::getInstance()->stopEffect("fur");
-    setCursor(QCursor(Qt::ArrowCursor));
+    unsetCursor();
 }
 
 void PageSix::on_lemur_mouseMove()

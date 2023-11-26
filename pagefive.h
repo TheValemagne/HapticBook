@@ -19,6 +19,9 @@ public:
 private:
     void showEmergencyTransmitter(bool isVisible);
     void setCursors();
+    void onTreeTrunkMove();
+    void onTreeTrunkRelease();
+
     QPoint treeTrunkPosition1;
     QPoint treeTrunkPosition2;
 
