@@ -22,7 +22,7 @@ public:
     SoundController(SoundController &other) = delete;
     void operator=(const SoundController &) = delete;
     void addSound(const QString& soundName, const QString& soundFilePath);
-    void playSound(const QString& soundName, bool loop = false);
+    void playSound(const QString& soundName, bool loop = false, double loopDelay = 0);
     void restartSound(const QString& soundName);
     void stopSound(const QString& soundName);
     void stopAllSounds();
@@ -32,6 +32,7 @@ protected:
     static SoundController* instance;
 private:
     QMap<QString, QMediaPlayer*> sounds;
+    QString getSoundPath(QString name);
 };
 
 

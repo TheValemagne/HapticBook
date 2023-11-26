@@ -3,21 +3,29 @@
 //
 
 #include "soundcontroller.h"
+#include "../utils.h"
 #include <QMediaPlayer>
 
 SoundController::SoundController() {
     sounds = QMap<QString, QMediaPlayer*>();
 
-    this->addSound("alarm", "qrc:/sounds/alarm.mp3");
-    this->addSound("explosion", "qrc:/sounds/explosion.mp3");
-    this->addSound("main_theme", "qrc:/sounds/main_theme.mp3");
-    this->addSound("bubbles", "qrc:/sounds/bubbles.mp3");
-    this->addSound("swim", "qrc:/sounds/swim.mp3");
-    this->addSound("wale_cry", "qrc:/sounds/wale_cry.mp3");
-    this->addSound("wale_ambiant", "qrc:/sounds/wale_ambiant.mp3");
-    this->addSound("bite", "qrc:/sounds/bite.mp3");
-    this->addSound("sliding_rock", "qrc:/sounds/sliding_rock.mp3");
-    this->addSound("ip_force", "qrc:/sounds/ip_effort.mp3");
+    this->addSound("alarm", getSoundPath("alarm"));
+    this->addSound("explosion", getSoundPath("explosion"));
+    this->addSound("main_theme", getSoundPath("main_theme"));
+    this->addSound("bubbles", getSoundPath("bubbles"));
+    this->addSound("swim", getSoundPath("swim"));
+    this->addSound("wale_cry", getSoundPath("wale_cry"));
+    this->addSound("wale_ambiant", getSoundPath("wale_ambiant"));
+    this->addSound("bite", getSoundPath("bite"));
+    this->addSound("sliding_rock", getSoundPath("sliding_rock"));
+    this->addSound("ip_force", getSoundPath("ip_effort"));
+    this->addSound("rainforest", getSoundPath("rainforest"));
+    this->addSound("lemur_cry", getSoundPath("lemur_cry"));
+}
+
+QString SoundController::getSoundPath(QString name)
+{
+    return QString("qrc:/sounds/%1.mp3").arg(name);
 }
 
 SoundController::~SoundController()
@@ -47,7 +55,7 @@ void SoundController::addSound(const QString& soundName, const QString& soundFil
     sounds[soundName] = mediaPlayer;
 }
 
-void SoundController::playSound(const QString& soundName, bool loop)
+void SoundController::playSound(const QString& soundName, bool loop, double loopDelay)
 {
     if (sounds.contains(soundName) && !this->isSoundPlaying(soundName))
     {
@@ -56,6 +64,7 @@ void SoundController::playSound(const QString& soundName, bool loop)
         if (loop) {
             mediaPlayer->connect(mediaPlayer, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
                 if (state == QMediaPlayer::StoppedState) {
+                    Utils::delay(loopDelay); // si non null, applique un délais avant de relancer le son
                     mediaPlayer->play();
                 }
             });

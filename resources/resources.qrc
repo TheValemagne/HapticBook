@@ -51,6 +51,8 @@
         <file alias="bite.mp3">Sounds/bite.mp3</file>
         <file alias="sliding_rock.mp3">Sounds/sliding_rock.mp3</file>
         <file alias="ip_effort.mp3">Sounds/ip_effort.mp3</file>
+        <file alias="rainforest.mp3">Sounds/rainforest.mp3</file>
+        <file alias="lemur_cry.mp3">Sounds/lemur_cry.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>
