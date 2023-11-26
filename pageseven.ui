@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>-10</y>
      <width>1024</width>
      <height>768</height>
     </rect>
@@ -62,7 +62,51 @@
     <string/>
    </property>
   </widget>
+  <widget class="MovableLabel" name="ip">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>560</y>
+     <width>81</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/small_ip.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="exit">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>90</y>
+     <width>211</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>background</zorder>
+  <zorder>tractorBeam</zorder>
+  <zorder>ip</zorder>
+  <zorder>ufo</zorder>
+  <zorder>exit</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MovableLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">Model/movablelabel.h</header>
+   <slots>
+    <signal>labelMove()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

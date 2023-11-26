@@ -27,6 +27,13 @@ PageTwo::~PageTwo()
 }
 
 void PageTwo::showEvent(QShowEvent *event) {
+    hasCollide = false;
+    hasRockCollide = false;
+    hasRockInvisibleCollide = false;
+    hasMarkerCollide = false;
+    ui->ip->setIsLocked(false);
+    ui->ip->move(ipPosition);
+    ui->rock->move(defaultRockPosition);
     HapticController::getInstance()->startEffect("page2_wall");
 }
 
@@ -93,6 +100,7 @@ void PageTwo::onMarkerCollision() {
         HapticController::getInstance()->stopEffect("rock_push");
 
         SoundController::getInstance()->playSound("sliding_rock");
+        HapticController::getInstance()->startEffect("rock_sliding");
 
         // Create an animation for the rock
         QPropertyAnimation *animation = new QPropertyAnimation(ui->rock, "pos");
@@ -115,6 +123,9 @@ void PageTwo::onMarkerCollision() {
 
         // Start the animation
         animation->start();
+
+        Utils::delay(1.2);
+        HapticController::getInstance()->stopEffect("rock_sliding");
     }
 }
 

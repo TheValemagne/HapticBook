@@ -14,9 +14,17 @@ class PageSeven : public Page
 public:
     explicit PageSeven(QStackedWidget *parent = 0);
     ~PageSeven();
+    virtual void showEvent(QShowEvent *event) override;
+
 
 private:
     Ui::PageSeven *ui;
+    void onCollision();
+    void onTractorBeamCollision();
+
+private slots:
+    void on_ip_labelMove();
+
 };
 
 #endif // PAGESEVEN_H
