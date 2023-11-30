@@ -33,7 +33,11 @@
         <file alias="wale5.png">Images/wale5.png</file>
         <file alias="wale6.png">Images/wale6.png</file>
         <file alias="wale7.png">Images/wale7.png</file>
-        <file alias="wale_heart.png">Images/wale_heart.png</file>
+        <file alias="wale_heart1.png">Images/wale_heart1.png</file>
+        <file alias="wale_heart2.png">Images/wale_heart2.png</file>
+        <file alias="wale_heart3.png">Images/wale_heart3.png</file>
+        <file alias="wale_heart4.png">Images/wale_heart4.png</file>
+        <file alias="wale_heart5.png">Images/wale_heart5.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
