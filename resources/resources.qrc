@@ -35,6 +35,7 @@
         <file alias="wale7.png">Images/wale7.png</file>
         <file alias="wale_heart.png">Images/wale_heart.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
+        <file alias="ufo_duo.png">Images/ufo_duo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
         <file alias="explosion.png">Images/explosion.png</file>
