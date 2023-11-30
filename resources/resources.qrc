@@ -58,6 +58,10 @@
         <file alias="ip_effort.mp3">Sounds/ip_effort.mp3</file>
         <file alias="rainforest.mp3">Sounds/rainforest.mp3</file>
         <file alias="lemur_cry.mp3">Sounds/lemur_cry.mp3</file>
+        <file alias="ufo.mp3">Sounds/ufo.mp3</file>
+        <file alias="ufo_away.mp3">Sounds/ufo_away.mp3</file>
+        <file alias="tractor_beam.mp3">Sounds/tractor_beam.mp3</file>
+        <file alias="tractor_beam_off.mp3">Sounds/tractor_beam_off.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

@@ -28,7 +28,13 @@ private:
 
 private slots:
     void on_ip_labelMove();
+    void on_ip_mouseRelease();
 
+    void startAnimationUFOLeft();
+
+    void onAnimationUFOLeftFinished();
+
+    void onTractorBeamCollisionReverse();
 };
 
 #endif // PAGESEVEN_H

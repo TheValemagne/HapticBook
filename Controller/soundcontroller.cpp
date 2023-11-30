@@ -21,6 +21,10 @@ SoundController::SoundController() {
     this->addSound("ip_force", getSoundPath("ip_effort"));
     this->addSound("rainforest", getSoundPath("rainforest"));
     this->addSound("lemur_cry", getSoundPath("lemur_cry"));
+    this->addSound("ufo", getSoundPath("ufo"));
+    this->addSound("ufo_away", getSoundPath("ufo_away"));
+    this->addSound("tractor_beam", getSoundPath("tractor_beam"));
+    this->addSound("tractor_beam_off", getSoundPath("tractor_beam_off"));
 }
 
 QString SoundController::getSoundPath(QString name)
