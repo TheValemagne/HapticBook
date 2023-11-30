@@ -34,9 +34,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>250</y>
-     <width>151</width>
-     <height>85</height>
+     <y>240</y>
+     <width>201</width>
+     <height>114</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -51,7 +51,7 @@
   <customwidget>
    <class>MovableLabel</class>
    <extends>QLabel</extends>
-   <header>movablelabel.h</header>
+   <header>Model/movablelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

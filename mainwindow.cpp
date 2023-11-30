@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent):
 
     // son de démarrage
     //soundController->playSound("main_theme", true);
-    ui->book->setCurrentIndex(7);
+    //ui->book->setCurrentIndex(1);
 }
 
 MainWindow::~MainWindow()

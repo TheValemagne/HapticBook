@@ -15,16 +15,22 @@ public:
     explicit PageFour(QStackedWidget *parent = 0);
     ~PageFour();
     virtual void showEvent(QShowEvent *event) override;
+    void updateAnimation();
+    void updateImageIndex();
+   // int getCurrentImageNumber() const;
+    //void setCurrentImageNumber(int number);
 
 private slots:
     void on_wale_labelMove();
     void on_wale_mouseRelease();
     void on_wale_mousePress();
-    void animate_wale();
 
 private:
     Ui::PageFour *ui;
     void onCollision();
+    QTimer *animationTimer;
+    int currentImageNumber;
+    bool isForward;
 };
 
 #endif // PAGEFOUR_H

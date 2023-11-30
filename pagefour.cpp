@@ -2,13 +2,16 @@
 #include "ui_pagefour.h"
 #include<QString>
 #include<QDebug>
+#include<QTimer>
 #include"utils.h"
 #include "Controller/hapticcontroller.h"
 #include "Controller/soundcontroller.h"
 
 PageFour::PageFour(QStackedWidget *parent) :
         Page(parent, 4),
-        ui(new Ui::PageFour)
+        ui(new Ui::PageFour),
+        currentImageNumber(1),
+        isForward(true)
 {
     ui->setupUi(this);
     Utils::delay(0.2); // attend 20 ms
@@ -19,37 +22,54 @@ PageFour::~PageFour()
     delete ui;
 }
 
+// Fonction de mise à jour de l'animation
+void PageFour::updateAnimation()
+{
+    // Construire le chemin de l'image en fonction du numéro actuel
+    QString imagePath = QString(":/images/wale_heart%1.png").arg(currentImageNumber);
+
+    // Charger l'image dans le QLabel
+    ui->wale->setPixmap(QPixmap(imagePath));
+
+    // Mettre à jour le numéro de l'image pour la prochaine itération
+    updateImageIndex();
+
+    // Inverser la direction lorsque nous atteignons la dernière image ou la première image
+    if (currentImageNumber == 1 || currentImageNumber == 5)
+        isForward = !isForward;
+}
+
+void PageFour::updateImageIndex() {
+    if (isForward)
+        currentImageNumber++;
+    else
+        currentImageNumber--;
+
+    // Assurez-vous que le numéro de l'image reste dans la plage valide (1 à 5)
+    if (currentImageNumber > 5)
+        currentImageNumber = 4;
+    else if (currentImageNumber < 1)
+        currentImageNumber = 2;
+}
+
+
 void PageFour::showEvent(QShowEvent *event) {
-       /* for (int i = 2; i < 6; ++i) {
-            QString path = QString(":/images/wale_heart%1.png").arg(QString::number(i));
-            qDebug() << "LOG[PageFour] : wale heart animation" << path;
-            QPixmap image = QPixmap(path);
-            ui->wale->setPixmap(image);
-            ui->wale->setFixedSize(image.size());
-            //if(i == 4) ui->ip->setHidden(true);
-            Utils::delay(0.05);
-    }*/
+        qDebug() << "LOG[PageFour] : show page";
+         // Initialiser le QTimer
+        animationTimer = new QTimer(this);
+
+        // Connecter le signal timeout du QTimer à la fonction de mise à jour de l'image
+        connect(animationTimer, &QTimer::timeout, this, &PageFour::updateAnimation);
+
+        // Définir l'intervalle de temps entre chaque mise à jour (par exemple, 200 millisecondes)
+        animationTimer->start(125);
 }
 
 void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over IP";
 
-    //stopSoundsAndEffects();
 
-   /* SoundController::getInstance()->playSound("bite");
-    Utils::delay(0.01);
-    HapticController::getInstance()->startEffect("waleback");
-    for (int i = 2; i < 8; ++i) {
-        QString path = QString(":/images/wale%1.png").arg(QString::number(i));
-        qDebug() << "LOG[PageFour] : wale animation" << path;
-        QPixmap image = QPixmap(path);
-        ui->wale->setPixmap(image);
-        ui->wale->setFixedSize(image.size());
-        //if(i == 4) ui->ip->setHidden(true);
-        Utils::delay(0.01);
-    }
-    //stopSoundsAndEffects(); */
     Utils::delay(1.2); // attend 2 sec avant de passer à la suite
 }
 
@@ -66,12 +86,9 @@ void PageFour::on_wale_labelMove()
 void PageFour::on_wale_mousePress()
 {
     qDebug() << "LOG[PageFour] : mouse press";
-  /*  SoundController::getInstance()->playSound("wale_cry");
-    HapticController::getInstance()->startEffect("wale");*/
 }
 
 void PageFour::on_wale_mouseRelease()
 {
-    /*SoundController::getInstance()->stopSound("wale_cry");
-    HapticController::getInstance()->stopEffect("wale");*/
+
 }
