@@ -42,8 +42,7 @@ MainWindow::MainWindow(QWidget *parent):
     ui->book->addWidget(pageEight);
 
     // son de démarrage
-    //soundController->playSound("main_theme", true);
-    //ui->book->setCurrentIndex(1);
+    soundController->playSound("main_theme", true);
 }
 
 MainWindow::~MainWindow()
