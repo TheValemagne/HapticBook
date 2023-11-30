@@ -3,6 +3,7 @@
 #include<QString>
 #include<QDebug>
 #include<QTimer>
+#include <math.h>
 #include"utils.h"
 #include "Controller/hapticcontroller.h"
 #include "Controller/soundcontroller.h"
@@ -70,17 +71,23 @@ void PageFour::onCollision()
     qDebug() << "LOG[PageFour] : wale over IP";
 
 
-    Utils::delay(1.2); // attend 2 sec avant de passer à la suite
+    //Utils::delay(1.2); // attend 2 sec avant de passer à la suite
 }
 
 void PageFour::on_wale_labelMove()
 {
-/*    if (Utils::collision(ui->wale,  ui->ip) && !hasCollide){
-        hasCollide = true;
-        onCollision();
-        nextPage(true);
-        ui->wale->setHidden(true);
-    }*/
+
+        int xWale = ui->wale->pos().x() + ui->wale->width();
+        int yWale = -ui->wale->pos().y() - ui->wale->height();
+
+        double distance = abs(-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
+
+        qDebug() << "LOG[PageFour] : distance" << distance;
+        if(distance < 10){
+            onCollision();
+        }
+
+
 }
 
 void PageFour::on_wale_mousePress()
