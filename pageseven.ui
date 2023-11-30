@@ -91,6 +91,23 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="ufo_2">
+   <property name="geometry">
+    <rect>
+     <x>365</x>
+     <y>65</y>
+     <width>248</width>
+     <height>138</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/ufo_duo.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>ufo_2</zorder>
   <zorder>background</zorder>
   <zorder>tractorBeam</zorder>
   <zorder>ip</zorder>

@@ -18,9 +18,13 @@ public:
 
 
 private:
+    bool tractorBeamCollision = false;
+
     Ui::PageSeven *ui;
     void onCollision();
     void onTractorBeamCollision();
+    void onTractorBeamDeactivation();
+    void onTractorBeamDeactivationFinished();
 
 private slots:
     void on_ip_labelMove();
