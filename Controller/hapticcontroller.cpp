@@ -24,8 +24,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         effectsIsPlaying = QMap<QString, bool>();
 
         // Init all effects
-        this->addEffect("sand", "Sand");
-        this->addEffect("water", "Water");
+        this->addEffect("water", "Water"); // TODO à supprimer si pas utilisé...
         this->addEffect("shaking", "Shaking");
         this->addEffect("landing", "Landing");
         this->addEffect("heavy_load", "HeavyLoad");
