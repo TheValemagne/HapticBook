@@ -33,8 +33,13 @@
         <file alias="wale5.png">Images/wale5.png</file>
         <file alias="wale6.png">Images/wale6.png</file>
         <file alias="wale7.png">Images/wale7.png</file>
-        <file alias="wale_heart.png">Images/wale_heart.png</file>
+        <file alias="wale_heart1.png">Images/wale_heart1.png</file>
+        <file alias="wale_heart2.png">Images/wale_heart2.png</file>
+        <file alias="wale_heart3.png">Images/wale_heart3.png</file>
+        <file alias="wale_heart4.png">Images/wale_heart4.png</file>
+        <file alias="wale_heart5.png">Images/wale_heart5.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
+        <file alias="ufo_duo.png">Images/ufo_duo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
         <file alias="explosion.png">Images/explosion.png</file>
@@ -53,6 +58,10 @@
         <file alias="ip_effort.mp3">Sounds/ip_effort.mp3</file>
         <file alias="rainforest.mp3">Sounds/rainforest.mp3</file>
         <file alias="lemur_cry.mp3">Sounds/lemur_cry.mp3</file>
+        <file alias="ufo.mp3">Sounds/ufo.mp3</file>
+        <file alias="ufo_away.mp3">Sounds/ufo_away.mp3</file>
+        <file alias="tractor_beam.mp3">Sounds/tractor_beam.mp3</file>
+        <file alias="tractor_beam_off.mp3">Sounds/tractor_beam_off.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

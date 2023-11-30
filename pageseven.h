@@ -18,13 +18,23 @@ public:
 
 
 private:
+    bool tractorBeamCollision = false;
+
     Ui::PageSeven *ui;
     void onCollision();
     void onTractorBeamCollision();
+    void onTractorBeamDeactivation();
+    void onTractorBeamDeactivationFinished();
 
 private slots:
     void on_ip_labelMove();
+    void on_ip_mouseRelease();
 
+    void startAnimationUFOLeft();
+
+    void onAnimationUFOLeftFinished();
+
+    void onTractorBeamCollisionReverse();
 };
 
 #endif // PAGESEVEN_H

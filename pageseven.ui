@@ -40,7 +40,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/tractor_beam.png);</string>
+    <string notr="true">background-image: url(:/images/tractor_beam.png); opacity: 100;</string>
    </property>
    <property name="text">
     <string/>
@@ -91,11 +91,28 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="ufo_2">
+   <property name="geometry">
+    <rect>
+     <x>365</x>
+     <y>65</y>
+     <width>248</width>
+     <height>138</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/ufo_duo.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>tractorBeam</zorder>
   <zorder>ip</zorder>
   <zorder>ufo</zorder>
   <zorder>exit</zorder>
+  <zorder>ufo_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -104,6 +121,8 @@
    <header location="global">Model/movablelabel.h</header>
    <slots>
     <signal>labelMove()</signal>
+    <signal>mousePresse()</signal>
+    <signal>mouseRelease()</signal>
    </slots>
   </customwidget>
  </customwidgets>

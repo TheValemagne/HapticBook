@@ -35,7 +35,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         this->addEffect("page2_wall", "Page2Wall");
         this->addEffect("rock_push", "RockPush");
         this->addEffect("rock_sliding", "RockSliding");
-        this->addEffect("tractor_beam", "TractorBeam");
+        this->addEffect("tractor_beam", "tractor2");
 
 
     } else {
