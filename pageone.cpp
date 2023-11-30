@@ -23,14 +23,14 @@ PageOne::~PageOne()
 void PageOne::showEvent(QShowEvent *event)
 {
     Page::showEvent(event);
-    ui->explosion->setHidden(true);
+    ui->explosion->hide();
 }
 
 void PageOne::hideEvent(QHideEvent *event)
 {
     Page::hideEvent(event);
     ui->rocket->move(rocketPosition);
-    ui->rocket->setHidden(false);
+    ui->rocket->show();
 }
 
 void PageOne::onCollision()
@@ -40,7 +40,7 @@ void PageOne::onCollision()
     stopSoundsAndEffects();
     SoundController::getInstance()->playSound("explosion");
     Utils::delay(0.2); // attend 20 ms
-    ui->explosion->setHidden(false);
+    ui->explosion->show();
     HapticController::getInstance()->startEffect("landing");
     Utils::delay(2); // attend 2 sec avant de passer à la suite
 }
@@ -52,7 +52,7 @@ void PageOne::on_rocket_labelMove()
 
      if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
          hasCollide = true;
-         ui->rocket->setHidden(true);
+         ui->rocket->hide();
          onCollision();
          nextPage();
      }

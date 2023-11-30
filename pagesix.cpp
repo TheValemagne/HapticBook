@@ -63,7 +63,7 @@ void PageSix::on_lemur_enterEvent()
 
     qDebug() << "LOG[Lemur] enter event";
     HapticController::getInstance()->startEffect("fur");
-    SoundController::getInstance()->playSound("lemur_cry", true);
+    SoundController::getInstance()->playSound("lemur_cry");
     setCursor(QCursor(QPixmap(":images/ips_hand.png"), 48, 45));
 }
 
