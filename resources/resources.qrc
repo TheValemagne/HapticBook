@@ -46,6 +46,12 @@
         <file alias="wale_small6.png">Images/wale_small6.png</file>
         <file alias="wale_small7.png">Images/wale_small7.png</file>
         <file alias="small_ip_landscape.png">Images/small_ip_landscape.png</file>
+        <file alias="small_ip_landscape2.png">Images/small_ip_landscape2.png</file>
+        <file alias="small_ip_landscape3.png">Images/small_ip_landscape3.png</file>
+        <file alias="small_ip_landscape4.png">Images/small_ip_landscape4.png</file>
+        <file alias="small_ip_landscape5.png">Images/small_ip_landscape5.png</file>
+        <file alias="small_ip_landscape6.png">Images/small_ip_landscape6.png</file>
+        <file alias="small_ip_landscape7.png">Images/small_ip_landscape7.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="ufo_duo.png">Images/ufo_duo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>

@@ -49,7 +49,7 @@
     <pixmap resource="resources/resources.qrc">:/images/wale_heart1.png</pixmap>
    </property>
   </widget>
-  <widget class="QLabel" name="ip">
+  <widget class="MovableLabel" name="ip">
    <property name="geometry">
     <rect>
      <x>230</x>

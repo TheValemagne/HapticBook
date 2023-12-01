@@ -2,6 +2,7 @@
 #include "ui_pagefour.h"
 #include<QString>
 #include<QDebug>
+#include<QPropertyAnimation>
 #include<QTimer>
 #include <math.h>
 #include"utils.h"
@@ -97,6 +98,17 @@ void PageFour::onCollision()
         Utils::delay(0.01);
     }
     //stopSoundsAndEffects();
+     float expulsion = 175;
+    qDebug() << "LOG[PageFour] : expulsion = " << expulsion << "; x = " << ui->wale->pos().x();
+    // Créer une animation qui expluse ip du ventre de la baleine
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->ip, "geometry");
+    animation->setDuration(1000);
+    animation->setStartValue(ui->ip->geometry());
+    animation->setEndValue(QRect(ui->ip->pos().x() + expulsion, ui->ip->pos().y(), ui->ip->width(), ui->ip->height()));
+    animation->setEasingCurve(QEasingCurve::OutCirc);
+    animation->start();
+    
+
     Utils::delay(1.2); // attend 2 sec avant de passer à la suite
 }
 
@@ -107,6 +119,7 @@ void PageFour::on_wale_labelMove()
         int yWale = -ui->wale->pos().y() - ui->wale->height();
 
         double distance = abs(-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
+
 
         qDebug() << "LOG[PageFour] : distance" << distance;
         if(distance < 10 && !hasCollide){
