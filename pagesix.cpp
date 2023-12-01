@@ -63,7 +63,6 @@ void PageSix::on_lemur_enterEvent()
 
     qDebug() << "LOG[Lemur] enter event";
     HapticController::getInstance()->startEffect("fur");
-    SoundController::getInstance()->playSound("lemur_cry");
     setCursor(QCursor(QPixmap(":images/ips_hand.png"), 48, 45));
 }
 
@@ -72,6 +71,21 @@ void PageSix::on_lemur_leaveEvent()
     qDebug() << "LOG[Lemur] leave event";
     HapticController::getInstance()->stopEffect("fur");
     unsetCursor();
+}
+
+void PageSix::onSoundTimeOut()
+{
+    soundTimer->stop();
+
+    SoundController::getInstance()->playSound("lemur_cry");
+}
+
+void PageSix::onNotificationTimeOut()
+{
+    notificationTimer->stop();
+
+    qDebug() << "Show notification soon";
+    showNotification(true);
 }
 
 void PageSix::on_lemur_mouseMove()
@@ -89,8 +103,17 @@ void PageSix::on_lemur_mouseMove()
         return;
     }
 
-    qDebug() << "Show notification soon";
     hasTouchedFur = true;
-    Utils::delay(4);
-    showNotification(true);
+
+    // Initialiser le timer pour le son
+   soundTimer = new QTimer(this);
+   connect(soundTimer, &QTimer::timeout, this, &PageSix::onSoundTimeOut);
+
+    // Initialiser le timer pour la notification
+    notificationTimer = new QTimer(this);
+    connect(notificationTimer, &QTimer::timeout, this, &PageSix::onNotificationTimeOut);
+
+    // Lancement des intervalles
+    soundTimer->start(2000);
+    notificationTimer->start(4000);
 }
