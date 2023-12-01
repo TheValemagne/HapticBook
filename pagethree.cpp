@@ -47,7 +47,7 @@ void PageThree::on_wale_labelMove()
         hasCollide = true;
         onCollision();
         nextPage(true);
-        ui->wale->setHidden(true);
+        ui->wale->hide();
     }
 }
 
