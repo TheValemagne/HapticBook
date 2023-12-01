@@ -3,6 +3,7 @@
 #include<QString>
 #include<QDebug>
 #include<QTimer>
+#include <math.h>
 #include"utils.h"
 #include "Controller/hapticcontroller.h"
 #include "Controller/soundcontroller.h"
@@ -14,12 +15,14 @@ PageFour::PageFour(QStackedWidget *parent) :
         isForward(true)
 {
     ui->setupUi(this);
+    ui->ip->setHidden(true);
     Utils::delay(0.2); // attend 20 ms
 }
 
 PageFour::~PageFour()
 {
     delete ui;
+    delete animationTimer;
 }
 
 // Fonction de mise à jour de l'animation
@@ -67,20 +70,45 @@ void PageFour::showEvent(QShowEvent *event) {
 
 void PageFour::onCollision()
 {
-    qDebug() << "LOG[PageFour] : wale over IP";
+    qDebug() << "LOG[PageFour] : wale over beach";
 
+    // Arrêter le QTimer
+    animationTimer->stop();
+    ui->wale->setIsLocked(true);
 
+    // Construire le chemin de l'image en fonction du numéro actuel
+    QString imagePath = QString(":/images/wale_small1.png");
+    QPixmap image = QPixmap(imagePath);
+    ui->wale->setPixmap(image);
+    ui->wale->setFixedSize(image.size());
+    Utils::delay(0.05);
+    for (int i = 2; i < 8; ++i) {
+        QString path = QString(":/images/wale_small%1.png").arg(QString::number(i));
+        QPixmap image = QPixmap(path);
+        ui->wale->setPixmap(image);
+        ui->wale->setFixedSize(image.size());
+        //if(i == 4) ui->ip->setHidden(true);
+        Utils::delay(0.01);
+    }
+    //stopSoundsAndEffects();
     Utils::delay(1.2); // attend 2 sec avant de passer à la suite
 }
 
 void PageFour::on_wale_labelMove()
 {
-/*    if (Utils::collision(ui->wale,  ui->ip) && !hasCollide){
-        hasCollide = true;
-        onCollision();
-        nextPage(true);
-        ui->wale->setHidden(true);
-    }*/
+
+        int xWale = ui->wale->pos().x() + ui->wale->width();
+        int yWale = -ui->wale->pos().y() - ui->wale->height();
+
+        double distance = abs(-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
+
+        qDebug() << "LOG[PageFour] : distance" << distance;
+        if(distance < 10 && !hasCollide){
+            hasCollide = true;
+            onCollision();
+        }
+
+
 }
 
 void PageFour::on_wale_mousePress()

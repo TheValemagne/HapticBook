@@ -40,7 +40,26 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/images/wale_heart1.png);</string>
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources/resources.qrc">:/images/wale_heart1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ip">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>290</y>
+     <width>53</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/small_ip_landscape.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -54,6 +73,8 @@
    <header>Model/movablelabel.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

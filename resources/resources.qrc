@@ -38,6 +38,14 @@
         <file alias="wale_heart3.png">Images/wale_heart3.png</file>
         <file alias="wale_heart4.png">Images/wale_heart4.png</file>
         <file alias="wale_heart5.png">Images/wale_heart5.png</file>
+        <file alias="wale_small1.png">Images/wale_small1.png</file>
+        <file alias="wale_small2.png">Images/wale_small2.png</file>
+        <file alias="wale_small3.png">Images/wale_small3.png</file>
+        <file alias="wale_small4.png">Images/wale_small4.png</file>
+        <file alias="wale_small5.png">Images/wale_small5.png</file>
+        <file alias="wale_small6.png">Images/wale_small6.png</file>
+        <file alias="wale_small7.png">Images/wale_small7.png</file>
+        <file alias="small_ip_landscape.png">Images/small_ip_landscape.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="ufo_duo.png">Images/ufo_duo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
