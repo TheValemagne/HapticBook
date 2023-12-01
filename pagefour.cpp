@@ -72,16 +72,22 @@ void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over beach";
 
-    // Arrêter le QTimer
+    // Arrêter le QTimer and stop move
     animationTimer->stop();
     ui->wale->setIsLocked(true);
 
-    // Construire le chemin de l'image en fonction du numéro actuel
+    // position ip under wale
+    ui->ip->setHidden(false);
+    ui->ip->setGeometry(ui->wale->pos().x() + (ui->wale->width()*0.7) - ui->ip->width()/2, ui->wale->pos().y() + (ui->wale->height()*0.62) - ui->ip->height()/2, ui->ip->width(), ui->ip->height());
+
+
+    // Initialise l'image à une baleine sans coeur
     QString imagePath = QString(":/images/wale_small1.png");
     QPixmap image = QPixmap(imagePath);
     ui->wale->setPixmap(image);
     ui->wale->setFixedSize(image.size());
-    Utils::delay(0.05);
+    Utils::delay(0.02);
+
     for (int i = 2; i < 8; ++i) {
         QString path = QString(":/images/wale_small%1.png").arg(QString::number(i));
         QPixmap image = QPixmap(path);

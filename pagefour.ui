@@ -52,8 +52,8 @@
   <widget class="QLabel" name="ip">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>290</y>
+     <x>230</x>
+     <y>280</y>
      <width>53</width>
      <height>30</height>
     </rect>
@@ -65,6 +65,9 @@
     <string/>
    </property>
   </widget>
+  <zorder>background</zorder>
+  <zorder>ip</zorder>
+  <zorder>wale</zorder>
  </widget>
  <customwidgets>
   <customwidget>
