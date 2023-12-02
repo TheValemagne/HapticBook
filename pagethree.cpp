@@ -38,7 +38,7 @@ void PageThree::onCollision()
         Utils::delay(0.01);
     }
     //stopSoundsAndEffects();
-    Utils::delay(1.2); // attend 2 sec avant de passer à la suite
+    Utils::delay(1.2); // attend 1.2 sec avant de passer à la suite
 }
 
 void PageThree::on_wale_labelMove()
