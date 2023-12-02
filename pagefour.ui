@@ -58,8 +58,21 @@
      <height>30</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/images/small_ip_landscape.png);</string>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources/resources.qrc">:/images/small_ip_landscape.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="end">
+   <property name="geometry">
+    <rect>
+     <x>1018</x>
+     <y>0</y>
+     <width>5</width>
+     <height>768</height>
+    </rect>
    </property>
    <property name="text">
     <string/>
@@ -68,6 +81,7 @@
   <zorder>background</zorder>
   <zorder>ip</zorder>
   <zorder>wale</zorder>
+  <zorder>end</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -24,6 +24,9 @@ private slots:
     void on_wale_labelMove();
     void on_wale_mouseRelease();
     void on_wale_mousePress();
+    void onAnimationFinished();
+    void on_ip_labelMove();
+    void on_ip_mouseRelease();
 
 private:
     Ui::PageFour *ui;

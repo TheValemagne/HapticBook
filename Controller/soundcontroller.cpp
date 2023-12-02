@@ -25,6 +25,13 @@ SoundController::SoundController() {
     this->addSound("ufo_away", getSoundPath("ufo_away"));
     this->addSound("tractor_beam", getSoundPath("tractor_beam"));
     this->addSound("tractor_beam_off", getSoundPath("tractor_beam_off"));
+    this->addSound("heart", getSoundPath("heart"));
+    this->addSound("stomac", getSoundPath("stomac"));
+    this->addSound("sea", getSoundPath("sea"));
+    this->addSound("underwater", getSoundPath("underwater"));
+    this->addSound("walk_sand", getSoundPath("walk_sand"));
+    this->addSound("barf", getSoundPath("barf"));
+    this->addSound("sneezed", getSoundPath("sneezed"));
 }
 
 QString SoundController::getSoundPath(QString name)

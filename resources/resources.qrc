@@ -76,6 +76,13 @@
         <file alias="ufo_away.mp3">Sounds/ufo_away.mp3</file>
         <file alias="tractor_beam.mp3">Sounds/tractor_beam.mp3</file>
         <file alias="tractor_beam_off.mp3">Sounds/tractor_beam_off.mp3</file>
+        <file alias="stomac.mp3">Sounds/stomac.mp3</file>
+        <file alias="sea.mp3">Sounds/sea.mp3</file>
+        <file alias="heart.mp3">Sounds/heart.mp3</file>
+        <file alias="underwater.mp3">Sounds/underwater.mp3</file>
+        <file alias="walk_sand.mp3">Sounds/walk_sand.mp3</file>
+        <file alias="barf.mp3">Sounds/barf.mp3</file>
+        <file alias="sneezed.mp3">Sounds/sneezed.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

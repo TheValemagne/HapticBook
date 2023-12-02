@@ -67,6 +67,11 @@ void PageFour::showEvent(QShowEvent *event) {
 
         // Définir l'intervalle de temps entre chaque mise à jour (par exemple, 200 millisecondes)
         animationTimer->start(125);
+
+        // jouer son heart
+        SoundController::getInstance()->playSound("heart", true);
+        //jouer son stomac
+        SoundController::getInstance()->playSound("underwater", true);
 }
 
 void PageFour::onCollision()
@@ -81,6 +86,8 @@ void PageFour::onCollision()
     ui->ip->setHidden(false);
     ui->ip->setGeometry(ui->wale->pos().x() + (ui->wale->width()*0.7) - ui->ip->width()/2, ui->wale->pos().y() + (ui->wale->height()*0.62) - ui->ip->height()/2, ui->ip->width(), ui->ip->height());
 
+    //jouer son sneezed
+    SoundController::getInstance()->playSound("sneezed", false);
 
     // Initialise l'image à une baleine sans coeur
     QString imagePath = QString(":/images/wale_small1.png");
@@ -97,19 +104,75 @@ void PageFour::onCollision()
         //if(i == 4) ui->ip->setHidden(true);
         Utils::delay(0.01);
     }
+
+
+
     //stopSoundsAndEffects();
      float expulsion = 175;
     qDebug() << "LOG[PageFour] : expulsion = " << expulsion << "; x = " << ui->wale->pos().x();
+    int durationAnimation = 1000;
     // Créer une animation qui expluse ip du ventre de la baleine
     QPropertyAnimation *animation = new QPropertyAnimation(ui->ip, "geometry");
-    animation->setDuration(1000);
+    animation->setDuration(durationAnimation);
     animation->setStartValue(ui->ip->geometry());
     animation->setEndValue(QRect(ui->ip->pos().x() + expulsion, ui->ip->pos().y(), ui->ip->width(), ui->ip->height()));
     animation->setEasingCurve(QEasingCurve::OutCirc);
+
+    // Connecter la fonction à l'événement finished de l'animation
+    connect(animation, &QPropertyAnimation::finished, this, &PageFour::onAnimationFinished);
+
     animation->start();
+
+    //Utils::delay(durationAnimation);
     
 
     Utils::delay(1.2); // attend 2 sec avant de passer à la suite
+}
+
+void PageFour::onAnimationFinished()
+{
+    qDebug() << "LOG[PageFour] : animation finished";
+    // stop sound heart
+    SoundController::getInstance()->stopSound("heart");
+    // stop sound underwater
+    SoundController::getInstance()->stopSound("underwater");
+
+    SoundController::getInstance()->playSound("sea", true);
+    Utils::delay(1);
+    for (int i = 2; i < 8; ++i) {
+        QString path = QString(":/images/small_ip_landscape%1.png").arg(QString::number(i));
+        QPixmap image = QPixmap(path);
+        ui->ip->setPixmap(image);
+        ui->ip->setFixedSize(image.size());
+        //if(i == 4) ui->ip->setHidden(true);
+        Utils::delay(0.02);
+    }
+}
+
+// on ip move
+void PageFour::on_ip_labelMove()
+{
+    qDebug() << "LOG[PageFour] : ip move";
+    // play sound walk_sand
+    SoundController::getInstance()->playSound("walk_sand", true);
+
+    if (Utils::collision(ui->end,  ui->ip) && !hasCollide){
+        hasCollide = true;
+qDebug() << "LOG[PageFour] : ip collision with end";
+        // stop all sounds and effects
+        stopSoundsAndEffects();
+        nextPage(true);
+        ui->wale->hide();
+        ui->ip->hide();
+    }
+}
+
+// mouse release and stop sound walk_sand
+void PageFour::on_ip_mouseRelease()
+{
+    qDebug() << "LOG[PageFour] : ip mouse release";
+    // stop sound walk_sand
+    SoundController::getInstance()->stopSound("walk_sand");
 }
 
 void PageFour::on_wale_labelMove()
@@ -123,7 +186,6 @@ void PageFour::on_wale_labelMove()
 
         qDebug() << "LOG[PageFour] : distance" << distance;
         if(distance < 10 && !hasCollide){
-            hasCollide = true;
             onCollision();
         }
 
