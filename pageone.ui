@@ -72,7 +72,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">background-image: url(:/images/spaceship.png);</string>
    </property>
    <property name="text">
     <string/>
