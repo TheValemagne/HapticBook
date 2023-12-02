@@ -72,10 +72,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/space_ship.png);</string>
+    <string notr="true">background-image: url(:/images/spaceship.png);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources/resources.qrc">:/images/spaceship.png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="explosion">
@@ -108,9 +111,12 @@
    <slots>
     <signal>labelMove()</signal>
     <signal>mouseRelease()</signal>
+    <signal>mousePresse()</signal>
    </slots>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

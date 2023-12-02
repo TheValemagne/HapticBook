@@ -18,7 +18,6 @@
         <file alias="tree_trunk_1.png">Images/tree_trunk_1.png</file>
         <file alias="tree_trunk_2.png">Images/tree_trunk_2.png</file>
         <file alias="spacial_beacon.png">Images/spacial_beacon.png</file>
-        <file alias="space_ship.png">Images/space_ship.png</file>
         <file alias="scared_ip.png">Images/scared_ip.png</file>
         <file alias="small_ip.png">Images/small_ip.png</file>
         <file alias="emergency_transmitter.png">Images/emergency_transmitter.png</file>
@@ -58,6 +57,7 @@
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
         <file alias="explosion.png">Images/explosion.png</file>
         <file alias="ips_closedhand.png">Images/ips_closedhand.png</file>
+        <file alias="spaceship.png">Images/spaceship.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="alarm.mp3">Sounds/alarm.mp3</file>
