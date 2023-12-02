@@ -52,7 +52,7 @@ void PageTwo::onCollision()
 void PageTwo::on_ip_labelMove()
 {
     SoundController::getInstance()->playSound("swim", true);
-//    HapticController::getInstance()->startEffect("water");
+    HapticController::getInstance()->startEffect("water");
 
     if (Utils::collision(ui->ip,  ui->exit) && !hasCollide){
         hasCollide = true;
@@ -69,7 +69,7 @@ void PageTwo::on_ip_labelMove()
     } else {
         if (hasRockInvisibleCollide && !hasMarkerCollide) {
             hasRockInvisibleCollide = false;
-            // SoundController::getInstance()->stopSound("ip_force"); should auto stop
+            SoundController::getInstance()->stopSound("ip_force");
             HapticController::getInstance()->stopEffect("rock_push");
             ui->rock->move(defaultRockPosition);
         }
@@ -78,7 +78,7 @@ void PageTwo::on_ip_labelMove()
 
 void PageTwo::on_ip_mouseRelease()
 {
-//    stopSoundsAndEffects();
+    HapticController::getInstance()->stopEffect("water");
 }
 
 void PageTwo::onRockInvisibleCollision() {
