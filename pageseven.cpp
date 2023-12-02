@@ -11,7 +11,7 @@ PageSeven::PageSeven(QStackedWidget *parent) :
     ui(new Ui::PageSeven)
 {
     ui->setupUi(this);
-    ui->ufo_2->setHidden(true);
+    ui->ufo_2->hide();
 }
 
 PageSeven::~PageSeven()
@@ -60,9 +60,9 @@ void PageSeven::onTractorBeamCollisionReverse() {
 void PageSeven::onCollision() {
     HapticController::getInstance()->stopEffect("tractor_beam");
     SoundController::getInstance()->stopSound("ufo");
-    ui->ufo_2->setHidden(false);
-    ui->ufo->setHidden(true);
-    ui->ip->setHidden(true);
+    ui->ufo_2->show();
+    ui->ufo->hide();
+    ui->ip->hide();
     ui->ip->setIsLocked(true);
 
     onTractorBeamDeactivation();

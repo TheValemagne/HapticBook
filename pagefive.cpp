@@ -63,7 +63,7 @@ void PageFive::hideEvent(QHideEvent *event)
 
 void PageFive::on_smallEmergencyTransmitter_clicked()
 {
-    ui->smallEmergencyTransmitter->setHidden(true);
+    ui->smallEmergencyTransmitter->hide();
     showEmergencyTransmitter(true);
 }
 

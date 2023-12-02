@@ -59,7 +59,7 @@ void SoundController::addSound(const QString& soundName, const QString& soundFil
     sounds[soundName] = mediaPlayer;
 }
 
-void SoundController::playSound(const QString& soundName, bool loop, double loopDelay)
+void SoundController::playSound(const QString& soundName, bool loop)
 {
     if (sounds.contains(soundName) && !this->isSoundPlaying(soundName))
     {
@@ -68,7 +68,6 @@ void SoundController::playSound(const QString& soundName, bool loop, double loop
         if (loop) {
             mediaPlayer->connect(mediaPlayer, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
                 if (state == QMediaPlayer::StoppedState) {
-                    Utils::delay(loopDelay); // si non null, applique un délais avant de relancer le son
                     mediaPlayer->play();
                 }
             });

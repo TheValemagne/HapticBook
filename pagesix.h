@@ -1,6 +1,7 @@
 #ifndef PAGESIX_H
 #define PAGESIX_H
 
+#include<QTimer>
 #include "page.h"
 
 namespace Ui {
@@ -33,7 +34,11 @@ private:
     Ui::PageSix *ui;
     bool hasTouchedFur;
     bool isFirstMove;
+    QTimer *soundTimer;
+    QTimer *notificationTimer;
     void showNotification(bool isVisible);
+    void onSoundTimeOut();
+    void onNotificationTimeOut();
 };
 
 #endif // PAGESIX_H

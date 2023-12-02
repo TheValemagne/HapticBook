@@ -18,7 +18,6 @@
         <file alias="tree_trunk_1.png">Images/tree_trunk_1.png</file>
         <file alias="tree_trunk_2.png">Images/tree_trunk_2.png</file>
         <file alias="spacial_beacon.png">Images/spacial_beacon.png</file>
-        <file alias="space_ship.png">Images/space_ship.png</file>
         <file alias="scared_ip.png">Images/scared_ip.png</file>
         <file alias="small_ip.png">Images/small_ip.png</file>
         <file alias="emergency_transmitter.png">Images/emergency_transmitter.png</file>
@@ -38,12 +37,27 @@
         <file alias="wale_heart3.png">Images/wale_heart3.png</file>
         <file alias="wale_heart4.png">Images/wale_heart4.png</file>
         <file alias="wale_heart5.png">Images/wale_heart5.png</file>
+        <file alias="wale_small1.png">Images/wale_small1.png</file>
+        <file alias="wale_small2.png">Images/wale_small2.png</file>
+        <file alias="wale_small3.png">Images/wale_small3.png</file>
+        <file alias="wale_small4.png">Images/wale_small4.png</file>
+        <file alias="wale_small5.png">Images/wale_small5.png</file>
+        <file alias="wale_small6.png">Images/wale_small6.png</file>
+        <file alias="wale_small7.png">Images/wale_small7.png</file>
+        <file alias="small_ip_landscape.png">Images/small_ip_landscape.png</file>
+        <file alias="small_ip_landscape2.png">Images/small_ip_landscape2.png</file>
+        <file alias="small_ip_landscape3.png">Images/small_ip_landscape3.png</file>
+        <file alias="small_ip_landscape4.png">Images/small_ip_landscape4.png</file>
+        <file alias="small_ip_landscape5.png">Images/small_ip_landscape5.png</file>
+        <file alias="small_ip_landscape6.png">Images/small_ip_landscape6.png</file>
+        <file alias="small_ip_landscape7.png">Images/small_ip_landscape7.png</file>
         <file alias="ufo.png">Images/ufo.png</file>
         <file alias="ufo_duo.png">Images/ufo_duo.png</file>
         <file alias="tractor_beam.png">Images/tractor_beam.png</file>
         <file alias="bg_sos_button">Images/bg_sos_button.png</file>
         <file alias="explosion.png">Images/explosion.png</file>
         <file alias="ips_closedhand.png">Images/ips_closedhand.png</file>
+        <file alias="spaceship.png">Images/spaceship.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="alarm.mp3">Sounds/alarm.mp3</file>

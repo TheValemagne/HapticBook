@@ -31,7 +31,7 @@ void PageTwo::showEvent(QShowEvent *event) {
     hasRockCollide = false;
     hasRockInvisibleCollide = false;
     hasMarkerCollide = false;
-    ui->ip->setHidden(false);
+    ui->ip->show();
     ui->ip->setIsLocked(false);
     ui->ip->move(ipPosition);
     ui->rock->move(defaultRockPosition);
@@ -46,7 +46,7 @@ void PageTwo::onCollision()
     Utils::delay(3);
     nextPage(false);
     HapticController::getInstance()->stopEffect("page2_wall");
-    ui->ip->setHidden(true);
+    ui->ip->hide();
 }
 
 void PageTwo::on_ip_labelMove()
