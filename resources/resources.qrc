@@ -58,6 +58,8 @@
         <file alias="explosion.png">Images/explosion.png</file>
         <file alias="ips_closedhand.png">Images/ips_closedhand.png</file>
         <file alias="spaceship.png">Images/spaceship.png</file>
+        <file alias="walk.png">Images/walk.png</file>
+        <file alias="arrow_page_4.png">Images/arrow_page_4.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="alarm.mp3">Sounds/alarm.mp3</file>
