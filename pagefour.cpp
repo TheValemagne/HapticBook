@@ -23,7 +23,7 @@ PageFour::PageFour(QStackedWidget *parent) :
 PageFour::~PageFour()
 {
     delete ui;
-    delete animationTimer;
+   // if(animationTimer != nullptr) delete animationTimer;
 }
 
 // Fonction de mise à jour de l'animation
