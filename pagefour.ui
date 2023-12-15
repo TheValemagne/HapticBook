@@ -102,8 +102,8 @@
     <rect>
      <x>50</x>
      <y>450</y>
-     <width>364</width>
-     <height>71</height>
+     <width>287</width>
+     <height>36</height>
     </rect>
    </property>
    <property name="text">
@@ -114,11 +114,11 @@
    </property>
   </widget>
   <zorder>background</zorder>
+  <zorder>arrow</zorder>
+  <zorder>walk</zorder>
   <zorder>ip</zorder>
   <zorder>wale</zorder>
   <zorder>end</zorder>
-  <zorder>arrow</zorder>
-  <zorder>walk</zorder>
  </widget>
  <customwidgets>
   <customwidget>

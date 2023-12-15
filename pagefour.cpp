@@ -133,9 +133,7 @@ void PageFour::onAnimationFinished()
 
     // set walk help position
     ui->walk->setHidden(false);
-    ui->walk->setGeometry(ui->ip->pos().x() + ui->ip->width(), ui->ip->pos().y() + (ui->ip->height()*0.5) - ui->walk->height()/2, ui->walk->width(), ui->walk->height());
-
-
+    ui->walk->setGeometry(ui->ip->pos().x() + (ui->ip->width() * 0.8), ui->ip->pos().y() + (ui->ip->height() * 0.9) - (ui->walk->height()/4), ui->walk->width(), ui->walk->height());
 
     SoundController::getInstance()->playSound("sea", true);
     Utils::delay(1);
@@ -186,7 +184,7 @@ void PageFour::on_wale_labelMove()
         int xWale = ui->wale->pos().x() + ui->wale->width();
         int yWale = -ui->wale->pos().y() - ui->wale->height();
 
-        double distance = abs(-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
+        double distance = (-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
 
 
         qDebug() << "LOG[PageFour] : distance" << distance;
