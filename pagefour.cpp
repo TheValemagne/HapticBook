@@ -59,19 +59,7 @@ void PageFour::updateImageIndex() {
 
 void PageFour::showEvent(QShowEvent *event) {
         qDebug() << "LOG[PageFour] : show page";
-         // Initialiser le QTimer
-        animationTimer = new QTimer(this);
 
-        // Connecter le signal timeout du QTimer à la fonction de mise à jour de l'image
-        connect(animationTimer, &QTimer::timeout, this, &PageFour::updateAnimation);
-
-        // Définir l'intervalle de temps entre chaque mise à jour (par exemple, 200 millisecondes)
-        animationTimer->start(125);
-
-        // jouer son heart
-        SoundController::getInstance()->playSound("heart", true);
-        // play haptic heart
-        HapticController::getInstance()->startEffect("heart");
         //jouer son stomac
         SoundController::getInstance()->playSound("underwater", true);
 }
@@ -80,8 +68,6 @@ void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over beach";
 
-    // Arrêter le QTimer and stop move
-    animationTimer->stop();
     ui->wale->setIsLocked(true);
 
     // position ip under wale
@@ -128,7 +114,9 @@ void PageFour::onCollision()
 
     //Utils::delay(durationAnimation);
 
-    Utils::delay(1.2); // attend 2 sec avant de passer à la suite
+    Utils::delay(0.2); // attend 2 sec avant de passer à la suite
+    // hide wale
+    ui->wale->setHidden(true);
 }
 
 void PageFour::onAnimationFinished()
@@ -157,10 +145,11 @@ void PageFour::onAnimationFinished()
 void PageFour::on_ip_labelMove()
 {
     qDebug() << "LOG[PageFour] : ip move";
-    // play sound walk_sand
-    SoundController::getInstance()->playSound("walk_sand", true);
+
     // play haptic walk_sand
     HapticController::getInstance()->startEffect("walk_sand");
+    // play sound walk_sand
+    SoundController::getInstance()->playSound("walk_sand", true);
 
     if (Utils::collision(ui->end,  ui->ip) && !hasCollide){
         hasCollide = true;
@@ -203,9 +192,33 @@ void PageFour::on_wale_labelMove()
 void PageFour::on_wale_mousePress()
 {
     qDebug() << "LOG[PageFour] : mouse press";
+    // Initialiser le QTimer
+    animationTimer = new QTimer(this);
+
+    // Connecter le signal timeout du QTimer à la fonction de mise à jour de l'image
+    connect(animationTimer, &QTimer::timeout, this, &PageFour::updateAnimation);
+
+    // Définir l'intervalle de temps entre chaque mise à jour (par exemple, 200 millisecondes)
+    animationTimer->start(140);
+
+    // jouer son heart
+    SoundController::getInstance()->playSound("heart", true);
+    Utils::delay(0.01);
+    // play haptic heart
+    HapticController::getInstance()->startEffect("heart");
+
+
+
+    //Utils::delay(0.02);
 }
 
 void PageFour::on_wale_mouseRelease()
 {
+    // Arrêter le QTimer and stop move
+    animationTimer->stop();
 
+    // stop sound heart
+    SoundController::getInstance()->stopSound("heart");
+    // stop haptic heart
+    HapticController::getInstance()->stopEffect("heart");
 }
