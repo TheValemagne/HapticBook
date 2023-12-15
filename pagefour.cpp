@@ -70,6 +70,8 @@ void PageFour::showEvent(QShowEvent *event) {
 
         // jouer son heart
         SoundController::getInstance()->playSound("heart", true);
+        // play haptic heart
+        HapticController::getInstance()->startEffect("heart");
         //jouer son stomac
         SoundController::getInstance()->playSound("underwater", true);
 }
@@ -88,6 +90,7 @@ void PageFour::onCollision()
 
     //jouer son sneezed
     SoundController::getInstance()->playSound("sneezed", false);
+    Utils::delay(0.5);
 
     // Initialise l'image à une baleine sans coeur
     QString imagePath = QString(":/images/wale_small1.png");
@@ -124,7 +127,6 @@ void PageFour::onCollision()
     animation->start();
 
     //Utils::delay(durationAnimation);
-    
 
     Utils::delay(1.2); // attend 2 sec avant de passer à la suite
 }
@@ -134,6 +136,8 @@ void PageFour::onAnimationFinished()
     qDebug() << "LOG[PageFour] : animation finished";
     // stop sound heart
     SoundController::getInstance()->stopSound("heart");
+    // stop haptic heart
+    HapticController::getInstance()->stopEffect("heart");
     // stop sound underwater
     SoundController::getInstance()->stopSound("underwater");
 
@@ -155,6 +159,8 @@ void PageFour::on_ip_labelMove()
     qDebug() << "LOG[PageFour] : ip move";
     // play sound walk_sand
     SoundController::getInstance()->playSound("walk_sand", true);
+    // play haptic walk_sand
+    HapticController::getInstance()->startEffect("walk_sand");
 
     if (Utils::collision(ui->end,  ui->ip) && !hasCollide){
         hasCollide = true;
@@ -173,6 +179,8 @@ void PageFour::on_ip_mouseRelease()
     qDebug() << "LOG[PageFour] : ip mouse release";
     // stop sound walk_sand
     SoundController::getInstance()->stopSound("walk_sand");
+    // stop haptic walk_sand
+    HapticController::getInstance()->stopEffect("walk_sand");
 }
 
 void PageFour::on_wale_labelMove()
