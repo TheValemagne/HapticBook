@@ -78,10 +78,47 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="arrow">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>300</y>
+     <width>411</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="lineWidth">
+    <number>12</number>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources/resources.qrc">:/images/arrow_page_4.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="walk">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>450</y>
+     <width>364</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources/resources.qrc">:/images/walk.png</pixmap>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>ip</zorder>
   <zorder>wale</zorder>
   <zorder>end</zorder>
+  <zorder>arrow</zorder>
+  <zorder>walk</zorder>
  </widget>
  <customwidgets>
   <customwidget>

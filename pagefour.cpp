@@ -17,6 +17,7 @@ PageFour::PageFour(QStackedWidget *parent) :
 {
     ui->setupUi(this);
     ui->ip->setHidden(true);
+    ui->walk->setHidden(true);
     Utils::delay(0.2); // attend 20 ms
 }
 
@@ -67,7 +68,7 @@ void PageFour::showEvent(QShowEvent *event) {
 void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over beach";
-
+    ui->arrow->setHidden(true);
     ui->wale->setIsLocked(true);
 
     // position ip under wale
@@ -117,6 +118,7 @@ void PageFour::onCollision()
     Utils::delay(0.2); // attend 2 sec avant de passer à la suite
     // hide wale
     ui->wale->setHidden(true);
+
 }
 
 void PageFour::onAnimationFinished()
@@ -128,6 +130,12 @@ void PageFour::onAnimationFinished()
     HapticController::getInstance()->stopEffect("heart");
     // stop sound underwater
     SoundController::getInstance()->stopSound("underwater");
+
+    // set walk help position
+    ui->walk->setHidden(false);
+    ui->walk->setGeometry(ui->ip->pos().x() + ui->ip->width(), ui->ip->pos().y() + (ui->ip->height()*0.5) - ui->walk->height()/2, ui->walk->width(), ui->walk->height());
+
+
 
     SoundController::getInstance()->playSound("sea", true);
     Utils::delay(1);
