@@ -85,6 +85,7 @@
         <file alias="walk_sand.mp3">Sounds/walk_sand.mp3</file>
         <file alias="barf.mp3">Sounds/barf.mp3</file>
         <file alias="sneezed.mp3">Sounds/sneezed.mp3</file>
+        <file alias="notification.mp3">Sounds/notification.mp3</file>
     </qresource>
     <qresource prefix="/effects">
         <file alias="effects.ifr">Effects/effects.ifr</file>

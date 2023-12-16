@@ -87,6 +87,7 @@ void PageSix::onNotificationTimeOut()
 
     qDebug() << "Show notification soon";
     showNotification(true);
+    SoundController::getInstance()->playSound("notification");
 }
 
 void PageSix::on_lemur_mouseMove()

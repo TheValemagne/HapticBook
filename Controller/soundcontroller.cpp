@@ -29,6 +29,7 @@ SoundController::SoundController() {
     this->addSound("walk_sand", getSoundPath("walk_sand"));
     this->addSound("barf", getSoundPath("barf"));
     this->addSound("sneezed", getSoundPath("sneezed"));
+    this->addSound("notification", getSoundPath("notification"));
 }
 
 QString SoundController::getSoundPath(QString name)
