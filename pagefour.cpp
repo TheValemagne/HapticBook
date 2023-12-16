@@ -146,8 +146,6 @@ void PageFour::onAnimationFinished()
 // on ip move
 void PageFour::on_ip_labelMove()
 {
-    qDebug() << "LOG[PageFour] : ip move";
-
     // play haptic walk_sand
     HapticController::getInstance()->startEffect("walk_sand");
     // play sound walk_sand
