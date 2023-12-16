@@ -23,12 +23,11 @@ void PageThree::onCollision()
 {
     qDebug() << "LOG[PageThree] : wale over IP";
 
-    //stopSoundsAndEffects();
+    SoundController::getInstance()->playSound("bite");
+    Utils::delay(0.01);
+    HapticController::getInstance()->startEffect("waleback");
 
-     SoundController::getInstance()->playSound("bite");
-     Utils::delay(0.01);
-     HapticController::getInstance()->startEffect("waleback");
-    for (int i = 2; i < 8; ++i) {
+    for (int i = 2; i < 8; ++i) { // animation la baleine mange l'extraterrestre
         QString path = QString(":/images/wale%1.png").arg(QString::number(i));
         qDebug() << "LOG[PageThree] : wale animation" << path;
         QPixmap image = QPixmap(path);
@@ -37,7 +36,7 @@ void PageThree::onCollision()
         if(i == 4) ui->ip->setHidden(true);
         Utils::delay(0.01);
     }
-    //stopSoundsAndEffects();
+
     Utils::delay(1.2); // attend 1.2 sec avant de passer à la suite
 }
 
@@ -53,9 +52,9 @@ void PageThree::on_wale_labelMove()
 
 void PageThree::on_wale_mousePress()
 {
-        qDebug() << "LOG[PageThree] : mouse press";
-        SoundController::getInstance()->playSound("wale_cry");
-        HapticController::getInstance()->startEffect("wale");
+    qDebug() << "LOG[PageThree] : mouse press";
+    SoundController::getInstance()->playSound("wale_cry");
+    HapticController::getInstance()->startEffect("wale");
 }
 
 void PageThree::on_wale_mouseRelease()

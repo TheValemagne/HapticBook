@@ -7,6 +7,9 @@ namespace Ui {
 class PageOne;
 }
 
+/**
+ * Classe représentant la page 1
+ */
 class PageOne : public Page
 {
     Q_OBJECT
@@ -24,6 +27,9 @@ private slots:
 
 private:
     Ui::PageOne *ui;
+    /**
+    * Action à réaliser lors de la fin de la scène après la collision avec la Terre
+    */
     void onCollision();
     QPoint rocketPosition;
 };

@@ -21,9 +21,9 @@ PageSix::~PageSix()
 void PageSix::showEvent(QShowEvent *event)
 {
     Page::showEvent(event);
-    hasTouchedFur = false;
-    isFirstMove = true;
-    showNotification(false);
+    hasTouchedFur = false; // stocke si la fourure a déjà été touchée
+    isFirstMove = true; // stocke si c'est le premier mouvement sur la fourure
+    showNotification(false); // cacher la notification
     SoundController::getInstance()->playSound("rainforest", true);
 }
 
@@ -35,13 +35,13 @@ void PageSix::showNotification(bool isVisible)
 
 void PageSix::on_answerButton_clicked()
 {
-    if(hasCollide){
+    if(hasCollide){ // si le bouton a déjà été appuyé
         return;
      }
 
     hasCollide = true;
     HapticController::getInstance()->startEffect("click");
-    Utils::delay(0.5);
+    Utils::delay(0.5); // attend 0.5 sec
     nextPage();
 }
 
@@ -63,6 +63,7 @@ void PageSix::on_lemur_enterEvent()
 
     qDebug() << "LOG[Lemur] enter event";
     HapticController::getInstance()->startEffect("fur");
+    // afficher la main de l'extraterrestre lorsque le curseur est sur les lémuriens
     setCursor(QCursor(QPixmap(":images/ips_hand.png"), 48, 45));
 }
 

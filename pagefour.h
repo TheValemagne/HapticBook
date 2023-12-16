@@ -7,6 +7,9 @@ namespace Ui {
     class PageFour;
 }
 
+/**
+ * Classe représentant la page 4
+ */
 class PageFour : public Page
 {
     Q_OBJECT
@@ -15,10 +18,15 @@ public:
     explicit PageFour(QStackedWidget *parent = 0);
     ~PageFour();
     virtual void showEvent(QShowEvent *event) override;
+    /**
+    * Fonction de mise à jour de l'animation
+    */
     void updateAnimation();
+
+    /**
+    * Mettre à jour le numéro de l'image pour la prochaine itération
+    */
     void updateImageIndex();
-   // int getCurrentImageNumber() const;
-    //void setCurrentImageNumber(int number);
 
 private slots:
     void on_wale_labelMove();

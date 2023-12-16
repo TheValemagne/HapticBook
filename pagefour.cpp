@@ -10,10 +10,10 @@
 #include "Controller/soundcontroller.h"
 
 PageFour::PageFour(QStackedWidget *parent) :
-        Page(parent, 4),
-        ui(new Ui::PageFour),
-        currentImageNumber(1),
-        isForward(true)
+    Page(parent, 4),
+    ui(new Ui::PageFour),
+    currentImageNumber(1),
+    isForward(true)
 {
     ui->setupUi(this);
     ui->ip->setHidden(true);
@@ -27,7 +27,6 @@ PageFour::~PageFour()
    // if(animationTimer != nullptr) delete animationTimer;
 }
 
-// Fonction de mise à jour de l'animation
 void PageFour::updateAnimation()
 {
     // Construire le chemin de l'image en fonction du numéro actuel
@@ -59,10 +58,11 @@ void PageFour::updateImageIndex() {
 
 
 void PageFour::showEvent(QShowEvent *event) {
-        qDebug() << "LOG[PageFour] : show page";
+    Q_UNUSED(event);
+    qDebug() << "LOG[PageFour] : show page";
 
-        //jouer son stomac
-        SoundController::getInstance()->playSound("underwater", true);
+    //jouer son d'ambiance
+    SoundController::getInstance()->playSound("underwater", true);
 }
 
 void PageFour::onCollision()
@@ -95,10 +95,7 @@ void PageFour::onCollision()
         Utils::delay(0.01);
     }
 
-
-
-    //stopSoundsAndEffects();
-     float expulsion = 175;
+    float expulsion = 175;
     qDebug() << "LOG[PageFour] : expulsion = " << expulsion << "; x = " << ui->wale->pos().x();
     int durationAnimation = 1000;
     // Créer une animation qui expluse ip du ventre de la baleine
@@ -113,9 +110,7 @@ void PageFour::onCollision()
 
     animation->start();
 
-    //Utils::delay(durationAnimation);
-
-    Utils::delay(0.2); // attend 2 sec avant de passer à la suite
+    Utils::delay(0.2); // attend 0.2 sec avant de passer à la suite
     // hide wale
     ui->wale->setHidden(true);
 
@@ -140,9 +135,10 @@ void PageFour::onAnimationFinished()
     for (int i = 2; i < 8; ++i) {
         QString path = QString(":/images/small_ip_landscape%1.png").arg(QString::number(i));
         QPixmap image = QPixmap(path);
+
         ui->ip->setPixmap(image);
         ui->ip->setFixedSize(image.size());
-        //if(i == 4) ui->ip->setHidden(true);
+
         Utils::delay(0.02);
     }
 }
@@ -159,7 +155,7 @@ void PageFour::on_ip_labelMove()
 
     if (Utils::collision(ui->end,  ui->ip) && !hasCollide){
         hasCollide = true;
-qDebug() << "LOG[PageFour] : ip collision with end";
+        qDebug() << "LOG[PageFour] : ip collision with end";
         // stop all sounds and effects
         stopSoundsAndEffects();
         nextPage(true);
@@ -180,19 +176,16 @@ void PageFour::on_ip_mouseRelease()
 
 void PageFour::on_wale_labelMove()
 {
+    int xWale = ui->wale->pos().x() + ui->wale->width();
+    int yWale = -ui->wale->pos().y() - ui->wale->height();
 
-        int xWale = ui->wale->pos().x() + ui->wale->width();
-        int yWale = -ui->wale->pos().y() - ui->wale->height();
-
-        double distance = (-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
-
-
-        qDebug() << "LOG[PageFour] : distance" << distance;
-        if(distance < 10 && !hasCollide){
-            onCollision();
-        }
+    double distance = (-0.85*xWale + yWale + 1000) / sqrt(-0.85*-0.85 + 1);
 
 
+    qDebug() << "LOG[PageFour] : distance" << distance;
+    if(distance < 10 && !hasCollide){
+        onCollision();
+    }
 }
 
 void PageFour::on_wale_mousePress()
@@ -212,10 +205,6 @@ void PageFour::on_wale_mousePress()
     Utils::delay(0.01);
     // play haptic heart
     HapticController::getInstance()->startEffect("heart");
-
-
-
-    //Utils::delay(0.02);
 }
 
 void PageFour::on_wale_mouseRelease()

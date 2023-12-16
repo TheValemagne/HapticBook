@@ -1,5 +1,11 @@
 #include "lemur.h"
 
+/**
+ * Classe représentant le widget Lémurien avec trackage de la souris sans nécessité de cliquer
+ *
+ * @param parent le widget parent
+ * @param f flag du widget
+ */
 Lemur::Lemur(QWidget* parent, Qt::WindowFlags f) :
         QLabel(parent, f)
 {
@@ -8,7 +14,7 @@ Lemur::Lemur(QWidget* parent, Qt::WindowFlags f) :
 
 void Lemur::enterEvent(QEvent *event)
 {
-   Q_UNUSED(event);
+    Q_UNUSED(event);
     emit enterEvent();
 }
 

@@ -1,13 +1,10 @@
-//
-// Created by remiz on 21/10/2023.
-//
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
 #include "hapticcontroller.h"
 
 HapticController::HapticController(QMainWindow *w): mWindow(w) {
-    // Init mouse
+    // Initialisation de souris haptique
     mMouse = new CImmMouse();
     if (!mMouse->Initialize(qWinAppInst(), (HWND)mWindow->effectiveWinId())) {
         delete mMouse;
@@ -17,14 +14,14 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         return;
     }
 
-    // Init project
+    // Initialisation du project immersion studio
     mProject = new CImmProject();
     if (mProject->OpenFile("./../HapticBook/resources/effects/effects.ifr", mMouse)) {
         effects = QMap<QString, CImmCompoundEffect*>();
         effectsIsPlaying = QMap<QString, bool>();
 
-        // Init all effects
-        this->addEffect("water", "Water"); // TODO à supprimer si pas utilisé...
+        // Initialisation de tous les effets
+        this->addEffect("water", "Water");
         this->addEffect("shaking", "Shaking");
         this->addEffect("landing", "Landing");
         this->addEffect("heavy_load", "HeavyLoad");
@@ -40,7 +37,7 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
         this->addEffect("walk_sand", "Sandwalk");
 
 
-    } else {
+    } else { // si immpossible d'ouvrir le cfichier de projet immersion studio
         QMessageBox::critical(mWindow, "Error", "LOG[HapticController] : Unable to open IFC file, haptic effects will not be available");
         delete mProject;
         mProject = NULL;
@@ -50,11 +47,15 @@ HapticController::HapticController(QMainWindow *w): mWindow(w) {
 
 HapticController::~HapticController()
 {
+    // supprime les effets
     effects.clear();
+    // supprime le pointeur sur le fichier immersion studio
     if (mProject)
         delete mProject;
+    // supprime le pointeur sur l'objet souris
     if (mMouse)
         delete mMouse;
+    // supprime le poiteur sur l'instance
     if (instance)
         instance = nullptr;
 }
@@ -63,7 +64,7 @@ HapticController* HapticController::instance = nullptr;
 
 HapticController* HapticController::getInstance(QMainWindow *window)
 {
-    if (window && !instance){
+    if (window && !instance){ // créé l'instance si inexistante et la fenêtre est fournie
         instance = new HapticController(window);
     }
 
@@ -77,7 +78,7 @@ void HapticController::addEffect(const QString &keyName, const CHAR *effectName)
                                               mMouse,
                                               IMM_PARAM_NODOWNLOAD);
 
-    if (!effects[keyName]){
+    if (!effects[keyName]){ // si l'effet n'a pu être créé
         QMessageBox::warning(mWindow, "Error", "LOG[HapticController] : Unable to create effect '" + keyName + "', this effect will not be available");
         CImmCompoundEffect* effect = effects.take(keyName);
         delete effect;
@@ -91,16 +92,16 @@ bool HapticController::isEffectInitialized(const QString &effectName)
 
 void HapticController::startEffect(const QString &effectName)
 {
-    if (this->isEffectInitialized(effectName) && !this->isEffectPlaying(effectName)) {
-        effects[effectName]->Start();
+    if (this->isEffectInitialized(effectName) && !this->isEffectPlaying(effectName)) { // uniquement si effet initialisé et pas en cours
+        effects[effectName]->Start(); // lancer l'effet
         effectsIsPlaying[effectName] = true;
     }
 }
 
 void HapticController::stopEffect(const QString &effectName)
 {
-    if (this->isEffectInitialized(effectName)) {
-        effects[effectName]->Stop();
+    if (this->isEffectInitialized(effectName)) { // uniquement si effet initialisé
+        effects[effectName]->Stop(); // arrêter l'effet
         effectsIsPlaying[effectName] = false;
     }
 }
@@ -109,14 +110,14 @@ void HapticController::stopAllEffects()
 {
     QMap<QString, CImmCompoundEffect*>::iterator it = effects.begin();
     while (it != effects.end()) {
-        stopEffect(it.key());
+        stopEffect(it.key()); // arrêter l'effets
         ++it;
     }
 }
 
 bool HapticController::isEffectPlaying(const QString &effectName)
 {
-    if (this->isEffectInitialized(effectName)) {
+    if (this->isEffectInitialized(effectName)) { // uniquement si effet initialisé
         return effectsIsPlaying[effectName];
     }
     return false;

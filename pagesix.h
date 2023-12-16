@@ -8,6 +8,9 @@ namespace Ui {
 class PageSix;
 }
 
+/**
+ * Classe représentant la page 6
+ */
 class PageSix : public Page
 {
     Q_OBJECT
@@ -32,12 +35,24 @@ private slots:
 
 private:
     Ui::PageSix *ui;
-    bool hasTouchedFur;
-    bool isFirstMove;
-    QTimer *soundTimer;
-    QTimer *notificationTimer;
+    bool hasTouchedFur; // si la fourure a déjà été touché une fois
+    bool isFirstMove; // si premier mouvement
+    QTimer *soundTimer; // timer pour le crie du lémurien
+    QTimer *notificationTimer; // timer pour l'affichage de la notification
+
+    /**
+    * Acfficher ou cacher la notification et le bouton associé
+    */
     void showNotification(bool isVisible);
+
+    /**
+    * Lancement du son à la fin du délais
+    */
     void onSoundTimeOut();
+
+    /**
+    * Affichage de la notification à la fin du délais
+    */
     void onNotificationTimeOut();
 };
 

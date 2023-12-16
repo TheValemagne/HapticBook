@@ -27,14 +27,17 @@ PageTwo::~PageTwo()
 }
 
 void PageTwo::showEvent(QShowEvent *event) {
+    Q_UNUSED(event);
     hasCollide = false;
     hasRockCollide = false;
     hasRockInvisibleCollide = false;
     hasMarkerCollide = false;
+
     ui->ip->show();
     ui->ip->setIsLocked(false);
     ui->ip->move(ipPosition);
     ui->rock->move(defaultRockPosition);
+
     HapticController::getInstance()->startEffect("page2_wall");
     SoundController::getInstance()->playSound("swim", true);
 }
@@ -44,7 +47,9 @@ void PageTwo::onCollision()
 //    HapticController::getInstance()->stopEffect("water");
     SoundController::getInstance()->playSound("bubbles");
     ui->ip->setIsLocked(true);
+
     Utils::delay(3);
+
     nextPage(false);
     HapticController::getInstance()->stopEffect("page2_wall");
     ui->ip->hide();
@@ -58,7 +63,6 @@ void PageTwo::on_ip_labelMove()
         hasCollide = true;
         onCollision();
     }
-
 
     if (Utils::collision(ui->ip,  ui->rock_invisible)) {
         if (!hasRockInvisibleCollide) {
@@ -95,41 +99,43 @@ void PageTwo::onRockInvisibleCollision() {
 }
 
 void PageTwo::onMarkerCollision() {
-    if (!hasMarkerCollide) {
-        hasMarkerCollide = true;
-        // Stop ip
-        ui->ip->setIsLocked(true);
-
-        HapticController::getInstance()->stopEffect("rock_push");
-
-        SoundController::getInstance()->playSound("sliding_rock");
-        HapticController::getInstance()->startEffect("rock_sliding");
-
-        // Create an animation for the rock
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->rock, "pos");
-
-        // Set the duration of the animation (in milliseconds)
-        animation->setDuration(3000);
-
-        // Set the easing curve for smooth motion
-        animation->setEasingCurve(QEasingCurve::OutBounce);
-
-        // Set the end position of the rock (e.g., slide down and to the right)
-        QPointF endPos(570, 307);
-
-        // Set the start and end values for the animation
-        animation->setStartValue(ui->rock->pos());
-        animation->setEndValue(endPos);
-
-        // Connect the finished signal to a slot that will be called when the animation is complete
-        connect(animation, &QPropertyAnimation::finished, this, &PageTwo::onRockAnimationFinished);
-
-        // Start the animation
-        animation->start();
-
-        Utils::delay(1.2);
-        HapticController::getInstance()->stopEffect("rock_sliding");
+    if (hasMarkerCollide) {
+        return;
     }
+
+    hasMarkerCollide = true;
+    // Stop ip
+    ui->ip->setIsLocked(true);
+
+    HapticController::getInstance()->stopEffect("rock_push");
+
+    SoundController::getInstance()->playSound("sliding_rock");
+    HapticController::getInstance()->startEffect("rock_sliding");
+
+    // Create an animation for the rock
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->rock, "pos");
+
+    // Set the duration of the animation (in milliseconds)
+    animation->setDuration(3000);
+
+    // Set the easing curve for smooth motion
+    animation->setEasingCurve(QEasingCurve::OutBounce);
+
+    // Set the end position of the rock (e.g., slide down and to the right)
+    QPointF endPos(570, 307);
+
+    // Set the start and end values for the animation
+    animation->setStartValue(ui->rock->pos());
+    animation->setEndValue(endPos);
+
+    // Connect the finished signal to a slot that will be called when the animation is complete
+    connect(animation, &QPropertyAnimation::finished, this, &PageTwo::onRockAnimationFinished);
+
+    // Start the animation
+    animation->start();
+
+    Utils::delay(1.2);
+    HapticController::getInstance()->stopEffect("rock_sliding");
 }
 
 void PageTwo::onRockAnimationFinished() {

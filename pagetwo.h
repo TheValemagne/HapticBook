@@ -7,6 +7,9 @@ namespace Ui {
     class PageTwo;
 }
 
+/**
+ * Classe représentant la page 2
+ */
 class PageTwo : public Page {
 Q_OBJECT
 

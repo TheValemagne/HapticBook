@@ -6,7 +6,7 @@ Page::Page(QStackedWidget *parent, int pageIndex): QWidget(parent)
 {
     this->book = parent;
     this->pageIndex = pageIndex;
-    hasCollide = false;
+    hasCollide = false; // initilisation de la collision à faux
 }
 
 Page::~Page()
@@ -16,7 +16,7 @@ Page::~Page()
 
 void Page::showEvent(QShowEvent *event){
     Q_UNUSED(event);
-    hasCollide = false;
+    hasCollide = false; // initilisation de la collision à faux
 }
 
 bool Page::isCurrentPage()
@@ -31,7 +31,7 @@ void Page::nextPage(bool stopSoundAndEffect)
         stopSoundsAndEffects();
 
    qDebug() << "LOG[Page] : " <<  "Current Index : " << book->currentIndex() << "Count : " << book->count();
-   if(book->currentIndex() < book->count() - 1){
+   if(book->currentIndex() < book->count() - 1){ // changement de page
       book->setCurrentIndex(book->currentIndex()+1);
    }
 }

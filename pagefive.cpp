@@ -12,6 +12,7 @@ PageFive::PageFive(QStackedWidget *parent) :
     ui->setupUi(this);
     setCursors();
 
+    // stockage des positions initiales des troncs
     treeTrunkPosition1 = ui->treeTrunk1->pos();
     treeTrunkPosition2 = ui->treeTrunk2->pos();
 }
@@ -23,8 +24,10 @@ PageFive::~PageFive()
 
 void PageFive::setCursors()
 {
+    // curseur pour indiquation "cliquable"
     ui->sosButton->setCursor(Qt::PointingHandCursor);
 
+    // initialisation des curseurs personnalisés
     QCursor openHandCurcor = QCursor(QPixmap(":images/ips_hand.png"), 48, 45);
     QCursor closedHandCursor = QCursor(QPixmap(":images/ips_closedhand.png"));
 
@@ -38,24 +41,25 @@ void PageFive::setCursors()
 void PageFive::showEvent(QShowEvent *event)
 {
     Page::showEvent(event);
-    showEmergencyTransmitter(false);
+    showEmergencyTransmitter(false); // cacher la grande balise
     SoundController::getInstance()->playSound("rainforest", true);
 }
 
 void PageFive::hideEvent(QHideEvent *event)
 {
     Page::hideEvent(event);
-    ui->smallEmergencyTransmitter->setHidden(false);
+    // Réinitialisation de la scène
+    ui->smallEmergencyTransmitter->setHidden(false); // cacher la petite balise
     ui->treeTrunk1->move(treeTrunkPosition1);
     ui->treeTrunk2->move(treeTrunkPosition2);
 }
 
  void PageFive::showEmergencyTransmitter(bool isVisible)
  {
-     ui->emergencyTransmitter->setHidden(!isVisible);
-     ui->sosButton->setHidden(!isVisible);
+     ui->emergencyTransmitter->setHidden(!isVisible); // afficher/cacher la grande balise
+     ui->sosButton->setHidden(!isVisible); // afficher/cacher le bouton SOS de la grande balise
 
-     if (isVisible) {
+     if (isVisible) { // mettre la grande balsie et le bouton SOS au premier plan
          ui->emergencyTransmitter->raise();
          ui->sosButton->raise();
      }
@@ -63,8 +67,8 @@ void PageFive::hideEvent(QHideEvent *event)
 
 void PageFive::on_smallEmergencyTransmitter_clicked()
 {
-    ui->smallEmergencyTransmitter->hide();
-    showEmergencyTransmitter(true);
+    ui->smallEmergencyTransmitter->hide(); // cacher la petite balise
+    showEmergencyTransmitter(true); // aficher la grande balise
 }
 
 void PageFive::on_sosButton_clicked()
@@ -72,7 +76,7 @@ void PageFive::on_sosButton_clicked()
     if (!hasCollide){
         hasCollide = true;
         HapticController::getInstance()->startEffect("click");
-        Utils::delay(0.5);
+        Utils::delay(0.5); //attend 0.5 sec
 
         HapticController::getInstance()->stopAllEffects();
         nextPage(false);
@@ -81,11 +85,13 @@ void PageFive::on_sosButton_clicked()
 
 void PageFive::on_sosButton_pressed()
 {
+    // le curseur indique le clique sur l'objet
     ui->sosButton->setCursor(Qt::ClosedHandCursor);
 }
 
 void PageFive::on_sosButton_released()
 {
+    // le curseur indique le relachement du clique
     ui->sosButton->setCursor(Qt::PointingHandCursor);
 }
 

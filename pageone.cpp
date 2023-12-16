@@ -12,6 +12,8 @@ PageOne::PageOne(QStackedWidget *parent) :
     ui(new Ui::PageOne)
 {
     ui->setupUi(this);
+
+    // position initiale de la fusée
     rocketPosition = ui->rocket->pos();
 }
 
@@ -28,6 +30,7 @@ void PageOne::showEvent(QShowEvent *event)
 
 void PageOne::hideEvent(QHideEvent *event)
 {
+    // Réinitialisation de la scène
     Page::hideEvent(event);
     ui->rocket->move(rocketPosition);
     ui->rocket->show();
@@ -50,7 +53,7 @@ void PageOne::on_rocket_labelMove()
      SoundController::getInstance()->playSound("alarm", true);
      HapticController::getInstance()->startEffect("shaking");
 
-     if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){
+     if (Utils::collision(ui->rocket,  ui->earth) && !hasCollide){ // si la fusée est audessus de la Terre pour la première fois
          hasCollide = true;
          ui->rocket->hide();
          onCollision();

@@ -115,6 +115,6 @@ void PageSeven::startAnimationUFOLeft() {
 }
 
 void PageSeven::onAnimationUFOLeftFinished() {
-    Utils::delay(1);
+    Utils::delay(1); // attend 1 sec
     nextPage();
 }
