@@ -19,7 +19,6 @@ PageTwo::PageTwo(QStackedWidget *parent) :
     hasRockInvisibleCollide = false;
     hasMarkerCollide = false;
     defaultRockPosition = ui->rock->pos();
-    SoundController::getInstance()->playSound("swim", true);
 }
 
 PageTwo::~PageTwo()
@@ -37,6 +36,7 @@ void PageTwo::showEvent(QShowEvent *event) {
     ui->ip->move(ipPosition);
     ui->rock->move(defaultRockPosition);
     HapticController::getInstance()->startEffect("page2_wall");
+    SoundController::getInstance()->playSound("swim", true);
 }
 
 void PageTwo::onCollision()
