@@ -29,6 +29,7 @@ PageFour::~PageFour()
 
 void PageFour::updateAnimation()
 {
+    qDebug() << "LOG[PageFour] : update animation";
     // Construire le chemin de l'image en fonction du numéro actuel
     QString imagePath = QString(":/images/wale_heart%1.png").arg(currentImageNumber);
 
@@ -61,6 +62,12 @@ void PageFour::showEvent(QShowEvent *event) {
     Q_UNUSED(event);
     qDebug() << "LOG[PageFour] : show page";
 
+    // Initialiser le QTimer
+    animationTimer = new QTimer(this);
+
+    // Connecter le signal timeout du QTimer à la fonction de mise à jour de l'image
+    connect(animationTimer, &QTimer::timeout, this, &PageFour::updateAnimation);
+
     //jouer son d'ambiance
     SoundController::getInstance()->playSound("underwater", true);
 }
@@ -68,6 +75,9 @@ void PageFour::showEvent(QShowEvent *event) {
 void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over beach";
+    // Arrêter le QTimer and stop move
+    animationTimer->stop();
+
     ui->arrow->setHidden(true);
     ui->wale->setLocked(true);
 
@@ -84,6 +94,11 @@ void PageFour::onCollision()
     QPixmap image = QPixmap(imagePath);
     ui->wale->setPixmap(image);
     ui->wale->setFixedSize(image.size());
+
+    // stop sound heart
+    SoundController::getInstance()->stopSound("heart");
+    // stop haptic heart
+    HapticController::getInstance()->stopEffect("heart");
     Utils::delay(0.02);
 
     for (int i = 2; i < 8; ++i) {
@@ -98,6 +113,7 @@ void PageFour::onCollision()
     float expulsion = 175;
     qDebug() << "LOG[PageFour] : expulsion = " << expulsion << "; x = " << ui->wale->pos().x();
     int durationAnimation = 1000;
+
     // Créer une animation qui expluse ip du ventre de la baleine
     QPropertyAnimation *animation = new QPropertyAnimation(ui->ip, "geometry");
     animation->setDuration(durationAnimation);
@@ -109,22 +125,16 @@ void PageFour::onCollision()
     connect(animation, &QPropertyAnimation::finished, this, &PageFour::onAnimationFinished);
 
     animation->start();
-
-    Utils::delay(0.2); // attend 0.2 sec avant de passer à la suite
-    // hide wale
-    ui->wale->setHidden(true);
-
 }
 
 void PageFour::onAnimationFinished()
 {
     qDebug() << "LOG[PageFour] : animation finished";
-    // stop sound heart
-    SoundController::getInstance()->stopSound("heart");
-    // stop haptic heart
-    HapticController::getInstance()->stopEffect("heart");
+
     // stop sound underwater
     SoundController::getInstance()->stopSound("underwater");
+    // hide wale
+    ui->wale->setHidden(true);
 
     // set walk help position
     ui->walk->setHidden(false);
@@ -189,12 +199,6 @@ void PageFour::on_wale_labelMove()
 void PageFour::on_wale_mousePress()
 {
     qDebug() << "LOG[PageFour] : mouse press";
-    // Initialiser le QTimer
-    animationTimer = new QTimer(this);
-
-    // Connecter le signal timeout du QTimer à la fonction de mise à jour de l'image
-    connect(animationTimer, &QTimer::timeout, this, &PageFour::updateAnimation);
-
     // Définir l'intervalle de temps entre chaque mise à jour (par exemple, 200 millisecondes)
     animationTimer->start(140);
 
