@@ -75,7 +75,7 @@ void PageSeven::onCollision() {
     ui->ufo_2->show();  // Affiche l'ovni qui s'en va
     ui->ufo->hide();  // Cache l'ovni qui est arrivé
     ui->ip->hide();
-    ui->ip->setIsLocked(true);  // IP ne peut plus être déplacé
+    ui->ip->setLocked(true);  // IP ne peut plus être déplacé
 
     onTractorBeamDeactivation();  // Démarre l'animation de désactivation du rayon tracteur
 }

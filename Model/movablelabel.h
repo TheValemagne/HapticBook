@@ -16,7 +16,7 @@ public:
     QCursor openHandCursor;
     QCursor closedHandCursor;
 
-    void setIsLocked(bool isLocked);
+    void setLocked(bool isLocked);
 
 signals:
     void mousePress();

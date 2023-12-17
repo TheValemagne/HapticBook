@@ -41,6 +41,8 @@ void PageSix::on_answerButton_clicked()
 
     hasCollide = true;
     HapticController::getInstance()->startEffect("click");
+    soundTimer->deleteLater();
+    notificationTimer->deleteLater();
     Utils::delay(0.5); // attend 0.5 sec
     nextPage();
 }
@@ -101,7 +103,7 @@ void PageSix::on_lemur_mouseMove()
         return;
     }
 
-    if (hasTouchedFur) {
+    if (hasTouchedFur) { // les timers ont déjà été lancé
         return;
     }
 
@@ -117,5 +119,5 @@ void PageSix::on_lemur_mouseMove()
 
     // Lancement des intervalles
     soundTimer->start(2000);
-    notificationTimer->start(4000);
+    notificationTimer->start(9000);
 }

@@ -34,7 +34,7 @@ void PageTwo::showEvent(QShowEvent *event) {
     hasMarkerCollide = false;
 
     ui->ip->show();
-    ui->ip->setIsLocked(false);
+    ui->ip->setLocked(false);
     ui->ip->move(ipPosition);
     ui->rock->move(defaultRockPosition);
 
@@ -44,9 +44,8 @@ void PageTwo::showEvent(QShowEvent *event) {
 
 void PageTwo::onCollision()
 {
-//    HapticController::getInstance()->stopEffect("water");
     SoundController::getInstance()->playSound("bubbles");
-    ui->ip->setIsLocked(true);
+    ui->ip->setLocked(true);
 
     Utils::delay(3);
 
@@ -105,7 +104,7 @@ void PageTwo::onMarkerCollision() {
 
     hasMarkerCollide = true;
     // Stop ip
-    ui->ip->setIsLocked(true);
+    ui->ip->setLocked(true);
 
     HapticController::getInstance()->stopEffect("rock_push");
 
@@ -140,5 +139,5 @@ void PageTwo::onMarkerCollision() {
 
 void PageTwo::onRockAnimationFinished() {
     // Animation is complete, you can perform any additional actions here
-    ui->ip->setIsLocked(false);
+    ui->ip->setLocked(false);
 }

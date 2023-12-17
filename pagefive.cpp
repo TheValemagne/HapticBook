@@ -43,6 +43,10 @@ void PageFive::showEvent(QShowEvent *event)
     Page::showEvent(event);
     showEmergencyTransmitter(false); // cacher la grande balise
     SoundController::getInstance()->playSound("rainforest", true);
+
+    // débloquer les troncs
+    ui->treeTrunk1->setLocked(false);
+    ui->treeTrunk2->setLocked(false);
 }
 
 void PageFive::hideEvent(QHideEvent *event)
@@ -62,6 +66,10 @@ void PageFive::hideEvent(QHideEvent *event)
      if (isVisible) { // mettre la grande balsie et le bouton SOS au premier plan
          ui->emergencyTransmitter->raise();
          ui->sosButton->raise();
+
+         // bloquer les troncs
+         ui->treeTrunk1->setLocked(true);
+         ui->treeTrunk2->setLocked(true);
      }
  }
 

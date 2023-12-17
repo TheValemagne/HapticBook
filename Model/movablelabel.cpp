@@ -65,7 +65,7 @@ void MovableLabel::enterEvent(QEvent *event)
  *
  * @param isLocked, vrai si le label doit être verrouillé, sinon faux
  */
-void MovableLabel::setIsLocked(bool isLocked) {
+void MovableLabel::setLocked(bool isLocked) {
     this->isLocked = isLocked;
 
     if(!isLocked){

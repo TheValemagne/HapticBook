@@ -69,7 +69,7 @@ void PageFour::onCollision()
 {
     qDebug() << "LOG[PageFour] : wale over beach";
     ui->arrow->setHidden(true);
-    ui->wale->setIsLocked(true);
+    ui->wale->setLocked(true);
 
     // position ip under wale
     ui->ip->setHidden(false);
