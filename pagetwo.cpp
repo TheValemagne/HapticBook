@@ -15,9 +15,9 @@ PageTwo::PageTwo(QStackedWidget *parent) :
 {
     ui->setupUi(this);
     ipPosition = ui->ip->pos();
-    hasRockCollide = false;
-    hasRockInvisibleCollide = false;
-    hasMarkerCollide = false;
+    hasRockCollide = false;  // Rocher visible (animation)
+    hasRockInvisibleCollide = false;  // Rocher invisible (fix sur sa position initial)
+    hasMarkerCollide = false;  // Hauteur max du rocher (déclanche l'animation à son contact)
     defaultRockPosition = ui->rock->pos();
 }
 
@@ -58,11 +58,13 @@ void PageTwo::on_ip_labelMove()
 {
     HapticController::getInstance()->startEffect("water");
 
+    // S'il touche la sortie (rocher)
     if (Utils::collision(ui->ip,  ui->exit) && !hasCollide){
         hasCollide = true;
         onCollision();
     }
 
+    // S'il touche le rocher invisible (entrain de pousser le rocher visible)
     if (Utils::collision(ui->ip,  ui->rock_invisible)) {
         if (!hasRockInvisibleCollide) {
             hasRockInvisibleCollide = true;
@@ -89,6 +91,7 @@ void PageTwo::onRockInvisibleCollision() {
     if (!hasMarkerCollide) {
         HapticController::getInstance()->startEffect("rock_push");
         SoundController::getInstance()->playSound("ip_force");
+        // Move the rock when ip is pushing it
         ui->rock->move(defaultRockPosition.x() + (defaultRockPosition.y() - ui->ip->pos().y() + 110), ui->ip->pos().y() - 110);
 
         if (Utils::collision(ui->ip, ui->marker)) {
@@ -138,6 +141,6 @@ void PageTwo::onMarkerCollision() {
 }
 
 void PageTwo::onRockAnimationFinished() {
-    // Animation is complete, you can perform any additional actions here
+    // Animation is complete
     ui->ip->setLocked(false);
 }
